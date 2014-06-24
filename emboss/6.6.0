@@ -1,0 +1,17 @@
+#%Module1.0
+#####################################################################
+##
+## emboss Modulefile
+## by Alan Orth, a.orth@cgiar.org
+## October, 2013
+##
+set version   6.6.0
+set prefix    /export/apps/emboss/${version}
+set exec_prefix   ${prefix}
+set datarootdir   ${prefix}/share
+set url "http://emboss.sourceforge.net"
+set msg "This module adds EMBOSS v$version to various paths\n\nEMBOSS Official Site: $url\n"
+
+conflict      emboss
+
+prepend-path  PATH    ${exec_prefix}/bin

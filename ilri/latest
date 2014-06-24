@@ -1,0 +1,15 @@
+#%Module1.0#####################################################################
+##
+## ILRI modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2013
+##
+
+module-whatis   "loads the ILRI-specific scripts and tools"
+
+# for Tcl script use only
+set     appname         ilri
+set     prefix          /export/apps/${appname}
+set     exec_prefix     ${prefix}
+
+prepend-path    PATH            ${exec_prefix}

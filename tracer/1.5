@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## tracer modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2012
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\ttracer - loads the tracer package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the tracer package"
+
+# for Tcl script use only
+set     version         1.5
+set     appname         tracer
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	tracer
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,12 @@
+#%Module1.0
+#####################################################################
+##
+## RAxML Modulefile
+## by Alan Orth
+##
+proc ModulesHelp { } {
+	puts stderr "\tRAxML - loads the environment for RAxML\n"
+}
+module-whatis		"loads the environment for RAxML"
+setenv				RAXML	/export/apps/RAxML/7.0.4
+prepend-path		PATH	$env(RAXML)

@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## Frappe Modulefile
+## by Isaac Kahugu
+## 13 Jul 2012
+set version             1.1
+set prefix              /export/apps/frappe/${version}
+set exec_prefix         ${prefix}
+set url "http://med.stanford.edu/tanglab/software/frappe.html"
+set msg "This module adds Frappe v$version to various paths\n\nfrappe Official Site: $url\n"
+
+proc ModulesHelp { } {
+        puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict                        frappe
+
+prepend-path    PATH            ${exec_prefix}/
+##prepend-path    MANPATH         ${datarootdir}/man

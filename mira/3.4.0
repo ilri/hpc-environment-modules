@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## mira Modulefile
+## by Alan Orth, a.orth@cgiar.org and Etienne de Villiers, e.villiers@cgiar.org
+##
+
+set	appname	mira
+set	version	3.4.0
+set prefix	/export/apps/${appname}/${version}
+set exec_prefix	${prefix}
+set url "http://sourceforge.net/apps/mediawiki/mira-assembler/index.php?title=Main_Page"
+set msg "This module adds mira to various paths and load additional modules used by mira\n\nmira Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis	"$msg"
+
+conflict	mira
+
+prepend-path	PATH		${exec_prefix}/bin
+
+# mira depends on repeatmasker, load the repeatmasker module as well
+if { ![is-loaded staden] } {
+	module load staden
+}

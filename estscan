@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## estscan modulefile
+## By Alan Orth and Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\testscan - loads the estscan package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the estscan package"
+
+# for Tcl script use only
+set	appname			estscan
+set	prefix			/export/apps/${appname}
+set	exec_prefix		${prefix}
+
+prepend-path	PATH	${exec_prefix}/bin
+
+prepend-path	PERL5LIB		/export/apps/${appname}/usr/lib64/perl5/site_perl
+setenv			ESTSCANDIR		/export/apps/${appname}

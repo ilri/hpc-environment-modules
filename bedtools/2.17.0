@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## BEDTools Modulefile
+## by Isaac Kahugu
+## 30 Jan 2013
+set version             2.17.0
+set prefix              /export/apps/bedtools/${version}
+set exec_prefix         ${prefix}
+set url "http://code.google.com/p/bedtools"
+set msg "This module adds BEDTools v$version to various paths\n\bedtools Official Site: $url\n"
+
+proc ModulesHelp { } {
+        puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict                        bedtools
+
+prepend-path    PATH            ${exec_prefix}/bin
+##prepend-path    MANPATH         ${datarootdir}/man

@@ -1,0 +1,16 @@
+#%Module1.0
+#####################################################################
+##
+## RAxML Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## May, 2014
+##
+
+set     appname         RAxML
+set     version         8.0.23
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	RAxML
+
+prepend-path    PATH            ${exec_prefix}

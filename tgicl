@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## tgicl modulefile
+## By Alan Orth and Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\ttgicl - loads the tgicl package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the tgicl package"
+
+# for Tcl script use only
+set		appname			tgicl
+set     prefix          /export/apps/${appname}
+set     exec_prefix     ${prefix}/bin
+
+prepend-path    PATH            ${exec_prefix}

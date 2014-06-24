@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## blast modulefile
+## By Alan Orth
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tblast - loads the NCBI BLAST package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the NCBI BLAST package"
+
+# for Tcl script use only
+set     version         2.2.25+
+set     prefix          /export/apps/blast/2.2.25+
+set     exec_prefix     ${prefix}
+
+conflict	blast
+
+prepend-path    PATH            ${exec_prefix}/bin
+setenv		BLASTDB		/export/bio/ncbi/db

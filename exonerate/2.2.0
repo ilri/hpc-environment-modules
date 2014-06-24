@@ -1,0 +1,19 @@
+#%Module1.0
+#####################################################################
+##
+## Exonerate Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## March, 2014
+##
+
+set appname			exonerate
+set version			2.2.0
+set prefix 			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set datarootdir     ${prefix}/share
+
+conflict    exonerate
+
+prepend-path	PATH		${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+

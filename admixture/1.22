@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## admixture modulefile
+## By Isaac Kahugu <i.kahugu@cgiar.org>
+## July 13, 2012
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tadmixture - loads the admixture package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the admixture package"
+
+# for Tcl script use only
+set     appname         admixture
+set     version         1.22
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     datarootdir     ${prefix}/share
+
+conflict	admixture
+
+prepend-path    PATH            ${exec_prefix}/bin

@@ -1,0 +1,17 @@
+#%Module1.0
+#####################################################################
+##
+## primer3 Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## October, 2013
+##
+
+set appname   primer3
+set version   2.3.6
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}/src
+set url "http://primer3.sourceforge.net"
+
+conflict primer3
+
+prepend-path  PATH    ${exec_prefix}

@@ -1,0 +1,30 @@
+#%Module1.0
+#####################################################################
+##
+## QDD Modulefile
+## by Alan Orth, a.orth@cgiar.org
+## October, 2013
+##
+
+set appname			qdd
+set version			3_beta
+set prefix			/export/apps/${appname}/${version}
+
+conflict		qdd
+
+prepend-path    PATH    ${prefix}
+
+# load bioperl too!
+if { ![is-loaded bioperl] } { 
+    module load bioperl
+}
+
+# load clustalw too!
+if { ![is-loaded clustalw] } { 
+    module load clustalw
+}
+
+# load primer3
+if { ![is-loaded primer3] } { 
+    module load primer3
+}

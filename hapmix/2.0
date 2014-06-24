@@ -1,0 +1,21 @@
+#%Module1.0
+#####################################################################
+##
+## Hapmix Modulefile
+## by Isaac Kahugu
+## Jul 16 2012
+##
+set version		2.0
+set prefix		/export/apps/hapmix
+set exec_prefix		${prefix}
+set url "http://www.stats.ox.ac.uk/~myers/software.html"
+
+proc ModulesHelp { } {
+	puts stderr "$msg"
+}
+
+#module-whatis   "$msg"
+
+conflict	 	hapmix
+
+prepend-path	PATH		${exec_prefix}/bin

@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## glu modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2013
+##
+
+module-whatis   "loads the glu package"
+
+# for Tcl script use only
+set     version         1.0b3-prerelease4
+set     appname         glu
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/
+set     datarootdir     ${prefix}/share
+
+conflict	glu
+
+prepend-path    PATH            ${exec_prefix}

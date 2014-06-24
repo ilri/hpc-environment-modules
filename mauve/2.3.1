@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## mauve Modulefile
+## by Etienne de Villiers e.villiers@@cgiar.org
+##
+set version   2.3.1
+set prefix    /export/apps/mauve
+set exec_prefix   ${prefix}
+set url "http://maximuspipeline.sourceforge.net/main/"
+set msg "This module adds mauve v$version to various paths\n\nmauve Official Site: $url\n"
+
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict      mauve
+
+prepend-path  PATH    ${exec_prefix}/linux-x64

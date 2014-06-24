@@ -1,0 +1,12 @@
+#%Module1.0
+#####################################################################
+##
+## consed Modulefile
+## by Alan Orth
+##
+proc ModulesHelp { } {
+	puts stderr "\tconsed - loads the environment for consed\n"
+}
+module-whatis		"loads the environment for consed"
+setenv				CONSED_HOME	/export/apps/consed/20.0
+prepend-path		PATH	$env(CONSED_HOME)/bin

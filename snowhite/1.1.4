@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## snowhite modulefile
+## By Alan Orth
+## January, 2013
+##
+
+module-whatis   "loads the snowhite package"
+
+# for Tcl script use only
+set		appname			snowhite
+set		version			1.1.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+prepend-path    PATH            ${exec_prefix}
+
+if { ![is-loaded tagdust] } { 
+    module load tagdust
+}
+
+if { ![is-loaded seqclean] } { 
+    module load seqclean
+}

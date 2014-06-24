@@ -1,0 +1,16 @@
+#%Module1.0
+#####################################################################
+##
+## primer3 Modulefile
+## by Isaac Kahugu i.kahugu@cgiar.org
+##
+set version   2.3.5
+set prefix    /export/apps/primer3/${version}/src
+set exec_prefix   ${prefix}
+set datarootdir   ${prefix}/share
+set url "http://primer3.sourceforge.net"
+set msg "This module adds primer3 v$version to various paths\n\nprimer3 Official Site: $url\n"
+
+conflict primer3
+
+prepend-path  PATH    ${exec_prefix}

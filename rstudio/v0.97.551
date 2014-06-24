@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## rstudio
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2013
+##
+
+# for Tcl script use only
+set     appname         rstudio
+set     version         v0.97.551
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    rstudio
+
+prepend-path    PATH            ${exec_prefix}
+
+# rstudio was compiled against boost 1.50.0, make sure it can find the libs!
+prepend-path  LD_LIBRARY_PATH /export/apps/boost/1.50.0/lib
+# rstudio was compiled against QT 4.8.4, make sure it can find the libs!
+prepend-path  LD_LIBRARY_PATH /export/apps/qt/4.8.4/lib
+
+# rstudio depends on R
+if { ![is-loaded R/3.0.0] } {
+	module load R/3.0.0
+}

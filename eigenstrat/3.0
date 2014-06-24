@@ -1,0 +1,12 @@
+#%Module1.0
+#####################################################################
+##
+## Eigenstrat modulefile
+## by Isaac Kahufu
+##
+proc ModulesHelp { } {
+	puts stderr "\eigenstrat - loads the environment for Eigenstrat 3.0\n"
+}
+module-whatis		"loads the environment for Eigenstrat "
+setenv				eigenstrat		/export/apps/eigenstrat
+prepend-path		PATH	$env(eigenstrat)/bin

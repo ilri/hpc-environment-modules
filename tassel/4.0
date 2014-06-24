@@ -1,0 +1,30 @@
+#%Module1.0
+#####################################################################
+##
+## tophat Modulefile
+## by Isaac Kahugu, <i.kahugu@cgiar.org>
+## April 03 2013
+##
+set version   4.0
+set appname   tassel
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}
+set url "http://www.maizegenetics.net"
+set msg "This module adds tassel v$version to various paths\n\ntassel Official Site: $url\n"
+
+proc ModulesHelp { } {
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict tassel
+
+prepend-path  PATH    ${exec_prefix}
+
+
+# tassel depends on perl 5.16.3, load the perl module as well
+if { ![is-loaded perl] } {
+        module load perl
+}
+

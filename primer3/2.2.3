@@ -1,0 +1,23 @@
+#%Module1.0
+#####################################################################
+##
+## primer3 Modulefile
+## by Alan Orth, a.orth@cgiar.org
+##
+set version   2.2.3
+set prefix    /export/apps/primer3/${version}
+set exec_prefix   ${prefix}
+set datarootdir   ${prefix}/share
+set url "http://primer3.sourceforge.net"
+set msg "This module adds primer3 v$version to various paths\n\nprimer3 Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict primer3
+
+prepend-path  PATH    ${exec_prefix}
+

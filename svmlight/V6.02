@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## svmtools modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2013
+##
+
+# for Tcl script use only
+set     appname         svmlight
+set     version         V6.02
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	svmlight
+
+prepend-path    PATH            ${exec_prefix}

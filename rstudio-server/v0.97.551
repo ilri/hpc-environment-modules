@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## rstudio-server
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2013
+##
+
+# for Tcl script use only
+set     appname         rstudio-server
+set     version         v0.97.551
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    rstudio-server
+
+prepend-path    PATH            ${exec_prefix}
+
+# rstudio was compiled against boost 1.50.0, make sure it can find the libs!
+prepend-path  LD_LIBRARY_PATH /export/apps/boost/1.50.0/lib
+
+# rstudio depends on R
+if { ![is-loaded R/3.0.0] } {
+	module load R/3.0.0
+}

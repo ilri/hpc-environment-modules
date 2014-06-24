@@ -1,0 +1,16 @@
+#%Module1.0
+#####################################################################
+##
+## clustalo Modulefile
+## by Alan Orth, a.orth@cgiar.org
+## October, 2013
+##
+set version   1.2.0
+set appname   clustalo
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}
+set url "http://www.clustal.org/"
+
+conflict      clustalo
+
+prepend-path  PATH    ${exec_prefix}/bin

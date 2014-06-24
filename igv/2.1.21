@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## igv modulefile
+## By Alan Orth <a.orth@cgiar.org>
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tigv - Integrative Genomics Viewer"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "Integrative Genomics Viewer"
+
+# for Tcl script use only
+set     version         2.1.21
+set     appname         igv
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	igv
+
+prepend-path    PATH            ${exec_prefix}

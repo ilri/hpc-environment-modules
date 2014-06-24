@@ -1,0 +1,15 @@
+#%Module1.0
+#####################################################################
+##
+## gatk Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## May, 2014
+##
+
+set appname     gatk
+set version     3.1.1
+set prefix      /export/apps/${appname}/${version}
+
+conflict		gatk
+
+prepend-path    PATH    ${prefix}/bin

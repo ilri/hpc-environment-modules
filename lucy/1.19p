@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## lucy modulefile
+## By Alan Orth and Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tlucy - loads the lucy package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the lucy package"
+
+# for Tcl script use only
+set		appname			lucy
+set     version         1.19p
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	lucy
+
+prepend-path    PATH            ${exec_prefix}

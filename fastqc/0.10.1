@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## fastqc modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2012
+##
+
+module-whatis   "loads the fastqc statistics package"
+
+# for Tcl script use only
+set     version         0.10.1
+set     appname         fastqc
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	fastqc
+
+prepend-path    PATH            ${exec_prefix}

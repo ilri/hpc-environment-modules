@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## phrap modulefile
+## By Alan Orth and Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tphrap - loads the phrap package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the phrap package"
+
+# for Tcl script use only
+set		appname			phrap
+set     version         1.080812
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	phrap
+
+prepend-path    PATH            ${exec_prefix}

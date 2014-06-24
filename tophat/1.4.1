@@ -1,0 +1,35 @@
+#%Module1.0
+#####################################################################
+##
+## tophat Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## March 8, 2012
+##
+set version   1.4.1
+set appname   tophat
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}/bin
+set datarootdir   ${prefix}/share
+set url "http://tophat.cbcb.umd.edu"
+set msg "This module adds tophat v$version to various paths\n\ntophat Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict tophat
+
+prepend-path  PATH    ${exec_prefix}
+prepend-path  MANPATH   ${datarootdir}/man
+
+# tophat depends on samtools, load the samtools module as well
+if { ![is-loaded samtools] } {
+	module load samtools
+}
+
+# tophat depends on bowtie, load the bowtie module as well
+if { ![is-loaded bowtie] } {
+	module load bowtie
+}

@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## python Modulefile
+## by Alan Orth
+##
+set version		2.7.2
+set prefix		/export/apps/python/${version}
+set exec_prefix		${prefix}
+set datarootdir		${prefix}/share
+set url "http://www.python.org/"
+set msg "This module adds Python v$version to various paths\n\nPython Official Site: $url\n"
+
+proc ModulesHelp { } {
+	puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict			python
+
+prepend-path	PATH		${exec_prefix}/bin
+prepend-path	MANPATH		${datarootdir}/man
+setenv		PYTHONHOME	${prefix}
+#set-alias "python" "$pythonroot/bin/python2.6"
+

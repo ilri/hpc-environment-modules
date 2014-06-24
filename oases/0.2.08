@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## Oases modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2014
+##
+
+module-whatis   "De novo transcriptome assembler for very short reads"
+
+# for Tcl script use only
+set     appname         oases
+set     version         0.2.08
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    oases
+
+prepend-path    PATH    ${exec_prefix}
+
+# oases was compiled against velvet 1.2.10 with max KMER 64
+if { ![is-loaded velvet/1.2.10-kmer64] } { 
+    module load velvet/1.2.10-kmer64
+}
+
+# print a message for the user (only on module load)
+#if { [ module-info mode load ] } {
+#    puts stderr "Note: Max KMER length with Oases is 64"
+#}

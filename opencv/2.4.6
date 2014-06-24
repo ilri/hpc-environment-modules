@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## opencv
+## By Alan Orth <a.orth@cgiar.org>
+## July, 2013
+##
+
+# for Tcl script use only
+set     appname         opencv
+set     version         2.4.6
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    opencv
+
+prepend-path    PATH            ${exec_prefix}
+
+# probably needs Python 2.7.5 loaded
+if { ![is-loaded python/2.7.5] } {
+	module load python/2.7.5
+}

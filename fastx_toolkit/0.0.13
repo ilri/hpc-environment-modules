@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## fastx_toolkit modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2014
+##
+
+module-whatis   "FASTQ/A short-reads pre-processing tools"
+
+# for Tcl script use only
+set     appname         fastx_toolkit
+set     version         0.0.13
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	fastx_toolkit
+
+prepend-path    PATH            ${exec_prefix}

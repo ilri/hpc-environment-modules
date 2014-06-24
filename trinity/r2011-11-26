@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## Trinity modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2012
+##
+
+module-whatis   "loads the Trinity RNAseq package"
+
+# for Tcl script use only
+set     version         r2011-11-26
+set     appname         trinity
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	trinity
+
+prepend-path    PATH            ${exec_prefix}

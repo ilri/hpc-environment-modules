@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## tabix
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2013
+##
+
+# for Tcl script use only
+set     appname         tabix
+set     version         git-76b4bbdf
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    tabix
+
+prepend-path    PATH            ${exec_prefix}

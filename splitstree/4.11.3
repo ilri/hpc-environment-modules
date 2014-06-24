@@ -1,0 +1,12 @@
+#%Module1.0
+#####################################################################
+##
+## Splitstree 4.11.3 Modulefile
+## by Alan Orth
+##
+proc ModulesHelp { } {
+	puts stderr "\tSplitstree - loads the environment for Splitstree 4.11.3\n"
+}
+module-whatis		"loads the environment for Splitstree 4.11.3"
+setenv				SPLITSTREE		/export/apps/splitstree/4.11.3
+prepend-path		PATH	$env(SPLITSTREE)/

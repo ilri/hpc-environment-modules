@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## blat
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2013
+##
+
+# for Tcl script use only
+set     appname         blat
+set     version         06-Aug-2013
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    blat
+
+prepend-path    PATH        ${exec_prefix}

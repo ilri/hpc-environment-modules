@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## I-TASSER modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2012
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tI-TASSER - loads the I-TASSER package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the I-TASSER package"
+
+# for Tcl script use only
+set     version         latest
+set     appname         i-tasser
+set     prefix          /export/apps/${appname}/${version}/I-TASSERmod
+set     exec_prefix     ${prefix}
+set     datarootdir     ${prefix}/share
+
+conflict	i-tasser
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man

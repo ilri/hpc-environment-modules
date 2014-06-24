@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## casava modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## July, 2013
+##
+
+# for Tcl script use only
+set     appname         casava
+set     version         v1.8.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	casava
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man

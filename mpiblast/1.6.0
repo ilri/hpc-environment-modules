@@ -1,0 +1,12 @@
+#%Module1.0
+#####################################################################
+##
+## mpiBLAST Modulefile
+## by Alan Orth
+##
+proc ModulesHelp { } {
+	puts stderr "\tmpiBLAST - loads the environment for mpiBLAST\n"
+}
+module-whatis		"loads the environment for mpiBLAST"
+setenv				MPIBLAST		/export/apps/mpiblast/1.6.0
+prepend-path		PATH	$env(MPIBLAST)/bin

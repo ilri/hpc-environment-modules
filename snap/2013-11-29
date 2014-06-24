@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## snap modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2014
+##
+
+module-whatis   "loads the snap package"
+
+# for Tcl script use only
+set		appname			snap
+set     version         2013-11-29
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	snap
+
+prepend-path    PATH            ${exec_prefix}
+setenv          ZOE             ${prefix}/
+

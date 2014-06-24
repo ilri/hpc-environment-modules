@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## megan Modulefile
+## by Etienne de Villiers e.villiers@@cgiar.org
+##
+set version   4.69.4
+set prefix    /export/apps/megan
+set exec_prefix   ${prefix}/${version}
+set url "http://ab.inf.uni-tuebingen.de/data/software/megan4"
+set msg "This module adds megan v$version to various paths\n\nmegan Official Site: $url\n"
+
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict      megan
+
+prepend-path    PATH            ${exec_prefix}

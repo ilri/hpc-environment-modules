@@ -1,0 +1,15 @@
+#%Module1.0
+#####################################################################
+##
+## NCBI BLAST Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## November, 2013
+##
+set version   2.2.26
+set appname   blast
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}/bin
+
+conflict blast
+
+prepend-path  PATH    ${exec_prefix}

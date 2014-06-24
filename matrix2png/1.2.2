@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## matrix2png modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2013
+##
+
+# for Tcl script use only
+set     appname         matrix2png
+set     version         1.2.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	matrix2png
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## lamp Modulefile
+## by Isaac Kahugu
+## Jul 16 2012
+##
+set version		2.5
+set prefix		/export/apps/lamp
+set exec_prefix		${prefix}
+set url "http://lamp.icsi.berkeley.edu/lamp"
+set msg "This module adds lamp v$version to various paths\n\nlamp Official Site: $url\n"
+
+proc ModulesHelp { } {
+	puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict			lamp
+
+prepend-path	PATH		${exec_prefix}/bin

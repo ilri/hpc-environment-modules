@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## beast modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2013
+##
+
+module-whatis   "BEAST is a cross-platform program for Bayesian MCMC analysis of molecular sequences."
+
+# for Tcl script use only
+set     version         1.7.5
+set     appname         beast
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	beast
+
+prepend-path    PATH            ${exec_prefix}

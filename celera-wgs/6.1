@@ -1,0 +1,12 @@
+#%Module1.0
+#####################################################################
+##
+## celera-wgs modulefile
+## by Alan Orth
+##
+proc ModulesHelp { } {
+	puts stderr "\tcelera-wgs - loads the environment for the Celera WGS Assembler 6.1\n"
+}
+module-whatis		"loads the environment for the Celera WGS Assembler 6.1"
+setenv				WGS		/export/apps/celera-wgs/6.1
+prepend-path		PATH	$env(WGS)/Linux-amd64/bin

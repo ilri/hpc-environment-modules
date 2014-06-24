@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## CANGS modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 27, 2011
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tcangs - loads the CANGS package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the CANGS package"
+
+# for Tcl script use only
+set     appname         cangs
+set     version         1.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	cangs
+
+prepend-path    PATH            ${exec_prefix}/bin

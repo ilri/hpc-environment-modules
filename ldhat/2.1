@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## ldhat Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## October 28, 2011
+##
+set version   2.1
+set appname   ldhat
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}/bin
+set datarootdir   ${prefix}/share
+set url "http://www.stats.ox.ac.uk/~mcvean/LDhat"
+set msg "This module adds LDhat v$version to various paths\n\nLDhat Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict ldhat
+
+prepend-path  PATH    ${exec_prefix}

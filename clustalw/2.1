@@ -1,0 +1,15 @@
+#%Module1.0
+#####################################################################
+##
+## clustalw Modulefile
+## by Alan Orth, a.orth@cgiar.org
+##
+set version   2.1
+set appname   clustalw
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}
+set url "http://www.clustal.org/"
+
+conflict      clustalw
+
+prepend-path  PATH    ${exec_prefix}/bin

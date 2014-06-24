@@ -1,0 +1,66 @@
+#%Module1.0
+#####################################################################
+##
+## est2uni Modulefile
+## by Alan Orth, a.orth@cgiar.org and Etienne de Villiers, e.villiers@cgiar.org
+##
+
+set	appname	est2uni
+set prefix	/export/apps/${appname}
+set exec_prefix	${prefix}
+set url "http://cichlid.umd.edu/est2uni"
+set msg "This module adds est2uni to various paths and load additional modules used by est2uni\n\nest2uni Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis	"$msg"
+
+conflict	est2uni
+
+prepend-path	PATH		${exec_prefix}
+
+prepend-path	PERL5LIB 		/export/apps/${appname}
+setenv			EST2UNI_PERL    /export/apps/${appname}
+
+
+# est2uni depends on repeatmasker, load the repeatmasker module as well
+if { ![is-loaded repeatmasker] } {
+	module load repeatmasker
+}
+
+# est2uni depends on estscan, load the estscan module as well
+if { ![is-loaded estscan] } {
+	module load estscan
+}
+
+# est2uni depends on phrap, load the phrap module as well 
+if { ![is-loaded phrap] } {
+    module load phrap 
+}
+
+# est2uni depends on lucy, load the lucy module as well    
+if { ![is-loaded lucy] } {
+    module load lucy  
+}
+
+# est2uni depends on phred, load the phred module as well  
+if { ![is-loaded phred] } {
+    module load phred 
+}
+
+# est2uni depends on seqclean, load the seqclean module as well
+if { ![is-loaded seqclean] } {
+    module load seqclean
+}
+
+# est2uni depends on blast, load the blast module as well
+if { ![is-loaded blast] } {
+    module load seqclean
+}
+
+# est2uni depends on , load the tgicl module as well
+if { ![is-loaded tgicl] } {
+    module load tgicl
+}

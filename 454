@@ -1,0 +1,14 @@
+#%Module1.0#####################################################################
+##
+## 454
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2013
+##
+
+set     appname         454
+set     prefix          /export/apps/${appname}
+set     exec_prefix     ${prefix}/bin
+
+conflict    454
+
+prepend-path    PATH            ${exec_prefix}

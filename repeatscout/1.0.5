@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## repeatscout modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2014
+##
+
+module-whatis   "loads the repeatscout package"
+
+# for Tcl script use only
+set		appname			repeatscout
+set     version         1.0.5
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	repeatscout
+
+prepend-path    PATH            ${exec_prefix}
+

@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## lava modulefile
+## By Alan Orth and Isaac Kahugu
+##
+
+module-whatis   "loads the lava package"
+
+# for Tcl script use only
+set     appname                 lava
+set     version                 0.1
+set     prefix                  /export/apps/${appname}/${version}
+set     exec_prefix             ${prefix}
+
+prepend-path    PATH   			 ${exec_prefix}/lib/perl5/site_perl/5.8.8/LLNL/LAVA/
+
+prepend-path    PERL5LIB   		 ${exec_prefix}/lib/perl5/site_perl/5.8.8/

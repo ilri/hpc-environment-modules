@@ -1,0 +1,13 @@
+#%Module1.0
+#####################################################################
+##
+## Dendroscope 2.7.4 Modulefile
+## by Alan Orth
+##
+proc ModulesHelp { } {
+	puts stderr "\tDendroscope - loads the environment for Dendroscope 2.7.4\n"
+}
+conflict			dendroscope
+module-whatis		"loads the environment for Dendroscope 2.7.4"
+setenv				DENDROSCOPE		/export/apps/dendroscope/2.7.4
+prepend-path		PATH	$env(DENDROSCOPE)/

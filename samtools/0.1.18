@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## samtools Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## April, 2013
+##
+
+set appname			samtools
+set version			0.1.18
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set datarootdir		${prefix}/share
+set url "http://samtools.sourceforge.net"
+set msg "This module adds samtools v$version to various paths\n\nsamtools Official Site: $url\n"
+
+proc ModulesHelp { } { 
+	puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict		samtools
+
+prepend-path	PATH		${exec_prefix}
+prepend-path	MANPATH		${datarootdir}/man

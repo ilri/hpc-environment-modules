@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## cap3 modulefile
+## By Alan Orth and Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tcap3 - loads the cap3 package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the cap3 package"
+
+# for Tcl script use only
+set		appname			cap3
+set     version         latest
+set     prefix          /export/apps/${appname}
+set     exec_prefix     ${prefix}
+
+conflict	cap3
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## mothur modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October 22, 2011
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tmothur - loads the mothur package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the mothur package"
+
+# for Tcl script use only
+set     appname         mothur
+set     version         1.22.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	mothur
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## AMOS modulefile
+## By Isaac Kahugu, <i.kahugu@cgiar.org>
+## March, 2012
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tR - loads the AMOS package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the AMOS package"
+
+# for Tcl script use only
+set     version         3.1.0
+set		appname			amos
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	amos
+
+prepend-path    PATH            ${exec_prefix}

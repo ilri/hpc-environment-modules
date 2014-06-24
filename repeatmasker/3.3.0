@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## repeatmasker modulefile
+## By Alan Orth and Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\trepeatmasker - loads the repeatmasker package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the repeatmasker package"
+
+# for Tcl script use only
+set		appname			repeatmasker
+set     version         3.3.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	repeatmasker
+
+prepend-path    PATH            ${exec_prefix}
+

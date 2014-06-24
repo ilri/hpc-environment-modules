@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## structure modulefile
+## By Alan Orth
+##
+
+module-whatis   "loads the structure population genetics package"
+
+# for Tcl script use only
+set     version         2.3.4
+set     prefix          /export/apps/structure/${version}
+set     exec_prefix     ${prefix}
+
+conflict    structure
+
+prepend-path    PATH            ${exec_prefix}/bin

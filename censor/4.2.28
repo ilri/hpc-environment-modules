@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## Censor Modulefile
+## by Alan Orth, a.orth@cgiar.org
+## October, 2013
+##
+
+set appname			censor
+set version			4.2.28
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+
+conflict		censor
+
+prepend-path    PATH    ${exec_prefix}
+
+# Censor perl modules
+prepend-path    PERL5LIB	${prefix}/libexec
+
+# load bioperl
+if { ![is-loaded bioperl] } { 
+    module load bioperl
+}
+
+# load blast (note, doesn't work with blast+!!)
+if { ![is-loaded blast/2.2.26] } { 
+    module load blast/2.2.26
+}

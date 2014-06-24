@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## APT modulefile
+## By Alan Orth
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tapt - loads the affymetrics powertools package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the affymetrix powertools package"
+
+# for Tcl script use only
+set     appname         apt
+set     version         1.14.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     datarootdir     ${prefix}/share
+
+conflict	apt
+
+prepend-path    PATH            ${exec_prefix}/bin

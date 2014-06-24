@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## bowtie Modulefile
+## by Alan Orth, a.orth@cgiar.org
+## June 13, 2012
+##
+set version   0.12.8
+set prefix    /export/apps/bowtie/${version}
+set exec_prefix   ${prefix}
+set url "http://bowtie-bio.sourceforge.net"
+set msg "This module adds bowtie v$version to various paths\n\nBowtie Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict      bowtie
+
+prepend-path  PATH    ${exec_prefix}

@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## velvet modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2013
+##
+
+# for Tcl script use only
+set     version         1.2.10
+set     appname         velvet
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	velvet
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## staden modulefile
+## By Alan Orth
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tstaden - loads the staden package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the staden statistics package"
+
+# for Tcl script use only
+set     appname         staden
+set     version         2.0.0b8
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     datarootdir     ${prefix}/share
+
+conflict	staden
+
+prepend-path    PATH            ${exec_prefix}/bin
+prepend-path    MANPATH         ${datarootdir}/man

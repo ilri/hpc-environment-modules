@@ -1,0 +1,39 @@
+#%Module1.0
+#####################################################################
+##
+## rsa-tools Modulefile
+## by Alan Orth, a.orth@cgiar.org
+## October, 2013
+##
+
+set appname			rsa-tools
+set version			2013-10-06
+set prefix			/home/jvanheld/${appname}
+
+conflict		rsa-tools
+
+setenv          RSAT    ${prefix}
+prepend-path	PATH	${prefix}
+prepend-path    PATH    ${prefix}/bin
+prepend-path    PATH    ${prefix}/perl-scripts
+prepend-path    PATH    ${prefix}/python-scripts
+
+## Ensembl Perl API
+prepend-path    PERL5LIB	${prefix}/lib/bioperl-release-1-2-3/bioperl-live
+prepend-path    PERL5LIB	${prefix}/lib/ensemblgenomes-20-73/ensembl/modules
+prepend-path    PERL5LIB	${prefix}/lib/ensemblgenomes-20-73/ensembl-compara/modules
+prepend-path    PERL5LIB	${prefix}/lib/ensemblgenomes-20-73/ensembl-external/modules
+prepend-path    PERL5LIB	${prefix}/lib/ensemblgenomes-20-73/ensembl-functgenomics/modules
+prepend-path    PERL5LIB	${prefix}/lib/ensemblgenomes-20-73/ensembl-tools/modules
+prepend-path    PERL5LIB	${prefix}/lib/ensemblgenomes-20-73/ensembl-variation/modules
+
+# extra perl packages
+# so other nodes can access them
+prepend-path    PERL5LIB	${prefix}/ilri-perl-libs/lib64/perl5
+prepend-path    PERL5LIB    ${prefix}/ilri-perl-libs/share/perl5
+prepend-path    PERL5LIB    ${prefix}/ilri-perl-libs/lib/perl5/
+
+# load bioperl too!
+if { ![is-loaded bioperl] } { 
+    module load bioperl
+}

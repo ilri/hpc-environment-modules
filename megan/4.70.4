@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## megan Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## June, 2013
+##
+set name            megan
+set version         4.70.4
+set prefix          /export/apps/${name}/${version}
+set exec_prefix     ${prefix}
+set url "http://ab.inf.uni-tuebingen.de/data/software/megan4"
+set msg "This module adds megan v$version to various paths\n\nmegan Official Site: $url\n"
+
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict      megan
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,34 @@
+#%Module1.0
+#####################################################################
+##
+## tophat Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## May, 2014
+##
+
+set appname			tophat2
+set version			2.0.11
+set prefix 			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}
+set url "http://tophat.cbcb.umd.edu"
+set msg "This module adds tophat v$version to various paths\n\ntophat Official Site: $url\n"
+
+proc ModulesHelp { } { 
+	puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict tophat tophat2
+
+prepend-path	PATH		${exec_prefix}
+
+# tophat depends on samtools, load the samtools module as well
+if { ![is-loaded samtools] } {
+	module load samtools
+}
+
+# tophat depends on bowtie2, load the bowtie2 module as well
+if { ![is-loaded bowtie2] } {
+	module load bowtie2
+}

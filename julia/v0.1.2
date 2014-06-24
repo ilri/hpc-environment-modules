@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## julia modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2013
+##
+
+module-whatis   "loads the Julia scientific computing package"
+
+# for Tcl script use only
+set     appname         julia
+set     version         v0.1.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/usr/bin
+set     datarootdir     ${prefix}/usr/share
+
+conflict	julia
+
+prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man

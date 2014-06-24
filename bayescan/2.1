@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## BayeScan  Modulefile
+## by Isaac Kahugu
+## 30th Jan 2013
+set version             2.1
+set prefix              /export/apps/bayescan/${version}
+set exec_prefix         ${prefix}
+set url "http://cmpg.unibe.ch/software/bayescan/index.html"
+set msg "This module adds BayeScan v$version to various paths\n\bayescan Official Site: $url\n"
+
+proc ModulesHelp { } {
+        puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict                        bayescan
+
+prepend-path    PATH            ${exec_prefix}/bin
+##prepend-path    MANPATH         ${datarootdir}/man

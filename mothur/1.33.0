@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## mothur modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2014
+##
+module-whatis   "loads the mothur package"
+
+# for Tcl script use only
+set     appname         mothur
+set     version         1.33.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	mothur
+
+prepend-path    PATH            ${exec_prefix}

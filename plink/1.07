@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## plink Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## October 27, 2011
+##
+set version   1.07
+set appname   plink
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}/bin
+set datarootdir   ${prefix}/share
+set url "http://pngu.mgh.harvard.edu/~purcell/plink/"
+set msg "This module adds plink v$version to various paths\n\nplink Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict plink
+
+prepend-path  PATH    ${exec_prefix}

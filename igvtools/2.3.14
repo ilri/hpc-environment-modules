@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## igvtools modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2013
+##
+
+# for Tcl script use only
+set     appname         igvtools
+set     version         2.3.14
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	igvtools
+
+prepend-path    PATH            ${exec_prefix}

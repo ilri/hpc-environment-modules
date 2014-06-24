@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## RAPSearch modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2013
+##
+
+module-whatis   "loads the RAPSearch package"
+
+# for Tcl script use only
+set     version         2.10
+set     appname         rapsearch
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	rapsearch
+
+prepend-path    PATH            ${exec_prefix}

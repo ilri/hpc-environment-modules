@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## OrthoMCL Modulefile
+## by Isaac Kahugu
+## 10 Jul 2012
+set version             2.0.3
+set prefix              /export/apps/orthomcl/${version}
+set exec_prefix         ${prefix}
+set url "http://orthomcl.org/"
+set msg "This module adds Orthomcl v$version to various paths\n\northomcl Official Site: $url\n"
+
+proc ModulesHelp { } {
+        puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict                        orthomcl
+
+prepend-path    PATH            ${exec_prefix}/bin
+##prepend-path    MANPATH         ${datarootdir}/man

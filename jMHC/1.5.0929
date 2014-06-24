@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## jMHC modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2013
+##
+
+# for Tcl script use only
+set     appname         jMHC
+set     version         1.5.0929
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	jMHC
+
+prepend-path    PATH            ${exec_prefix}

@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## biana modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## July, 2013
+##
+
+# for Tcl script use only
+set     appname         biana
+set     version         1.3.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	biana
+
+prepend-path    PYTHONPATH            ${exec_prefix}

@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## R modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2012
+##
+
+module-whatis   "loads the R statistics package"
+
+# for Tcl script use only
+set     version         2.15.2
+set     appname         R
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	R
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man

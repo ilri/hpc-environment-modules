@@ -1,0 +1,30 @@
+#%Module1.0
+#####################################################################
+##
+## cufflinks Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## June 11, 2011
+##
+set version   2.0.0
+set appname   cufflinks
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}/bin
+set url "http://cufflinks.cbcb.umd.edu/"
+set msg "This module adds cufflinks v$version to various paths\n\ncufflinks Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict      cufflinks
+
+prepend-path  PATH    ${exec_prefix}
+# cufflinks 1.1.0 was compiled against boost 1.47.0, make sure if can find boost!
+prepend-path  LD_LIBRARY_PATH /export/apps/boost/1.47.0/lib
+
+# cufflinks depends on samtools, load the samtools module as well
+if { ![is-loaded samtools] } {
+	module load samtools
+}

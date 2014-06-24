@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## Tagdust modulefile
+## By Alan Orth, Etienne de Villiers
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tTagdust - loads the Tagdust package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+}
+
+module-whatis   "loads the Tagdust package"
+
+conflict	tagdust
+
+# for Tcl script use only
+     set     appname         tagdust
+     set     prefix          /export/apps/${appname}
+     set     exec_prefix     ${prefix}
+     set     datarootdir     ${prefix}/share
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man/man1

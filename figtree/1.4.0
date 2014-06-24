@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## figtree modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2013
+##
+
+# for Tcl script use only
+set     version         1.4.0
+set     appname         figtree
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	figtree
+
+prepend-path    PATH            ${exec_prefix}

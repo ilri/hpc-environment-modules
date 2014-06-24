@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## HMMER modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2013
+##
+
+# for Tcl script use only
+set     appname         hmmer
+set     version         3.1b1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	hmmer
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man

@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## vcftools modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2012
+##
+
+module-whatis   "loads the vcftools package"
+
+# for Tcl script use only
+set     version         0.1.10
+set     appname         vcftools
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	vcftools
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PERL5LIB    /export/apps/${appname}/${version}/lib/perl5/site_perl

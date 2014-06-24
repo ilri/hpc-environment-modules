@@ -1,0 +1,49 @@
+#%Module1.0#####################################################################
+##
+## Maker modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2014
+##
+
+# for Tcl script use only
+set     appname         maker
+set     version         2.28
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	maker
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${prefix}/man:${datarootdir}/man
+prepend-path    PERL5LIB        ${prefix}/share/perl5:${prefix}/lib64/perl5
+
+# maker depends on bioperl (was compiled/configured against BioPerl 1.6.923)
+if { ![is-loaded bioperl/1.6.923] } { 
+    module load bioperl/1.6.923
+}
+
+# maker depends on blast (any 2.2.2x+ version should do)
+if { ![is-loaded blast] } { 
+    module load blast
+}
+
+# maker depends on snap (was compiled/configured with snap 2013-11-29)
+if { ![is-loaded snap/2013-11-29] } { 
+    module load snap/2013-11-29
+}
+
+# maker depends on exonerate (version probably doesn't matter)
+if { ![is-loaded exonerate] } { 
+    module load exonerate
+}
+
+# maker depends on exonerate (version probably doesn't matter)
+if { ![is-loaded exonerate] } { 
+    module load exonerate
+}
+
+# maker depends on repeatmasker (was compiled/configured against 4.0.5)
+if { ![is-loaded repeatmasker/4.0.5] } { 
+    module load repeatmasker/4.0.5
+}

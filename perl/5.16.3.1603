@@ -1,0 +1,23 @@
+#%Module1.0
+#####################################################################
+##
+## python Modulefile
+## by Isaac Kahugu on April 03 2013
+##
+set appname				perl
+set version             5.16.3.1603
+set prefix              /export/apps/${appname}/${version}/
+
+set url "http://www.activestate.com/activeperl"
+set msg "This module adds Perl v$version to various paths\n\nPerl Official Site: $url\n"
+
+proc ModulesHelp { } {
+        puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict                        perl
+
+prepend-path    PATH            ${prefix}/site/bin:${prefix}/bin
+prepend-path    MANPATH         ${prefix}/site/man:${prefix}/man
