@@ -38,11 +38,6 @@ if { ![is-loaded exonerate] } {
     module load exonerate
 }
 
-# maker depends on exonerate (version probably doesn't matter)
-if { ![is-loaded exonerate] } { 
-    module load exonerate
-}
-
 # maker depends on repeatmasker (was compiled/configured against 4.0.5)
 if { ![is-loaded repeatmasker/4.0.5] } { 
     module load repeatmasker/4.0.5
