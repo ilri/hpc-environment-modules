@@ -1,0 +1,17 @@
+#%Module1.0
+#####################################################################
+##
+## NCBI sratoolkit Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## August, 2014
+##
+
+set appname			sratoolkit
+set version			2.3.5-2
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set url "http://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software"
+
+conflict sratoolkit
+
+prepend-path	PATH	${exec_prefix}
