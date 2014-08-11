@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## Muscle modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2014
+##
+
+module-whatis "muscle is a program for creating multiple alignments of amino acid or nucleotide sequences"
+
+# for TCL script use
+set     version         3.8.31
+set     appname         muscle
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+prepend-path    PATH            ${exec_prefix}
