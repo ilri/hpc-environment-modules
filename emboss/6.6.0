@@ -15,3 +15,5 @@ set msg "This module adds EMBOSS v$version to various paths\n\nEMBOSS Official S
 conflict      emboss
 
 prepend-path  PATH    ${exec_prefix}/bin
+setenv        EMBOSS_ACDROOT ${datarootdir}/EMBOSS/acd
+setenv        EMBOSS_DATA    ${datarootdir}/EMBOSS/data}
