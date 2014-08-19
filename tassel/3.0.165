@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## tassel modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2014
+##
+
+module-whatis "Tassel is a software package to evaluate traits associations, evolutionary patterns, and linkage disequilibrium. http://www.maizegenetics.net/tassel/"
+
+# for TCL script use
+set     version         3.0.165
+set     appname         tassel
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict tassel
+
+prepend-path    PATH            ${exec_prefix}
+
+conflict tassel
+
+# tassel depends on perl 5.16.3, load the perl module as well
+if { ![is-loaded perl] } {
+        module load perl
+}
