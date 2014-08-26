@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## NGSQCToolkit modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2014
+##
+
+module-whatis   "loads the NGSQCToolkit package"
+
+# for Tcl script use only
+set     version         2.3.3
+set     appname         ngsqctoolkit
+set     prefix          /export/apps/${appname}/${version}
+
+conflict    ngsqctoolkit
+
+prepend-path    PATH            ${prefix}/Format-converter
+prepend-path    PATH            ${prefix}/QC
+prepend-path    PATH            ${prefix}/Statistics
+prepend-path    PATH            ${prefix}/Trimming
