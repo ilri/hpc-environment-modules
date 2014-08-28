@@ -10,10 +10,11 @@ set     appname         openmpi
 set     version         1.8.2
 set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
 
 conflict    openmpi
 
 prepend-path    PATH        ${exec_prefix}
-prepend-path    MANPATH     ${exec_prefix}/share/man
-prepend-path    LD_LIBRARY_PATH     /export/apps/openmpi/1.8.2/lib
+prepend-path    MANPATH     ${datarootdir}/man
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
 setenv          MPI_HOME    ${prefix}
