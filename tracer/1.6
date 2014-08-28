@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## Tracer modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2014
+##
+module-whatis   "loads the Tracer package"
+
+# for Tcl script use only
+set     version         1.6
+set     appname         tracer
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	tracer
+
+prepend-path    PATH            ${exec_prefix}
