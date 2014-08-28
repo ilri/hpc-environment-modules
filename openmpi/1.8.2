@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## openmpi
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2014
+##
+
+# for Tcl script use only
+set     appname         openmpi
+set     version         1.8.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    openmpi
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${exec_prefix}/share/man
+prepend-path    LD_LIBRARY_PATH     /export/apps/openmpi/1.8.2/lib
+setenv          MPI_HOME    ${prefix}
