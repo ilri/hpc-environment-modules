@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## Ray
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2014
+##
+
+# for Tcl script use only
+set     appname         ray
+set     version         2.3.1
+set     prefix          /export/apps/${appname}/${version}
+
+conflict    ray
+
+prepend-path    PATH        ${prefix}
+
+# ray expects to use mpi binaries like mpiexec
+if { ![is-loaded openmpi/1.8.2] } {
+	module load openmpi/1.8.2
+}
