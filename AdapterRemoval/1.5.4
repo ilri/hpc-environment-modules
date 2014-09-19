@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## AdapterRemoval modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2014
+##
+
+# for Tcl script use only
+set     appname         AdapterRemoval
+set     version         1.5.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	AdapterRemoval
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
