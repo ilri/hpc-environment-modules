@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## quast modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2014
+##
+
+# for Tcl script use only
+set     appname         quast
+set     version         2.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	quast
+
+prepend-path    PATH            ${exec_prefix}
+
+# quast depends on python 2.7.6
+if { ![is-loaded python/2.7.6] } {
+	module load python/2.7.6
+}
