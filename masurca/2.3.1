@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## MaSuRCA modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2014
+##
+
+module-whatis   "loads the MaSuRCA package"
+
+# for Tcl script use only
+set     appname         masurca
+set     version         2.3.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	masurca
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
