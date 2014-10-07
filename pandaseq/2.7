@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## pandaseq modulefile 
+## By James Oguya <j.oguya@cgiar.org>
+## October, 2014
+##
+
+module-whatis "pandaseq is a program to align Illumina reads, optionally with PCR primers embedded in the sequence, and reconstruct an overlapping sequence."
+
+# for Tcl script use only
+set     appname         pandaseq 
+set     version         2.7
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict        pandaseq 
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
