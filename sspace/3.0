@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## SSPACE modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2014
+##
+
+# for Tcl script use only
+set     appname         sspace
+set     version         3.0
+set     prefix          /export/apps/${appname}/${version}
+
+conflict	sspace
+
+prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PATH            ${prefix}/tools
