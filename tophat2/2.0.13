@@ -24,3 +24,8 @@ conflict tophat tophat2
 prepend-path    PATH        ${exec_prefix}
 
 # tophat v2.0.13 removed SAMtools as an external dependency in order to avoid incompatibility issues with recent and future changes of SAMtools and its code library (an older, stable SAMtools version is now packaged with TopHat)
+
+# tophat depends on bowtie2, load the bowtie2 module as well
+if { ![is-loaded bowtie2] } {
+    module load bowtie2
+}
