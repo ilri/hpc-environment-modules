@@ -13,7 +13,7 @@ set exec_prefix     ${prefix}
 set url "http://bowtie-bio.sourceforge.net"
 set msg "bowtie is an ultrafast, memory-efficient short read aligner that aligns DNA sequences(reads) to the human at 25 million 35-bp reads per hour.\nBowtie Official Site: $url\n"
 
-module what-is $msg
+module-whatis $msg
 
 proc ModulesHelp { } {
     puts stderr "$msg"
