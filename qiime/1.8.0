@@ -1,0 +1,32 @@
+#%Module1.0
+#####################################################################
+##
+## qiime Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## November, 2014
+##
+
+set appname         qiime
+set version         1.8.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+
+# conflict if qiime OR python is loaded
+conflict			qiime python
+
+prepend-path        PATH		${exec_prefix}
+prepend-path        MANPATH		${datarootdir}/man
+setenv              PYTHONHOME	${prefix}
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
+setenv              QIIME_CONFIG_FP	${prefix}/qiime_config
+
+# qiime 1.8.0 wants muscle/3.8.31
+if { ![is-loaded muscle/3.8.31] } { 
+    module load muscle/3.8.31
+}
+
+# qiime 1.8.0 wants RAxML/7.3.0
+if { ![is-loaded RAxML/7.3.0] } { 
+    module load RAxML/7.3.0
+}
