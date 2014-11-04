@@ -23,12 +23,12 @@ prepend-path        LD_LIBRARY_PATH ${prefix}/lib
 setenv              QIIME_CONFIG_FP	${prefix}/qiime_config
 
 # qiime 1.8.0 wants muscle/3.8.31
-if { ![is-loaded muscle/3.8.31] } { 
+if { ![is-loaded muscle/3.8.31] } {
     module load muscle/3.8.31
 }
 
 # qiime 1.8.0 wants RAxML/7.3.0
-if { ![is-loaded RAxML/7.3.0] } { 
+if { ![is-loaded RAxML/7.3.0] } {
     module load RAxML/7.3.0
 }
 
