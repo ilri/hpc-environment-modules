@@ -18,7 +18,7 @@ conflict			qiime python
 prepend-path        PATH		${exec_prefix}
 prepend-path        MANPATH		${datarootdir}/man
 setenv              PYTHONHOME	${prefix}
-prepent-path        PYTHONPATH  ${prefix}/lib
+prepend-path        PYTHONPATH  ${prefix}/lib
 prepend-path        LD_LIBRARY_PATH ${prefix}/lib
 setenv              QIIME_CONFIG_FP	${prefix}/qiime_config
 
