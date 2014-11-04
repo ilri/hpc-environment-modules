@@ -1,0 +1,16 @@
+#%Module1.0
+#####################################################################
+##
+## usearch Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## November, 2014
+##
+
+set appname			usearch
+set version			v5.2.236
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+
+conflict usearch
+
+prepend-path	PATH	${exec_prefix}
