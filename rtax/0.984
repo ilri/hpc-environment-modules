@@ -1,0 +1,20 @@
+#%Module1.0
+#####################################################################
+##
+## rtax Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## November, 2014
+##
+
+set appname         rtax
+set version         0.984
+set prefix          /export/apps/${appname}/${version}
+
+conflict			rtax
+
+prepend-path        PATH		${prefix}
+
+# rtax wants usearch, 5.0.144, maybe this will work?
+if { ![is-loaded usearch/v5.2.236] } {
+    module load usearch/v5.2.236
+}
