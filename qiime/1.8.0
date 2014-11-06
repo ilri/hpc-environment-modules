@@ -36,3 +36,8 @@ if { ![is-loaded RAxML/7.3.0] } {
 if { ![is-loaded usearch/v5.2.236] } {
     module load usearch/v5.2.236
 }
+
+# qiime 1.8.0 wants rtax/0.984
+if { ![is-loaded rtax/0.984] } {
+    module load rtax/0.984
+}
