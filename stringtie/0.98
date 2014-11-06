@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## stringtie modulefile
+## By Alan Orth <a.orth@cgiar.org> and James Oguya <j.oguya@cgiar.org>
+## November, 2014
+##
+
+module-whatis   "loads the stringtie package"
+
+# for Tcl script use only
+set     appname         stringtie
+set     version         0.98
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	stringtie
+
+prepend-path    PATH            ${exec_prefix}
