@@ -41,3 +41,8 @@ if { ![is-loaded usearch/v5.2.236] } {
 if { ![is-loaded rtax/0.984] } {
     module load rtax/0.984
 }
+
+# qiime 1.8.0 wants sourcetracker/0.9.5
+if { ![is-loaded sourcetracker/0.9.5] } {
+    module load sourcetracker/0.9.5
+}
