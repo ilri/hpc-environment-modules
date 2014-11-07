@@ -1,0 +1,17 @@
+#%Module1.0
+#####################################################################
+##
+## wise Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## November, 2014
+##
+
+set appname         wise
+set version         2.4.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+
+conflict			wise
+
+prepend-path        PATH    		${exec_prefix}
+setenv              WISECONFIGDIR	${prefix}/wisecfg
