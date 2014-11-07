@@ -16,3 +16,23 @@ conflict	cegma
 prepend-path    PATH            ${exec_prefix}
 setenv          CEGMA           ${prefix}
 prepent-path    PERL5LIB        ${prefix}/lib
+
+# cegma v2.5 was tested with blast/2.2.29+
+if { ![is-loaded blast/2.2.29+] } {
+    module load blast/2.2.29+
+}
+
+# cegma v2.5 was tested with hmmer/3.0
+if { ![is-loaded hmmer/3.0] } {
+    module load hmmer/3.0
+}
+
+# cegma v2.5 was tested with wise/2.4.1
+if { ![is-loaded wise/2.4.1] } {
+    module load wise/2.4.1
+}
+
+# cegma v2.5 was tested with geneid/1.4.4
+if { ![is-loaded geneid/1.4.4] } {
+    module load geneid/1.4.4
+}
