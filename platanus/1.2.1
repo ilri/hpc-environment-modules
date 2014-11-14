@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## Platanus Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## November, 2014
+##
+
+set appname         platanus
+set version         1.2.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url "http://platanus.bio.titech.ac.jp/platanus-assembler/platanus-1-2-1/"
+set msg "Platanus is a de novo assembler designed to assemble high-throughput data. It can handle highly heterozygotic samples.\nPlatanus Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        platanus
+
+prepend-path    PATH    ${exec_prefix}
