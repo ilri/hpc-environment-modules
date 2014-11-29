@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## Opam Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## November, 2014
+##
+
+set appname         opam
+set version         1.2.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url "https://opam.ocaml.org/"
+set msg "OPAM is a source-based package manager for OCaml. It supports multiple simultaneous compiler installations, flexible package constraints, and a Git-friendly development workflow.\nOpam Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        opam
+
+prepend-path    PATH    ${exec_prefix}
