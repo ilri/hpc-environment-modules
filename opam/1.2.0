@@ -9,7 +9,7 @@
 set appname         opam
 set version         1.2.0
 set prefix          /export/apps/${appname}/${version}
-set exec_prefix     ${prefix}
+set exec_prefix     ${prefix}/bin
 set url "https://opam.ocaml.org/"
 set msg "OPAM is a source-based package manager for OCaml. It supports multiple simultaneous compiler installations, flexible package constraints, and a Git-friendly development workflow.\nOpam Official Site: $url\n"
 
@@ -22,3 +22,8 @@ proc ModulesHelp { } {
 conflict        opam
 
 prepend-path    PATH    ${exec_prefix}
+
+# opam depends on ocaml module
+if { ![is-loaded ocaml] } {
+    module load ocaml
+}
