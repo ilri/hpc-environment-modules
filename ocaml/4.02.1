@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## Ocaml Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## November, 2014
+##
+
+set appname         ocaml
+set version         4.02.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url "http://caml.inria.fr/ocaml/index.en.html"
+set msg "Ocaml is a popular variant of Caml language. it extends the core Caml language with a fully-fledged object-oriented layer, as well as a powerful module system, all connected by a sound, polymorphic type system featuring type inference..\nOcaml Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        ocaml
+
+prepend-path    PATH    ${exec_prefix}
