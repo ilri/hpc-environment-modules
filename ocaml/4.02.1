@@ -9,7 +9,7 @@
 set appname         ocaml
 set version         4.02.1
 set prefix          /export/apps/${appname}/${version}
-set exec_prefix     ${prefix}
+set exec_prefix     ${prefix}/bin
 set url "http://caml.inria.fr/ocaml/index.en.html"
 set msg "Ocaml is a popular variant of Caml language. it extends the core Caml language with a fully-fledged object-oriented layer, as well as a powerful module system, all connected by a sound, polymorphic type system featuring type inference..\nOcaml Official Site: $url\n"
 
@@ -21,4 +21,5 @@ proc ModulesHelp { } {
 
 conflict        ocaml
 
-prepend-path    PATH    ${exec_prefix}
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${prefix}/man
