@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## fastqc modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2014
+##
+
+module-whatis   "A quality control tool for high throughput sequence data."
+
+# for Tcl script use only
+set     version         0.11.2
+set     appname         fastqc
+set     prefix          /export/apps/${appname}/${version}
+
+conflict	fastqc
+
+prepend-path    PATH            ${prefix}
