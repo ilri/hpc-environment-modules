@@ -4,9 +4,21 @@
 ## mpiBLAST Modulefile
 ## by Alan Orth
 ##
+
+set appname         mpiblast
+set version         1.6.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url "http://www.mpiblast.org/"
+set msg "mpiBLAST is a freely available, open-source, parallel implementation of NCBI BLAST.\nmpiBLAST Official Site: $url\n"
+
+module-whatis $msg
+
 proc ModulesHelp { } {
-	puts stderr "\tmpiBLAST - loads the environment for mpiBLAST\n"
+    puts stderr "$msg"
 }
-module-whatis		"loads the environment for mpiBLAST"
-setenv				MPIBLAST		/export/apps/mpiblast/1.6.0
-prepend-path		PATH	$env(MPIBLAST)/bin
+
+conflict        pandaseq
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${prefix}/share/man
