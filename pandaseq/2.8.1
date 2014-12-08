@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## Pandaseq Modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## December, 2014
+##
+
+set appname         pandaseq
+set version         2.8.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url "https://github.com/neufeld/pandaseq/"
+set msg "pandaseq is a program to align Illumina reads, optionally with PCR primers embedded in the sequence, and reconstruct an overlapping sequence.\nPandaseq Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        pandaseq
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${prefix}/share/man
