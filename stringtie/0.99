@@ -15,7 +15,7 @@ set     msg             "StringTie is a fast and highly efficient assembler of R
 
 module-whatis $msg
 
-proc ModulesHelp(){
+proc ModulesHelp { } {
     puts stderr $msg
 }
 
