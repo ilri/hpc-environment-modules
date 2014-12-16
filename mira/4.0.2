@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## mira Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## December, 2014
+##
+
+set appname         mira
+set version         4.0.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url "http://sourceforge.net/apps/mediawiki/mira-assembler/index.php?title=Main_Page"
+set msg "MIRA - Sequence assembler and sequence mapping for whole genome shotgun and EST / RNASeq sequencing data.\nMIRA Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        mira
+
+prepend-path    PATH    ${exec_prefix}/bin
+
+# mira depends on repeatmasker, load the repeatmasker module as well
+if { ![is-loaded staden] } {
+	module load staden
+}
