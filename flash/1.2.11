@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## FLASH Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## December, 2014
+##
+
+set appname         flash
+set version         1.2.11
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url "http://sourceforge.net/projects/flashpage/"
+set msg "FLASH, Fast Length Adjustment of SHort reads, is a very accurate fast tool to merge paired-end reads from fragments that are shorter than twice the length of reads. The extended length of reads has a significant positive impact on improvement of genome assemblies..\nFLASH Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        flash
+
+prepend-path    PATH    ${exec_prefix}
