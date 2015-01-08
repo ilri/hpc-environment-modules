@@ -11,7 +11,7 @@ set version         1.0.0
 set prefix          /export/apps/${appname}/${version}
 set exec_prefix     ${prefix}/bin
 set url             "http://picrust.github.io/picrust/"
-set msg             "PICRUSt (pronounced “pie crust”) is a bioinformatics software package designed to predict metagenome functional content from marker gene (e.g., 16S rRNA) surveys and full genomes."
+set msg             "PICRUSt (pronounced “pie crust”) is a bioinformatics software package designed to predict metagenome functional content from marker gene (e.g., 16S rRNA) surveys and full genomes.\nOfficial Site: $url\n"
 
 module-whatis $msg
 
