@@ -1,0 +1,32 @@
+#%Module1.0
+#####################################################################
+##
+## HDF5 Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## January, 2015
+##
+
+set appname         hdf5
+set version         1.8.14
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+set url             "http://www.hdfgroup.org/HDF5/"
+set msg             "HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data."
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict            hdf5
+
+prepend-path        PATH		    ${exec_prefix}
+prepend-path        MANPATH         ${datarootdir}
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
+
+# load dependencies
+if { ![is-loaded openmpi/1.8.2] } {
+    module load openmpi/1.8.2
+}
