@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## stacks Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## February, 2015
+##
+
+set appname         stacks
+set version         1.24
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url "http://creskolab.uoregon.edu/stacks/manual/"
+set msg "a software pipeline for building loci from short-read sequences, such as those generated on the Illumina platform.\Stacks Official Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        stacks
+
+prepend-path    PATH    ${exec_prefix}/bin
