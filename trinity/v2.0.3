@@ -7,12 +7,9 @@
 ##
 
 set appname                 trinity
-set version                 2.0.3
+set version                 v2.0.3
 set prefix                  /export/apps/${appname}/${version}
 set exec_prefix             ${prefix}
-set exec_prefix_util        ${exec_prefix}/util
-set exec_prefix_chrysalis   ${exec_prefix}/Chrysalis
-set exec_prefix_inchworm    ${exec_prefix}/Inchworm/bin
 
 set url "https://github.com/trinityrnaseq/trinityrnaseq"
 set msg "Trinity RNA-Seq de novo transcriptome assembly.\nTrinity Official Site: $url\n"
@@ -26,6 +23,3 @@ proc ModulesHelp { } {
 conflict        trinity
 
 prepend-path    PATH    ${exec_prefix}
-prepend-path    PATH    ${exec_prefix_util}
-prepend-path    PATH    ${exec_prefix_chrysalis}
-prepend-path    PATH    ${exec_prefix_inchworm}
