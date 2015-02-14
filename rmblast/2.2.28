@@ -1,0 +1,17 @@
+#%Module1.0
+#####################################################################
+##
+## NCBI RMBLAST Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## February, 2015
+##
+
+set appname			rmblast
+set version			2.2.28
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set url "http://repeatmasker.org/RMBlast.html"
+
+conflict rmblast
+
+prepend-path	PATH	${exec_prefix}
