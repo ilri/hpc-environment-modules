@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## spades modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2015
+##
+
+# for Tcl script use only
+set     appname         spades
+set     version         3.5.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	spades
+
+prepend-path    PATH            ${exec_prefix}
