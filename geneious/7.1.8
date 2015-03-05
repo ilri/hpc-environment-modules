@@ -1,0 +1,15 @@
+#%Module1.0#####################################################################
+##
+## Geneious modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2015
+##
+
+# for Tcl script use only
+set     appname         geneious
+set     version         7.1.8
+set     prefix          /export/apps/${appname}/${version}
+
+conflict	geneious
+
+prepend-path    PATH            ${prefix}
