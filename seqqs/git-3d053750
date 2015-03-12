@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## seqqs modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2015
+##
+
+# for Tcl script use only
+set     appname         seqqs
+set     version         git-3d053750
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	seqqs
+
+prepend-path    PATH            ${exec_prefix}
