@@ -1,0 +1,23 @@
+#%Module1.0
+#####################################################################
+##
+## scythe Modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## March, 2015
+##
+
+set appname         scythe
+set version         0.994-beta
+set prefix          /export/apps/${appname}/${version}
+set url "https://github.com/vsbuffalo/scythe"
+set msg "Scythe uses a Naive Bayesian approach to classify contaminant substrings in sequence reads.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        scythe
+
+prepend-path    PATH        ${prefix}
