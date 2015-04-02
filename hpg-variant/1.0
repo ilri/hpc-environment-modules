@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## hpg-variant Modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## April, 2015
+##
+
+set appname         hpg-variant
+set version         1.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url "https://github.com/opencb/hpg-variant"
+set msg "HPG Variant is a suite for the analysis of genomic data extracted from Next Generation Sequencing technologies.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        hpg-variant
+
+prepend-path    PATH        ${exec_prefix}
