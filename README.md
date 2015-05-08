@@ -1,2 +1,7 @@
-## Environment modules
-[Environment modules](http://modules.sourceforge.net) for ILRI's Nairobi, Kenya research computing cluster.  More information on the [Research Computing wiki](http://hpc.ilri.cgiar.org).
+## ILRI HPC Environment Modules
+
+This repo contains [Environment Modules](http://modules.sourceforge.net) used in
+[ILRI's research computing](http://hpc.ilri.cgiar.org/) infrastructure.
+
+For a full list of bioinformatics software see [HPC's wiki pages](http://hpc.ilri.cgiar.org/list-of-software).
+
