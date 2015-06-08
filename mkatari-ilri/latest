@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## mkatari-ilri modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2015
+##
+
+# for Tcl script use only
+set     appname         mkatari-ilri
+set     prefix          /export/apps/${appname}
+set     exec_prefix     ${prefix}
+
+prepend-path    PATH            ${exec_prefix}
+
+# depends on python 2.7.8
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
