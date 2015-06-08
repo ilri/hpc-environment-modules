@@ -4,6 +4,7 @@
 ## By Alan Orth <a.orth@cgiar.org>
 ## June, 2015
 ##
+## See: https://github.com/mkatari/mkatari-ilri
 
 # for Tcl script use only
 set     appname         mkatari-ilri
