@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## picard modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## June, 2015
+##
+
+# for Tcl script use only
+set     appname         picard
+set     version         1.133
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://broadinstitute.github.io/picard"
+set     msg             "A set of Java command line tools for manipulating high-throughput sequencing data (HTS) data and formats.\nPicard official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	picard
+
+prepend-path    PATH            ${prefix}
