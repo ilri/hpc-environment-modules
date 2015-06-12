@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## Trinotate modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## June, 2015
+##
+
+# for Tcl script use only
+set     appname         trinotate
+set     version         2.0.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://trinotate.github.io/"
+set     msg             "Trinotate is a comprehensive annotation suite designed for automatic functional annotation of transcriptomes, particularly de novo assembled transcriptomes, from model or non-model organisms.\nTrinotate official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	trinotate
+
+prepend-path    PATH            ${prefix}
+prepend-path    PERL5LIB        ${prefix}/PerlLib
+setenv          TRINOTATE_HOME  ${prefix}
+
+# trinotate depends on perl
+if { ![is-loaded perl/5.16.3.1603] } {
+    module load perl/5.16.3.1603
+}
