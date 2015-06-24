@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## cutadapt modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2015
+##
+
+# for Tcl script use only
+set     appname         cutadapt
+set     version         v1.8.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	htseq
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+
+# Make sure python/2.7.8 is loaded
+# cutadapt was compiled against python 2.7.8 so it won't work with any others!
+if { ![is-loaded python/2.7.8] } { 
+    module load python/2.7.8
+}
