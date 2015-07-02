@@ -1,0 +1,34 @@
+#%Module1.0#####################################################################
+##
+## interproscan modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## July, 2015
+##
+
+# for Tcl script use only
+set     appname         interproscan
+set     version         5.13
+set     url             "https://code.google.com/p/interproscan/"
+set     msg             "Scans a range of protein signatures against your sequence.\nInterproscan official site: ${url}"
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    interproscan
+
+prepend-path    PATH            ${exec_prefix}
+
+# depends on perl/5.16.3.1603
+if {![is-loaded perl/5.16.3.1603] } {
+    module load perl/5.16.3.1603
+}
+
+# depends on python/2.7.8
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
