@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## FragGeneScan modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## July, 2015
+##
+
+# for Tcl script use only
+set     appname         fraggenescan
+set     version         1.19
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://sourceforge.net/projects/fraggenescan/"
+set     msg             "FragGeneScan is an application for finding (fragmented) genes in short reads. It can also be applied to predict prokaryotic genes in incomplete assemblies or complete genomes.\nFragGeneScan official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    fraggenescan
+
+prepend-path    PATH            ${prefix}
+
+# fraggenescan depends on perl
+if { ![is-loaded perl/5.16.3.1603] } {
+    module load perl/5.16.3.1603
+}
