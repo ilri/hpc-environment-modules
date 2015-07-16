@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## libsvm
+## By James Oguya <j.oguya@cgiar.org>
+## July, 2015
+##
+
+# for Tcl script use only
+set     appname         libsvm
+set     version         3.20
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "http://ntucsu.csie.ntu.edu.tw/~cjlin/libsvm/"
+set     msg             "LibSVM - A Library for Support Vector Machines.\nLibSVM official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    libsvm
+
+prepend-path    PATH            ${exec_prefix}
