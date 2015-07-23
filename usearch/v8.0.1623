@@ -1,0 +1,24 @@
+#%Module1.0
+#####################################################################
+##
+## usearch Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## July, 2015
+##
+
+set appname			usearch
+set version			v8.0.1623
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set url             "http://www.drive5.com/usearch/index.html"
+set msg             "USEARCH offers search and clustering algorithms that are often orders of magnitude faster than BLAST.\nUSEARCH Official Site: $url"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict usearch
+
+prepend-path	PATH	${exec_prefix}
