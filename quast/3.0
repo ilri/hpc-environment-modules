@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## quast modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## July, 2015
+##
+
+# for Tcl script use only
+set     appname         quast
+set     version         3.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     msg             "QUAST(QUality ASsessment Tool)evaluates genome assemblies by computing various metrics.\nQuast URL: http://bioinf.spbau.ru/en/quast"
+
+conflict	quast
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
+
+# quast depends on python 2.7.8
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
