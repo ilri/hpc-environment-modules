@@ -1,0 +1,15 @@
+#%Module1.0
+#####################################################################
+##
+## beagle Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## August, 2015
+##
+set appname   beagle
+set version   git-c455af1f
+set prefix    /export/apps/${appname}/${version}
+
+conflict      beagle
+
+# load library path for stuff which needs beagle
+prepend-path  LD_LIBRARY_PATH ${prefix}/lib
