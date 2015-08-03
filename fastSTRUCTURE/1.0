@@ -11,7 +11,7 @@ set     version         1.0
 set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix     ${prefix}
 
-module what-is "fastStructure is an algorithm for inferring population structure from large SNP genotype data. It is based on a variational Bayesian framework for posterior inference and is written in Python2.x.Official site: https://rajanil.github.io/fastStructure/"
+module-whatis "fastStructure is an algorithm for inferring population structure from large SNP genotype data. It is based on a variational Bayesian framework for posterior inference and is written in Python2.x.Official site: https://rajanil.github.io/fastStructure/"
 
 conflict	fastSTRUCTURE
 
