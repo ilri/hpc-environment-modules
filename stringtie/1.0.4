@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## stringtie modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2015
+##
+
+# for Tcl script use only
+set     appname         stringtie
+set     version         1.0.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://ccb.jhu.edu/software/stringtie"
+set     msg             "StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts.\nStringtie Official Site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	stringtie
+
+prepend-path    PATH            ${exec_prefix}
