@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## aliview modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2015
+##
+
+module-whatis   "AliView is yet another alignment viewer and editor, but this is probably one of the fastest and most intuitive to use."
+
+# for Tcl script use only
+set     version         1.17.1
+set     appname         aliview
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict	aliview
+
+prepend-path    PATH            ${exec_prefix}
