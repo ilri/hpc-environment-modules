@@ -6,13 +6,13 @@
 ##
 
 # for Tcl script use only
-set     appname         vcflib
-set     version         git-7f1575e
-set     prefix          /export/apps/${appname}/${version}
-set     msg             "a C++ library for parsing and manipulating VCF files.\nvcflib URL: https://github.com/ekg/vcflib"
+set     appname     vcflib
+set     version     git-7f1575e
+set     prefix      /export/apps/${appname}/${version}
+set     msg         "vcflib is a C++ library for parsing and manipulating VCF files.\nVcflib Code Base Repository: https://github.com/ekg/vcflib"
 
-conflict	vcflib
+conflict        vcflib
 
-module-whatis $msg
+module-whatis   $msg
 
-prepend-path    PATH            ${exec_prefix}
+prepend-path    PATH    ${prefix}
