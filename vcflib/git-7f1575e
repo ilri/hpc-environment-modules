@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## vcflib modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## Aug, 2015
+##
+
+# for Tcl script use only
+set     appname         vcflib
+set     version         git-7f1575e
+set     prefix          /export/apps/${appname}/${version}
+set     msg             "a C++ library for parsing and manipulating VCF files.\nvcflib URL: https://github.com/ekg/vcflib"
+
+conflict	vcflib
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
