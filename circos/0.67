@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## Circos modulefile
+## By James Oguya <a.orth@cgiar.org>
+## August, 2015
+##
+
+# for Tcl script use only
+set     appname         circos
+set     version         0.67
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+set     msg             "Circos is a software package for visualizing data and information.\nCircos Official Site: http://www.circos.ca/"
+
+conflict	circos
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+prepend-path    PERL5LIB        /usr/lib64/perl5:${prefix}/lib/Circos:${prefix}/lib64/perl5:${prefix}/share/perl5
