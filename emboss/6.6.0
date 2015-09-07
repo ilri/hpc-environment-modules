@@ -17,3 +17,8 @@ conflict      emboss
 prepend-path  PATH    ${exec_prefix}/bin
 setenv        EMBOSS_ACDROOT ${datarootdir}/EMBOSS/acd
 setenv        EMBOSS_DATA    ${datarootdir}/EMBOSS/data
+
+# emboss wants to use ClustalW
+if { ![is-loaded clustalw] } {
+	module load clustalw
+}
