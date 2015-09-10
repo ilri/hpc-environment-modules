@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## netmhcpan modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## September, 2015
+##
+
+# for Tcl script use only
+set     appname         netmhcpan
+set     version         2.8
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     msg             "NetMHCpan uses Artificial Neural Networks(ANN) to predict peptides bindings to MHC molecules.\nNetMHCpan Official Site: http://www.cbs.dtu.dk/services/NetMHC/"
+
+conflict	netmhcpan
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
