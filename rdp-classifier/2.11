@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## RDP Classifier modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## September, 2015
+##
+
+# for Tcl script use only
+set     appname         rdp-classifier
+set     version         2.11
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://rdp.cme.msu.edu/"
+set     msg             "RDP provides quality-controlled, aligned and annotated Bacterial and Archaeal 16S rRNA sequences, and Fungal 28S rRNA sequences, and a suite of analysis tools to the scientific community.\nRDP Classifier official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	rdp-classifier
+
+prepend-path    PATH            ${prefix}
