@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## clonalframe Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## September, 2015
+##
+
+# for Tcl script use only
+set     appname         clonalframe
+set     version         1.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.xavierdidelot.xtreemhost.com/clonalframe.htm"
+set     msg             "ClonalFrame infers bacterial microevolution using multilocus sequence data.\nClonalFrame Official Site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH     ${prefix}
+
+# vim: set sw=4 ts=4:
