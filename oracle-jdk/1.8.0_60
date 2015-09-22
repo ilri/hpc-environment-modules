@@ -15,4 +15,4 @@ conflict	1.8.0_60
 
 prepend-path    PATH            ${exec_prefix}
 prepend-path    MANPATH         ${prefix}/man
-prepent-path    JAVA_HOME       ${prefix}
+prepend-path    JAVA_HOME       ${prefix}
