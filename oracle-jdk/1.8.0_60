@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## Oracle JDK modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2015
+##
+
+# for Tcl script use only
+set     appname         oracle-jdk
+set     version         1.8.0_60
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict	1.8.0_60
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${prefix}/man
+prepent-path    JAVA_HOME       ${prefix}
