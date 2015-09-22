@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## tassel modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2015
+##
+
+module-whatis "Tassel is a software package to evaluate traits associations, evolutionary patterns, and linkage disequilibrium. http://www.maizegenetics.net/tassel/"
+
+# for TCL script use
+set     version         5.2.9
+set     appname         tassel
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict tassel
+
+prepend-path    PATH            ${exec_prefix}
+
+conflict tassel
+
+# tassel depends on oracle-jdk 1.8+
+if { ![is-loaded oracle-jdk/1.8.0_60] } {
+        module load oracle-jdk/1.8.0_60
+}
