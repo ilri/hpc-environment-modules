@@ -11,7 +11,7 @@ set     version         1.8.0_60
 set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix     ${prefix}/bin
 
-conflict	1.8.0_60
+conflict	oracle-jdk
 
 prepend-path    PATH            ${exec_prefix}
 prepend-path    MANPATH         ${prefix}/man
