@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## trimmomatic Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## September, 2015
+##
+
+# for Tcl script use only
+set     appname         trimmomatic
+set     version         0.33
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.usadellab.org/cms/?page=trimmomatic"
+set     msg             "Trimmomatic is a flexible read trimming tool for Illumina NGS data.\nTrimmomatic Official Site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH     ${prefix}
+
+# vim: set sw=4 ts=4:
