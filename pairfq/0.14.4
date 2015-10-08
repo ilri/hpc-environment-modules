@@ -1,0 +1,32 @@
+#%Module1.0
+#####################################################################
+##
+## pairfq Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## October, 2015
+##
+
+# for Tcl script use only
+set     appname         pairfq
+set     version         0.14.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://github.com/sestaton/Pairfq"
+set     msg             "Sync paired-end FASTA/Q files and keep singleton reads.\nPairfq Official Site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# pairfq depends on perl/5.16.3.1603
+if { ![is-loaded perl] } {
+    module load perl/5.16.3.1603
+}
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
