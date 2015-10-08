@@ -1,0 +1,37 @@
+#%Module1.0
+#####################################################################
+##
+## ea-utils Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## October, 2015
+##
+
+# for Tcl script use only
+set     appname         ea-utils
+set     version         1.1.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://code.google.com/p/ea-utils/"
+set     msg             "FASTQ processing utilities.\nea-utils Official Site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# ea-utils depends on perl/5.16.3.1603
+if { ![is-loaded perl] } {
+    module load perl/5.16.3.1603
+}
+
+# ea-utils depends on R/3.2.1
+if { ![is-loaded R] } {
+    module load R/3.2.1
+}
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
