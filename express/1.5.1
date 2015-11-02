@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## eXpress Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## November, 2015
+##
+
+# for Tcl script use only
+set     appname         express
+set     version         1.5.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://bio.math.berkeley.edu/eXpress"
+set     msg             "eXpress is a streaming tool for quantifying the abundances of a set of target sequences from sampled subsequences.\neXpress Official Site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
