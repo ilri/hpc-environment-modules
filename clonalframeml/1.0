@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## ClonalFrameML Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## November, 2015
+##
+
+# for Tcl script use only
+set     appname         clonalframeml
+set     version         1.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/xavierdidelot/ClonalFrameML"
+set     msg             "ClonalFrame performs efficient inference of recombination in bacterial genomes.\nClonalFrameML source code repository: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH     ${prefix}
+
+# vim: set sw=4 ts=4:
