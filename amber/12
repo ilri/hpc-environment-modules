@@ -1,0 +1,40 @@
+#%Module1.0
+#####################################################################
+##
+## Amber software suite Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## November, 2015
+##
+
+# for Tcl script use only
+set     appname         amber
+set     version         12
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+set     url             "http://ambermd.org/"
+set     msg             "Amber Software suite consists of Amber & Amber Tools.\nAmber official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# amber requires python/2.7.8 & openmpi/1.8.2
+if { ![is-loaded python] } {
+    module load python/2.7.8
+}
+
+if { ![is-loaded openmpi] } {
+    module load openmpi/1.8.2
+}
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+prepend-path    AMBERHOME   ${prefix}
+
+
+# vim: set sw=4 ts=4:
