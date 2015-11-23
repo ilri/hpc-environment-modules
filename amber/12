@@ -36,5 +36,4 @@ prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${datarootdir}/man
 prepend-path    AMBERHOME   ${prefix}
 
-
 # vim: set sw=4 ts=4:
