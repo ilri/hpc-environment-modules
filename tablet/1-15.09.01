@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## tablet Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## December, 2015
+##
+
+# for Tcl script use only
+set     appname         tablet
+set     version         1-15.09.01
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "https://ics.hutton.ac.uk/tablet/"
+set     msg             "Tablet is a lightweight, high-performance graphical viewer for next generation sequence assemblies and alignments.\nTablet official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
