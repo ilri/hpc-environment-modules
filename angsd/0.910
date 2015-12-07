@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## ANGSD Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## December, 2015
+##
+
+# for Tcl script use only
+set     appname         angsd
+set     version         0.910
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix_1   ${prefix}
+set     exec_prefix_2   ${prefix}/misc
+set     url             "https://github.com/ANGSD/angsd"
+set     msg             "Program for analysing NGS data.\nangsd official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix_1}
+prepend-path    PATH        ${exec_prefix_2}
+
+# vim: set sw=4 ts=4:
