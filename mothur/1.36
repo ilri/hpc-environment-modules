@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## mothur Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## December, 2015
+##
+
+# for Tcl script use only
+set     appname         mothur
+set     version         1.36
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix_1   ${prefix}
+set     exec_prefix_2   ${prefix}/blast/bin
+set     url             "http://www.mothur.org/"
+set     msg             "mothur offers the ability to go from raw sequences to the generation of visualization tools to describe α and β diversity. mothur official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix_1}
+prepend-path    PATH        ${exec_prefix_2}
+
+# vim: set sw=4 ts=4:
