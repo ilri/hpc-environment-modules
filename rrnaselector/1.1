@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## rRNASelector Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## December, 2015
+##
+
+# for Tcl script use only
+set     appname         rrnaselector
+set     version         1.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.ezbiocloud.net/sw/rrnaselector"
+set     msg             "rRNASelector selects rRNA genes from metagenomic and metatranscriptomic sequences.\rRNASelector official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
