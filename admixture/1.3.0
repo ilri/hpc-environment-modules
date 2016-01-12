@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## admixture Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## January, 2016
+##
+
+# for Tcl script use only
+set     appname         admixture
+set     version         1.3.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://www.genetics.ucla.edu/software/admixture/index.html"
+set     msg             "ADMIXTURE is a software tool for maximum likelihood estimation of individual ancestries from multilocus SNP genotype datasets.\nADMIXTURE official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
