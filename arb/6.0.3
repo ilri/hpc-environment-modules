@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## arb Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## January, 2016
+##
+
+# for Tcl script use only
+set     appname         arb
+set     version         6.0.3
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.arb-home.de/home.html"
+set     msg             "ARB consists of various tools for sequence database handling and data analysis.\nARB official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH                ${prefix}/bin
+prepend-path    LD_LD_LIBRARY_PATH  ${prefix}/lib
+
+# vim: set sw=4 ts=4:
