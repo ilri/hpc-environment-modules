@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## trinity Modulefile
+## By James Oguya, j.oguya@cgiar.org
+## January, 2016
+##
+
+set appname                 trinity
+set version                 v2.1.1
+set prefix                  /export/apps/${appname}/${version}
+set exec_prefix             ${prefix}
+
+set url "https://github.com/trinityrnaseq/trinityrnaseq"
+set msg "Trinity RNA-Seq de novo transcriptome assembly.\nTrinity Official Site: $url\n"
+
+module-whatis "$msg"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        trinity
+
+prepend-path    PATH    ${exec_prefix}
