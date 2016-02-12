@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## exabayes Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## February, 2016
+##
+
+# for Tcl script use only
+set     appname         exabayes
+set     version         1.4.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://sco.h-its.org/exelixis/web/software/exabayes/"
+set     msg             "ExaBayes is a software package for Bayesian tree inference.\nExaBayes official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# exabayes requires openmpi
+if { ![is-loaded openmpi] } {
+    module load openmpi/1.8.2
+}
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
