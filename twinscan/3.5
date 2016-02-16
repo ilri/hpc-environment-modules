@@ -1,0 +1,33 @@
+#%Module1.0
+#####################################################################
+##
+## twinscan Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## February, 2016
+##
+
+# for Tcl script use only
+set     appname         twinscan
+set     version         3.5
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://mblab.wustl.edu/software.html"
+set     msg             "Twinscan is a tool for predicting gene-structure in eukaryotic genomic sequences.\nTwinscan official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# twinscan requires perl
+if { ![is-loaded perl] } {
+    module load perl/5.16.3.1603
+}
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PERL5LIB    ${prefix}/lib
+
+# vim: set sw=4 ts=4:
