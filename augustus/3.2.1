@@ -1,0 +1,32 @@
+#%Module1.0
+#####################################################################
+##
+## augustus Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## February, 2016
+##
+
+# for Tcl script use only
+set     appname         augustus
+set     version         3.2.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://bioinf.uni-greifswald.de/augustus/"
+set     msg             "Augustus predicts genes in eukaryotic genomic sequences.\nAugustus official website: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# augustus requires perl
+if { ![is-loaded perl] } {
+    module load perl/perl/5.16.3.1603
+}
+
+prepend-path    PATH    ${prefix}/bin
+prepend-path    PATH    ${prefix}/scripts
+
+# vim: set sw=4 ts=4:
