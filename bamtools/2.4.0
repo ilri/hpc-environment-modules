@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## bamtools Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## February, 2016
+##
+
+# for Tcl script use only
+set     appname         bamtools
+set     version         2.4.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://github.com/pezmaster31/bamtools"
+set     msg             "Bamtools provides C++ API & command-line toolkit for working with BAM data.\nBamtools official code repository: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH                ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
