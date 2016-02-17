@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## scipio Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## February, 2016
+##
+
+# for Tcl script use only
+set     appname         scipio
+set     version         1.4.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.webscipio.org/"
+set     msg             "Scipio is a tool for identifying eukaryotic genes.\nScipio official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# scipio requires bioperl
+if { ![is-loaded bioperl] } {
+    module load bioperl/1.6.923
+}
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
