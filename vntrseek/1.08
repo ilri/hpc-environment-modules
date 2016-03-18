@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## vntrseek Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         vntrseek
+set     version         1.08
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://orca.bu.edu/vntrseek/"
+set     msg             "VNTRSeek is a computational pipeline for the detection of VNTRs.\nVNTRSeek official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# vntrseek requires perl
+if { ![is-loaded bioperl] } {
+    module load perl/5.16.3.1603
+}
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
