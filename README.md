@@ -9,7 +9,7 @@ These modules load and unload programs installed in the `/export/apps/$SOFTWARE/
 For example, in our infrastructure, *NCBI BLAST 2.2.30+* is installed in `/export/apps/blast/2.2.30+`.
 
 ## License
-Copyright (C) 2015 International Livestock Research Institute (ILRI)
+Copyright (C) 2015–2016 International Livestock Research Institute (ILRI)
 
 The contents of this repository are free software: you can redistribute
 it and/or modify it under the terms of the GNU General Public License
