@@ -1,0 +1,34 @@
+#%Module1.0
+#####################################################################
+##
+## freebayes Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         freebayes
+set     version         1.0.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/ekg/freebayes"
+set     msg             "FreeBayes is a Bayesian genetic variant detector designed to find small polymorphisms.\nFreeBayes code repository: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# freebayes requires bamtools & vcflib
+if { ![is-loaded bamtool] } {
+    module load bamtools/2.4.0
+}
+if { ![is-loaded vcflib] } {
+    module load vcflib/git-7f1575e
+}
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
