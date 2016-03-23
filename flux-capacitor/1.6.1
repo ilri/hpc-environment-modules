@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## flux-capacitor Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         flux-capacitor
+set     version         1.6.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://big.crg.cat/services/flux_capacitor"
+set     msg             "Flux Capacitor predicts abundances for transcript molecules and alternative splicing events from RNAseq experiments.\nFlux Capacitor official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
