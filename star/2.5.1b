@@ -1,0 +1,32 @@
+#%Module1.0
+#####################################################################
+##
+## star Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         star
+set     version         2.5.1b
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin/Linux_x86_64
+set     url             "https://github.com/alexdobin/STAR/"
+set     msg             "STAR(Spliced Transcripts Alignment to a Reference) is an RNA-seq aligner.\nSTAR code repository: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# star requires htslib
+if { ![is-loaded htslib] } {
+    module load htslib/1.2.1
+}
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
