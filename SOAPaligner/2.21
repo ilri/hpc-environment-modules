@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## SOAPaligner Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         SOAPaligner
+set     version         2.21
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://soap.genomics.org.cn/soapaligner.html"
+set     msg             "Genome-wide ab initio detection of splice junction sites from RNA-Seq.\nSOAPaligner official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
