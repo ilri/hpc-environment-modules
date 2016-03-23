@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## SOAPsplice Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         SOAPsplice
+set     version         1.10
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://soap.genomics.org.cn/soapsplice.html"
+set     msg             "Genome-wide ab initio detection of splice junction sites from RNA-Seq.\nSOAPsplice official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
