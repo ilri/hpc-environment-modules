@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## SMALT Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         smalt
+set     version         0.7.6
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://www.sanger.ac.uk/science/tools/smalt-0"
+set     msg             "SMALT aligns DNA sequencing reads with a reference genome.\nSMALT official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
