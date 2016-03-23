@@ -1,0 +1,32 @@
+#%Module1.0
+#####################################################################
+##
+## GMAP-GSNAP Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         gmap
+set     version         2015-12-31
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://research-pub.gene.com/gmap/"
+set     msg             "A Genomic Mapping and Alignment Program(GMAP) for mRNA and EST Sequences and Genomic Short-read Nucleotide Alignment Program(GSNAP).\nGMAP-GSNAP official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# gmap requires openmpi
+if { ![is-loaded openmpi] } {
+    module load openmpi/1.8.2
+}
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
