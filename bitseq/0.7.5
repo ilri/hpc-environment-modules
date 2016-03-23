@@ -1,0 +1,34 @@
+#%Module1.0
+#####################################################################
+##
+## BitSeq Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         bitseq
+set     version         0.7.5
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://bitseq.github.io/"
+set     msg             "Transcript isoform level expression and differential expression estimation for RNA-seq.\nBitSeq official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# BitSeq requires python & samtools
+if { ![is-loaded samtools] } {
+    module load samtools/1.2
+}
+if { ![is-loaded python] } {
+    module load python/2.7.8
+}
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
