@@ -1,0 +1,125 @@
+#%Module1.0
+#####################################################################
+##
+## iRAP Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         irap
+set     version         0.8.0p5
+set     prefix          /export/apps/${appname}/${version}
+set     data_root_dir   ${prefix}/share
+set     exec_prefix_1   ${prefix}/bin
+set     exec_prefix_2   ${prefix}/scripts
+
+set     url             "https://nunofonseca.github.io/irap/"
+set     msg             "iRAP is a computational pipeline for RNA-seq.\niRAP official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+# iRAP requires fastqc, R, fastx_toolkit, samtools, bamtools, bedtools, star, smalt, e.t.c
+if { ![is-loaded fastqc] } {
+    module load fastqc/0.11.3
+}
+if { ![is-loaded fastx_toolkit] } {
+    module load fastx_toolkit/0.0.13
+}
+if { ![is-loaded samtools] } {
+    module load samtools/0.1.18
+}
+if { ![is-loaded bamtools] } {
+    module load bamtools/2.4.0
+}
+if { ![is-loaded vcftools] } {
+    module load vcftools/0.1.12b
+}
+if { ![is-loaded bedtools] } {
+    module load bedtools/2.17.0
+}
+if { ![is-loaded python] } {
+    module load python/2.7.8
+}
+if { ![is-loaded picard] } {
+    module load picard/1.133
+}
+if { ![is-loaded bowtie2] } {
+    module load bowtie2/2.2.5
+}
+if { ![is-loaded tophat2] } {
+    module load tophat2/2.1.0
+}
+if { ![is-loaded tophat] } {
+    module load tophat/1.4.1
+}
+if { ![is-loaded bwa] } {
+    module load bwa/0.7.4
+}
+if { ![is-loaded perl] } {
+    module load perl/5.16.3.1603
+}
+if { ![is-loaded stringtie] } {
+    module load stringtie/1.0.4
+}
+if { ![is-loaded cufflinks] } {
+    module load cufflinks/2.2.1
+}
+if { ![is-loaded htseq] } {
+    module load htseq/0.6.1
+}
+if { ![is-loaded make] } {
+    module load make/4.1
+}
+if { ![is-loaded bcftools] } {
+    module load bcftools/1.2
+}
+if { ![is-loaded RSEM] } {
+    module load RSEM/1.2.9
+}
+if { ![is-loaded bioperl] } {
+    module load bioperl/1.6.923
+}
+if { ![is-loaded star] } {
+    module load star/2.5.1b
+}
+if { ![is-loaded smalt] } {
+    module load smalt/0.7.6
+}
+if { ![is-loaded gmap] } {
+    module load gmap/2015-12-31
+}
+if { ![is-loaded SOAPaligner] } {
+    module load SOAPaligner/2.21
+}
+if { ![is-loaded mapsplice] } {
+    module load mapsplice/2.2.0
+}
+if { ![is-loaded bitseq] } {
+    module load bitseq/0.7.5
+}
+if { ![is-loaded flux-capacitor] } {
+    module load flux-capacitor/1.6.1
+}
+if { ![is-loaded sailfish] } {
+    module load sailfish/0.9.2
+}
+if { ![is-loaded kallisto] } {
+    module load kallisto/0.42.4
+}
+
+prepend-path    PATH                ${exec_prefix_1}
+prepend-path    PATH                ${exec_prefix_2}
+prepend-path    MANPATH             ${data_root_dir}/man
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+prepend-path    R_LIBS              ${prefix}/Rlibs
+prepend-path    R_LIBS_USER         ${prefix}/Rlibs
+prepend-path    PERL5LIB            ${prefix}/lib/perl5/5.20.3
+
+# vim: set sw=4 ts=4:
