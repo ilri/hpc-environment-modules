@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## htslib modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## March, 2016
+##
+
+# for Tcl script use only
+set     appname         htslib
+set     version         1.3
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/samtools/htslib"
+set     msg             "C library for high-throughput sequencing data formats.\nPicard official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	htslib
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    MANPATH         ${prefix}/share/man
