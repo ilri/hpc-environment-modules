@@ -113,6 +113,9 @@ if { ![is-loaded sailfish] } {
 if { ![is-loaded kallisto] } {
     module load kallisto/0.42.4
 }
+if { ![is-loaded htseq] } {
+    module load htseq/0.6.1
+}
 
 setenv          IRAP_DIR            ${prefix}
 prepend-path    PATH                ${exec_prefix_1}
