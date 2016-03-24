@@ -114,6 +114,7 @@ if { ![is-loaded kallisto] } {
     module load kallisto/0.42.4
 }
 
+setenv          IRAP_DIR            ${prefix}
 prepend-path    PATH                ${exec_prefix_1}
 prepend-path    PATH                ${exec_prefix_2}
 prepend-path    MANPATH             ${data_root_dir}/man
