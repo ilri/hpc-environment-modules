@@ -24,12 +24,12 @@ conflict        RSEM
 prepend-path    PATH    ${exec_prefix}
 
 # load RSEM dependencies - bowtie2/2.2.3, bowtie/1.1.1, R/3.1.0
-if { ! [is-loaded bowtie2/2.2.3] } {
-    module load bowtie2/2.2.3
+if { ! [is-loaded bowtie2] } {
+    module load bowtie2
 }
 
-if { ![is-loaded bowtie/1.1.1] } {
-    module load bowtie/1.1.1
+if { ![is-loaded bowtie] } {
+    module load bowtie
 }
 
 if { ![is-loaded R/3.1.0] } {
