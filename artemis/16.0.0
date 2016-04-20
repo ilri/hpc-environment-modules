@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## artemis Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## April, 2016
+##
+
+# for Tcl script use only
+set     appname         artemis
+set     version         16.0.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.sanger.ac.uk/science/tools/artemis"
+set     msg             "Artemis is a free genome browser and annotation tool that allows visualisation of sequence features, next generation data and the results of analyses within the context of the sequence, and also its six-frame translation.\nArtemis official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
