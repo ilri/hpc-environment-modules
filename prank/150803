@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## PRANK Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## April, 2016
+##
+
+# for Tcl script use only
+set     appname         prank
+set     version         150803
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://wasabiapp.org/software/prank/"
+set     msg             "PRANK is a probabilistic multiple alignment program for DNA, codon and amino-acid sequences.\nPRANK official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
