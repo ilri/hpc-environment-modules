@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## flexbar Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## May, 2016
+##
+
+# for Tcl script use only
+set     appname         flexbar
+set     version         2.7.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/seqan/flexbar"
+set     msg             "flexbar is a flexible barcode and adapter processing for next-generation sequencing platforms.\nflexbar official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
