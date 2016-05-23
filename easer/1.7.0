@@ -17,8 +17,8 @@ conflict	$appname
 module-whatis $msg
 
 # easer/1.7.0 requires python/2.7.8 & perl/5.16.3.1603
-if { ![is-loaded easer] } {
-    module load easer/1.7.0
+if { ![is-loaded python] } {
+    module load python/2.7.8
 }
 if { ![is-loaded perl] } {
     module load perl/5.16.3.1603
