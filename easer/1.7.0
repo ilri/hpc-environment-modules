@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## easer modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## May, 2016
+##
+
+# for Tcl script use only
+set     appname         easer
+set     version         1.7.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://easer.sourceforge.net/"
+set     msg             "EASER(Ensembl Easy Sequence Retriever) is a python program based in PyCogent library for the homology-based retrieval of several sequence data types from Ensembl.\nEASER official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# easer/1.7.0 requires python/2.7.8 & perl/5.16.3.1603
+if { ![is-loaded easer] } {
+    module load easer/1.7.0
+}
+if { ![is-loaded perl] } {
+    module load perl/5.16.3.1603
+}
+
+prepend-path    PATH            ${prefix}
+
+# vim: set sw=4 ts=4:
