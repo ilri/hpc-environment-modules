@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## SNPMeta modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## May, 2016
+##
+
+# for Tcl script use only
+set     appname         snpmeta
+set     version         2.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix_1   ${prefix}
+set     exec_prefix_2   ${prefix}/Helper_Scripts
+set     url             "http://www.tc.umn.edu/~konox006/Code/SNPMeta/"
+set     msg             "SNPMeta is a Python and BioPython-based tool to generate 'metadata' for single nucleotide polymorphisms (SNPs) for easy filtering, or submission to SNP databases.\nSNPMeta official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# snpmeta requires python3
+if { ![is-loaded python] } {
+    module load python/3.4.3
+}
+
+prepend-path    PATH            ${exec_prefix_1}
+prepend-path    PATH            ${exec_prefix_2}
+
+# vim: set sw=4 ts=4:
