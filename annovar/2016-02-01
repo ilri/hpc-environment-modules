@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## Annovar modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## June, 2016
+##
+
+# for Tcl script use only
+set     appname         annovar
+set     version         2016-02-01
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://annovar.openbioinformatics.org"
+set     msg             "ANNOVAR is an efficient software tool to utilize update-to-date information to functionally annotate genetic variants detected from diverse genomes.\nANNOVAR official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${prefix}
+# vim: set sw=4 ts=4:
