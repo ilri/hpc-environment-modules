@@ -1,0 +1,32 @@
+#%Module1.0#####################################################################
+##
+## presto modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## June, 2016
+##
+
+# for Tcl script use only
+set     appname         presto
+set     version         0.5.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://presto.readthedocs.io/en/latest/index.html"
+set     msg             "pRESTO is a toolkit for processing raw reads from high-throughput sequencing of lymphocyte repertoires.\npRESTO official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# presto/0.5.2 requires python/3.4.3, muscle/3.8.31 & usearch/v7.0.1090
+if { ![is-loaded python] } {
+    module load python/3.4.3
+}
+if { ![is-loaded muscle] } {
+    module load muscle/3.8.31
+}
+if { ![is-loaded usearch] } {
+    module load usearch/v7.0.1090
+}
+
+prepend-path    PATH            ${prefix}/bin
+
+# vim: set sw=4 ts=4:
