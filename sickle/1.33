@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## sickle modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## July, 2016
+##
+
+# for Tcl script use only
+set     appname         sickle
+set     version         1.33
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/najoshi/sickle"
+set     msg             "sickle is a windowed adaptive trimming tool for FASTQ files using quality.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
