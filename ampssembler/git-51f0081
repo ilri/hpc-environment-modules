@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## AMPssembler modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         ampssembler
+set     version         git-51f0081
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/chkcole/AMPssembler"
+set     msg             "AMPssembler reconstitutes complete barcoded cDNA transcripts from a mixture of sequenced libraries.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# AMPssembler scripts require python & trimmomatic
+if { ![is-loaded python] } {
+    module load python/2.7.8
+}
+
+if { ![is-loaded trimmomatic] } {
+    module load trimmomatic/0.33
+}
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
