@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## TMIseq modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         tmiseq
+set     version         2016-01-31
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://vollmerslab.soe.ucsc.edu/updates"
+set     msg             "Loads TMIseq scripts.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# tmiseq scripts require python & trimmomatic
+if { ![is-loaded python] } {
+    module load python/2.7.8
+}
+
+if { ![is-loaded trimmomatic] } {
+    module load trimmomatic/0.33
+}
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
