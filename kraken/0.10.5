@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## kraken modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         kraken
+set     version         0.10.5
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     msg             "Kraken is a taxonomic sequence classifier that assigns taxonomic labels to short DNA reads.\nOfficial Site: http://ccb.jhu.edu/software/kraken/MANUAL.html"
+
+conflict	${appname}
+
+module-whatis $msg
+
+# kraken requires perl
+if { ![is-loaded perl] } {
+    module load perl/5.16.3.1603
+}
+
+prepend-path    PATH                ${exec_prefix}
+setenv          KRAKEN_DB_PATH      /export/data/bio/kraken/db
