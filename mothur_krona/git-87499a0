@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## mothur_krona modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         mothur_krona
+set     version         git-87499a0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     msg             "A script to convert mothur taxonomy summary files to Krona XML format.\nOfficial Site: https://github.com/accaldwell/mothur_krona"
+
+conflict	${appname}
+
+module-whatis $msg
+
+# mothur_krona requires python
+if { ![is-loaded python] } {
+    module load python/2.7.8
+}
+
+prepend-path    PATH            ${exec_prefix}
