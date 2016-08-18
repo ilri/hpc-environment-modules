@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## blobtools modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         blobtools
+set     version         0.9.19.3
+set     prefix          /export/apps/${appname}
+set     exec_prefix     ${prefix}
+set     msg             "Application for the visualisation of draft genome assemblies and general QC.\nOfficial site: https://github.com/DRL/blobtools"
+
+conflict    ${appname}
+
+module-whatis $msg
+
+# depends on python 2.7.8
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+
