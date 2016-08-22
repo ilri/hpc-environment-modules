@@ -1,0 +1,33 @@
+#%Module1.0#####################################################################
+##
+## umi-tools modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         umi-tools
+set     version         0.2.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "https://github.com/CGATOxford/UMI-tools"
+set     msg             "Tools for dealing with Unique Molecular Identifiers.\nOfficial site: ${url}"
+
+conflict    ${appname}
+
+module-whatis $msg
+
+# depends on python/2.7.8, bcftools/1.3, samtools/1.3, htslib/1.3
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
+if { ![is-loaded bcftools/1.3] } {
+	module load bcftools/1.3
+}
+if { ![is-loaded htslib/1.3] } {
+	module load htslib/1.3
+}
+if { ![is-loaded samtools/1.3] } {
+	module load samtools/1.3
+}
+prepend-path    PATH            ${exec_prefix}
