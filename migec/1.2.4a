@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## migec modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## August, 2016
+##
+
+# for Tcl script use only
+set     appname         migec
+set     version         1.2.4a
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "https://github.com/mikessh/migec"
+set     msg             "Molecular Identifier Guided Error Correction pipeline that provides several useful tools for analysis of immune repertoire sequencing data.\nOfficial site: ${url}"
+
+conflict    ${appname}
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
