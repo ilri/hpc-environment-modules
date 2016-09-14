@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## igblast modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## September, 2016
+##
+
+# for Tcl script use only
+set     appname         igblast
+set     version         1.6.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://www.ncbi.nlm.nih.gov/igblast/"
+set     msg             "IgBLAST was developed at NCBI to facilitate analysis of immunoglobulin variable domain sequences but has recently been extended to perform analysis for T cell receptor (TR) sequences.\IgBLAST official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}/bin
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+setenv          BLASTDB             /export/data/bio/ncbi/blast/db
+
+# vim: set sw=4 ts=4:
