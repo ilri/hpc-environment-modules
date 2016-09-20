@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## PEAR modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## September, 2016
+##
+
+# for Tcl script use only
+set     appname         pear
+set     version         git-2c309dc
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+set     url             "https://github.com/xflouris/PEAR"
+set     msg             "PEAR assembles Illumina paired-end reads if the DNA fragment sizes are smaller than twice the length of reads.\nPEAR official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${exec_prefix}
+prepend-path    MANPATH             ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
