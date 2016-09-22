@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## kallisto modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## September, 2016
+##
+
+# for Tcl script use only
+set     appname         kallisto
+set     version         0.43.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://pachterlab.github.io/kallisto/"
+set     msg             "kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads.\nKallisto official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
