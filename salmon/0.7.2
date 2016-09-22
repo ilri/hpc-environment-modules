@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## salmon modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## September, 2016
+##
+
+# for Tcl script use only
+set     appname         salmon
+set     version         0.7.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://salmon.readthedocs.io/en/latest/salmon.html"
+set     msg             "Salmon is a tool for wicked-fast transcript quantification from RNA-seq data. It requires a set of target transcripts (either from a reference or de-novo assembly) to quantify.\nSalmon official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}/bin
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
