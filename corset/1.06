@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## corset modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         corset
+set     version         1.06
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/Oshlack/Corset"
+set     msg             "Corset is a software for clustering de novo assembled transcripts and counting overlapping reads.\nCorset official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
