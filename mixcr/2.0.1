@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## mixcr modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         mixcr
+set     version         2.0.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/milaboratory/mixcr"
+set     msg             "MiXCR is a universal software for fast and accurate analysis of raw T- or B- cell receptor repertoire sequencing data.\nMiXCR official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+#mixcr requires java/1.8
+if { ![is-loaded java/1.8] } {
+    module load java/1.8
+}
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
