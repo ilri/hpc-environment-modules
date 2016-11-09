@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## java modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         java
+set     version         1.8
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     doc_prefix      ${prefix}/man
+set     url             "http://www.oracle.com/technetwork/java/javase/overview/index.html"
+set     msg             "Java Platform, Standard Edition (Java SE) lets you develop and deploy Java applications on desktops and servers, as well as in today's demanding embedded environments.\nJava official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${doc_prefix}
+setenv          JAVA_HOME       ${prefix}
+
+# vim: set sw=4 ts=4:
