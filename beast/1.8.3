@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## beast modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         beast
+set     version         1.8.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://beast.bio.ed.ac.uk/"
+set     msg             "BEAST is a cross-platform program for Bayesian analysis of molecular sequences using MCMC.\nBEAST official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+#beast/1.8.3 requires beagle/2.1.2
+if { ![is-loaded beagle/2.1.2] } {
+    module load beagle/2.1.2
+}
+
+prepend-path    PATH                ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
