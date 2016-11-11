@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## clustalo modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         clustalo
+set     version         1.2.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://www.clustal.org/omega"
+set     msg             "Clustal Omega is a program for doing multiple alignment of nucleic acid and protein sequences.\nClustal Omega official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
