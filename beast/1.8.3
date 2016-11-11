@@ -17,10 +17,14 @@ conflict	$appname
 
 module-whatis $msg
 
-#beast/1.8.3 requires beagle/2.1.2
+#beast/1.8.3 requires beagle/2.1.2 & java/1.8**
 if { ![is-loaded beagle/2.1.2] } {
     module load beagle/2.1.2
 }
+if { ![is-loaded java/1.8] } {
+    module load java/1.8
+}
+
 
 prepend-path    PATH                ${exec_prefix}
 prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
