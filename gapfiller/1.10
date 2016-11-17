@@ -17,10 +17,9 @@ conflict	$appname
 module-whatis $msg
 
 #gapfiller requires bowtie & bwa
-if { ![is-loaded bowtie2/2.2.8] }{
+if { ![is-loaded bowtie2/2.2.8] } {
     module load bowtie2/2.2.8
 }
-
 if { ![is-loaded bwa/0.7.13] } {
     module load bwa/0.7.13
 }
