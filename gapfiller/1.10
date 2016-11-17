@@ -1,0 +1,31 @@
+#%Module1.0#####################################################################
+##
+## gapfiller modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         gapfiller
+set     version         1.10
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://www.baseclear.com/genomics/bioinformatics/basetools/gapfiller"
+set     msg             "GapFiller is a stand-alone program for closing gaps within pre-assembled scaffolds.\nGapFiller official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+#gapfiller requires bowtie & bwa
+if { ![is-loaded bowtie2/2.2.8] }{
+    module load bowtie2/2.2.8
+}
+
+if { ![is-loaded bwa/0.7.13] } {
+    module load bwa/0.7.13
+}
+
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
