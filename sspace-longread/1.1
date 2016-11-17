@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## sspace-longread modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         sspace-longread
+set     version         1.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://www.baseclear.com/genomics/bioinformatics/basetools/SSPACE-longread"
+set     msg             "SSPACE-longread is a stand-alone program for scaffolding pre-assembled contigs using long reads.\nSSPACE-longread official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
