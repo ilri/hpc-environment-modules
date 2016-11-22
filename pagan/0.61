@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## pagan modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         pagan
+set     version         0.61
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://wasabiapp.org/software/pagan"
+set     msg             "Pagan is a general-purpose tool for the alignment of sequence graphs.\nPagan official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
