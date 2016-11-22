@@ -1,0 +1,50 @@
+#%Module1.0#####################################################################
+##
+## guidance modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         guidance
+set     version         2.02
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix_1   ${prefix}/www/Guidance/
+set     exec_prefix_2   ${prefix}/www/Selecton/
+set     exec_prefix_3   ${prefix}/programs/semphy/
+set     exec_prefix_4   ${prefix}/www/Guidance/exec/
+set     exec_prefix_5   ${prefix}/programs/removeTaxa/
+set     exec_prefix_6   ${prefix}/programs/isEqualTree/
+set     exec_prefix_7   ${prefix}/www/Guidance/exec/HoT/
+set     exec_prefix_8   ${prefix}/programs/msa_set_score/
+set     exec_prefix_9   ${prefix}/www/bioSequence_scripts_and_constants/
+set     url             "http://guidance.tau.ac.il/ver2/"
+set     msg             "Guidance is a tool for multiple sequence alignment.\nGuidance official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# guidance requires mafft/6.861 clustalw/2.1 muscle/3.8.31 pagan/0.61 bioperl/1.6.923 perl5
+if { ![is-loaded mafft/6.861] } {
+    module load mafft/6.861
+}
+if { ![is-loaded clustalw/2.1] } {
+    module load clustalw/2.1
+}
+if { ![is-loaded muscle/3.8.31] } {
+    module load muscle/3.8.31
+}
+if { ![is-loaded pagan/0.61] } {
+    module load pagan/0.61
+}
+if { ![is-loaded bioperl/1.6.923] } {
+    module load bioperl/1.6.923
+}
+if { ![is-loaded perl/5.16.3.1603] } {
+    module load perl/5.16.3.1603
+}
+
+prepend-path    PATH                ${exec_prefix_1} ${exec_prefix_2} ${exec_prefix_3} ${exec_prefix_4} ${exec_prefix_5} ${exec_prefix_6} ${exec_prefix_7} ${exec_prefix_8} ${exec_prefix_9}
+
+# vim: set sw=4 ts=4:
