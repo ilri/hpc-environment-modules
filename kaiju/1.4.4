@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## kaiju modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## November, 2016
+##
+
+# for Tcl script use only
+set     appname         kaiju
+set     version         1.4.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://kaiju.binf.ku.dk/"
+set     msg             "Kiaju is a program for sensitive taxonomic classification of high-throughput sequencing reads from metagenomic whole genome sequencing experiments.\nKaiju official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${exec_prefix}
+
+# vim: set sw=4 ts=4:
