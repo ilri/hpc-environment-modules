@@ -9,7 +9,7 @@
 set     appname         SOAPdenovo-Trans
 set     version         1.03
 set     prefix          /export/apps/${appname}/${version}
-set     url             "https://www.ncbi.nlm.nih.gov/igblastv://sourceforge.net/projects/soapdenovotrans/"
+set     url             "http://sourceforge.net/projects/soapdenovotrans/"
 set     msg             "SOAPdenovo-Trans is a de novo transcriptome assembler inherited from the SOAPdenovo2 framework, designed for assembling transcriptome with alternative splicing and different expression level.\nSOAPdenovo-Trans official site: $url\n"
 
 conflict	$appname
