@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## busco modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## January, 2017
+##
+
+# for Tcl script use only
+set     appname         busco
+set     version         2.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://busco.ezlab.org/"
+set     msg             "BUSCO provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness.\nBUSCO official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
