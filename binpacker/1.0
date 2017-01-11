@@ -16,6 +16,6 @@ conflict	$appname
 
 module-whatis $msg
 
-prepend-path    PATH                ${prefix}/bin
+prepend-path    PATH                ${prefix}
 
 # vim: set sw=4 ts=4:
