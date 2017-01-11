@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## binpacker modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## January, 2017
+##
+
+# for Tcl script use only
+set     appname         binpacker
+set     version         1.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://sourceforge.net/project/transcriptomeassembly/"
+set     msg             "BinPacker is an efficient de novo trascriptome assembler for RNA-Seq data.\nBinPacker official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}/bin
+
+# vim: set sw=4 ts=4:
