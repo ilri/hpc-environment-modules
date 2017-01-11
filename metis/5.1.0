@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## metis modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## January, 2017
+##
+
+# for Tcl script use only
+set     appname         metis
+set     version         5.1.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://glaros.dtc.umn.edu/gkhome/metis/metis/"
+set     msg             "METIS - Serial Graph Partitioning and Fill-reducing Matrix Ordering.\nMetis official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}/bin
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
