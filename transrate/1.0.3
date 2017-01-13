@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## transrate modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## January, 2017
+##
+
+# for Tcl script use only
+set     appname         transrate
+set     version         1.0.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://hibberdlab.com/transrate/"
+set     msg             "Transrate is a software for de-novo transcriptome assembly quality analysis.\nTransrate official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+prepend-path    PATH                ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+
+# vim: set sw=4 ts=4:
