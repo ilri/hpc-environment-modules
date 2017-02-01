@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## ratt modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         ratt
+set     version         r18
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://ratt.sourceforge.net/index.html"
+set     msg             "RATT is software to transfer annotation from a reference (annotated) genome to an unannotated query genome.\nRATT official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
