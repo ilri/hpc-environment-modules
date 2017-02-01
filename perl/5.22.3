@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## perl Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## Feb., 2017
+##
+
+# for Tcl script use only
+set     appname         perl
+set     version         5.22.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/man
+set     url             "https://www.perl.org/"
+set     msg             "Perl 5 is a highly capable, feature-rich programming language.\nPerl official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}
+
+# vim: set sw=4 ts=4:
