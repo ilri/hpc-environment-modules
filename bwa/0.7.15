@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## bwa Modulefile
+## by James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+set     appname         bwa
+set     version         0.7.15
+set     prefix          /export/apps/bwa/${version}
+set     exec_prefix_1   ${prefix}/bin
+set     exec_prefix_2   ${prefix}/bwakit
+set     datarootdir     ${prefix}/share
+set     url             "http://bio-bwa.sourceforge.net/"
+set     msg             "BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.\nBWA Official Site: $url\n"
+
+proc ModulesHelp { } {
+	puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict		${appname}
+
+prepend-path	PATH		${exec_prefix_1}
+prepend-path	PATH		${exec_prefix_2}
+prepend-path	MANPATH		${datarootdir}/man
