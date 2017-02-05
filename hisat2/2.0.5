@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## HISAT2 modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         hisat2
+set     version         2.0.5
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://ccb.jhu.edu/software/hisat2/index.shtml"
+set     msg             "HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads to a population of human genomes.\nHISAT2 official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
