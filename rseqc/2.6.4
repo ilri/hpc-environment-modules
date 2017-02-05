@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## RSeQC modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         rseqc
+set     version         2.6.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://rseqc.sourceforge.net/"
+set     msg             "RSeQC: An RNA-seq Quality Control Package.\nOfficial site: $url"
+
+conflict    $appname
+
+module-whatis $msg
+
+# depends on python/2.7.8
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
