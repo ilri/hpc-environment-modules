@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## GSEA modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         gsea
+set     version         2.2.3
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://software.broadinstitute.org/gsea/index.jsp"
+set     msg             "Gene Set Enrichment Analysis(GSEA).\nGSEA official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# gsea requires java/1.8
+if { ![is-loaded java/1.8] }{
+    module load java/1.8
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
