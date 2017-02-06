@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## IGV modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         igv
+set     version         2.3.90
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://software.broadinstitute.org/software/igv"
+set     msg             "Integrative Genomics Viewer(IGV).\nIGV official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# igv requires java/1.8
+if { ![is-loaded java/1.8] }{
+    module load java/1.8
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
