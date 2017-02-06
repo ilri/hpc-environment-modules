@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## VEP modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         vep
+set     version         87
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.ensembl.org/info/docs/tools/vep/script/"
+set     msg             "VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\nVEP official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# vcftools requires perl/5.22.3
+if { ![is-loaded perl/5.22.3] } {
+    module load perl/5.22.3
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
+prepend-path    PERL5LIB        ${prefix}
