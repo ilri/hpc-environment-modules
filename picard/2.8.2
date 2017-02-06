@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## picard modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         picard
+set     version         2.8.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://broadinstitute.github.io/picard"
+set     msg             "A set of Java command line tools for manipulating high-throughput sequencing data (HTS) data and formats.\nPicard official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# picard requires java/1.8
+if { ![is-loaded java/1.8] }{
+    module load java/1.8
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
