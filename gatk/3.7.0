@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## GATK modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         gatk
+set     version         3.7.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://software.broadinstitute.org/gatk/"
+set     msg             "GATK offers a wide variety of tools with a primary focus on variant discovery and genotyping.\nGATK official site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# gatk requires java/1.8
+if { ![is-loaded java/1.8] }{
+    module load java/1.8
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
