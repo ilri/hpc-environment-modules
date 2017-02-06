@@ -21,7 +21,7 @@ proc ModulesHelp { } {
 }
 
 # vcftools requires perl/5.22.3
-if { ![is-loaded perl/5.22.3] }{
+if { ![is-loaded perl/5.22.3] } {
     module load perl/5.22.3
 }
 
