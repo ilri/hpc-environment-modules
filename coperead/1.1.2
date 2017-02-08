@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## COPEread modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         coperead
+set     version         1.1.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://sourceforge.net/projects/coperead/"
+set     msg             "COPE (Connecting Overlapped Pair-End reads) is a method to align and connect the illumina sequenced Pair-End reads of which the insert size is smaller than the sum of the two read length.\nCOPE read official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
