@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## apache ant modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         ant
+set     version         1.10.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://ant.apache.org/"
+set     msg             "Apache Ant is a Java library and command-line tool that help building software.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# ant requires java/1.8
+if { ![is-loaded java/1.8] } {
+    module load java/1.8
+}
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${doc_prefix}
+
+# vim: set sw=4 ts=4:
