@@ -17,5 +17,6 @@ conflict	$appname
 module-whatis $msg
 
 prepend-path    PATH                ${prefix}
+prepend-path    LD_LIBRARY_PATH     /export/apps/boost/1.50.0/lib
 
 # vim: set sw=4 ts=4:
