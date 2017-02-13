@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## GFFRead modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         gffread
+set     version         0.9.6
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/gpertea/gffread"
+set     msg             "GFFRead is a GFF/GTF parsing utility providing format conversions, region filtering, FASTA sequence extraction.\nOfficial site: ${url}"
+
+conflict    ${appname}
+
+module-whatis $msg
+
+prepend-path    PATH            ${prefix}
