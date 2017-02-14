@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## KmerGenie modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         kmergenie
+set     version         1.7038
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://kmergenie.bx.psu.edu/"
+set     msg             "KmerGenie estimates the best k-mer length for genome de novo assembly.\nOfficial site: $url"
+
+conflict    $appname
+
+module-whatis $msg
+
+# depends on python/2.7.8 and ntcard/1.0.0
+if { ![is-loaded python/2.7.8] } {
+	module load python/2.7.8
+}
+if { ![is-loaded ntcard/1.0.0] } {
+	module load python/1.0.0
+}
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
