@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## ntCard modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         ntcard
+set     version         1.0.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://github.com/bcgsc/ntCard"
+set     msg             "ntCard is a streaming algorithm for cardinality estimation in genomics datasets.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
+
+# vim: set sw=4 ts=4:
