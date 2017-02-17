@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## PGDSpider modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         pgdspider
+set     version         2.1.1.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://www.cmpg.unibe.ch/software/PGDSpider/"
+set     msg             "PGDSpider is an automated data conversion tool for connecting population genetics and genomics programs.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# fastqc requires java/1.8
+if { ![is-loaded java/1.8] } {
+    module load java/1.8
+}
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
