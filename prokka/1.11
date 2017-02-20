@@ -29,4 +29,6 @@ if { ![is-loaded perl/5.22.3] } {
 
 conflict	$appname
 
-prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${exec_prefix_1}
+prepend-path    PATH            ${exec_prefix_2}
+prepend-path    PATH            ${exec_prefix_3}
