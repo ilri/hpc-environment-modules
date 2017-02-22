@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## GASSFlow modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         gassflow
+set     version         1.0
+set     prefix          /export/apps/${appname}/${version}
+
+set     url             "https://gassflow.codeplex.com/"
+set     msg             "GassFlow is a computational tool to annotate a eukaryotic genome based on only the annotations from another similar species.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# prokka requires python/2.7.8
+if { ![is-loaded python/2.7.8] } {
+    module load python/2.7.8
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
