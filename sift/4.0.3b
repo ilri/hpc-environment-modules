@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## SIFT modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## February, 2017
+##
+
+# for Tcl script use only
+set     appname         sift
+set     version         4.0.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix_1   ${prefix}/bin
+set     exec_prefix_2   ${prefix}/linux
+set     url             "http://sift.jcvi.org/"
+set     msg             "SIFT predicts whether an amino acid substitution affects protein function.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# sift requires perl/5.22.3
+if { ![is-loaded perl/5.22.3] } {
+    module load perl/5.22.3
+}
+
+prepend-path    PATH                ${exec_prefix_1}
+prepend-path    PATH                ${exec_prefix_2}
+
+# vim: set sw=4 ts=4:
