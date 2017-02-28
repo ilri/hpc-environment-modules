@@ -7,7 +7,7 @@
 
 # for Tcl script use only
 set     appname         sift
-set     version         4.0.3
+set     version         4.0.3b
 set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix_1   ${prefix}/bin
 set     exec_prefix_2   ${prefix}/linux
