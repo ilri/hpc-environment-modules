@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## shannon modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## March, 2017
+##
+
+# for Tcl script use only
+set     appname         shannon
+set     version         0.0.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/
+set     url             "https://sreeramkannan.github.io/Shannon/"
+set     msg             "Shannon is a program for assembling transcripts from RNA-Seq data.\nShannon official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# shannon requires python/2.7.8, jellyfish/2.2.3
+if { ![is-loaded python/2.7.8] } {
+    module load python/2.7.8
+}
+if { ![is-loaded jellyfish/2.2.3] } {
+    module load jellyfish/2.2.3
+}
+
+prepend-path    PATH                ${exec_prefix}
+
+# vim: set sw=4 ts=4:
