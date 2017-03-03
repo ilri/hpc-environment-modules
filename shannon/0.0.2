@@ -17,12 +17,15 @@ conflict	$appname
 
 module-whatis $msg
 
-# shannon requires python/2.7.8, jellyfish/2.2.3
+# shannon requires python/2.7.8, jellyfish/2.2.3, metis/5.1.0
 if { ![is-loaded python/2.7.8] } {
     module load python/2.7.8
 }
 if { ![is-loaded jellyfish/2.2.3] } {
     module load jellyfish/2.2.3
+}
+if { ![is-loaded metis/5.1.0] } {
+    module load metis/5.1.0
 }
 
 prepend-path    PATH                ${exec_prefix}
