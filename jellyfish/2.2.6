@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## jellyfish Modulefile
+## By James Oguya <j.oguya@cgiar.org>
+## March, 2017
+##
+
+set appname         jellyfish
+set version         2.2.6
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url "http://www.genome.umd.edu/jellyfish.html"
+set msg "Jellyfish is a tool for fast, memory-efficient counting of k-mers in DNA.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        jellyfish
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${prefix}/share/man
