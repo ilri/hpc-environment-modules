@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## Quorum modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## March, 2017
+##
+
+# for Tcl script use only
+set     appname         quorum
+set     version         1.1.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://github.com/gmarcais/Quorum/"
+set     msg             "Quorum (Quality Optimized Reads from the University of Maryland) is an error corrector for Illumina reads.\nQuorum official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# quorum requires jellyfish/2.2.6
+if { ![is-loaded jellyfish/2.2.6] } {
+    module load jellyfish/2.2.6
+}
+
+prepend-path    PATH                ${exec_prefix}
+
+# vim: set sw=4 ts=4:
