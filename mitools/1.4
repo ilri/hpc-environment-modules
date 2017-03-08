@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## MiTools modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## March, 2017
+##
+
+# for Tcl script use only
+set     appname         mitools
+set     version         1.4
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/milaboratory/mitools"
+set     msg             "MiTools is a Next Generation Sequencing (NGS) data processing tool (based on MiLib).\nMiTools official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# mitools requires java/1.8
+if { ![is-loaded java/1.8] } {
+    module load java/1.8
+}
+
+prepend-path    PATH                ${prefix}
+
+# vim: set sw=4 ts=4:
