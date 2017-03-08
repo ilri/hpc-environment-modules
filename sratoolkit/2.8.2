@@ -1,0 +1,17 @@
+#%Module1.0
+#####################################################################
+##
+## sratoolkit Modulefile
+## by James Oguya, <j.oguya@cgiar.org>
+## March, 2017
+##
+
+set appname			sratoolkit
+set version			2.8.2
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set url "http://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software"
+
+conflict ${appname}
+
+prepend-path	PATH	${exec_prefix}
