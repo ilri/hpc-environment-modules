@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## polyphen modulefile
+## By James Oguya <J.Oguya@cgiar.org>
+## March, 2017
+##
+
+# for Tcl script use only
+set     appname         polyphen
+set     version         2.2.2
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://genetics.bwh.harvard.edu/pph2/dokuwiki/"
+set     msg             "PolyPhen-2 (Polymorphism Phenotyping v2) is a software tool which predicts possible impact of amino acid substitutions on the structure and function of human proteins using straightforward physical and evolutionary comparative considerations.\nOfficial site: $url"
+
+conflict	$appname
+
+module-whatis $msg
+
+# polyphen requires perl/5.22.3
+if { ![is-loaded perl/5.22.3] } {
+    module load perl/5.22.3
+}
+
+prepend-path    PATH                ${prefix}/bin
+
+# vim: set sw=4 ts=4:
