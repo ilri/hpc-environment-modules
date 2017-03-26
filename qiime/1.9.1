@@ -1,0 +1,53 @@
+#%Module1.0
+#####################################################################
+##
+## qiime Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## November, 2014
+##
+
+set appname         qiime
+set version         1.9.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+
+# conflict if qiime OR python is loaded, because qiime has its own python
+conflict			qiime python
+
+prepend-path        PATH		${exec_prefix}
+prepend-path        MANPATH		${datarootdir}/man
+setenv              PYTHONHOME	${prefix}
+prepend-path        PYTHONPATH  ${prefix}/lib
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
+setenv              QIIME_CONFIG_FP	${prefix}/qiime_config
+
+# qiime 1.9.1 wants muscle/3.8.31
+if { ![is-loaded muscle/3.8.31] } {
+    module load muscle/3.8.31
+}
+
+# qiime 1.9.1 wants RAxML/7.3.0
+if { ![is-loaded RAxML/7.3.0] } {
+    module load RAxML/7.3.0
+}
+
+# qiime 1.9.1 wants usearch/v5.2.236
+if { ![is-loaded usearch/v5.2.236] } {
+    module load usearch/v5.2.236
+}
+
+# qiime 1.9.1 wants rtax/0.984
+if { ![is-loaded rtax/0.984] } {
+    module load rtax/0.984
+}
+
+# qiime 1.9.1 wants sourcetracker/0.9.5
+if { ![is-loaded sourcetracker/0.9.5] } {
+    module load sourcetracker/0.9.5
+}
+
+# qiime 1.9.1 wants R/3.1.2
+if { ![is-loaded R/3.1.2] } {
+    module load R/3.1.2
+}
