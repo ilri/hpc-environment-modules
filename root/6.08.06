@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## root Modulefile
+## by Alan Orth
+## May, 2017
+##
+
+set appname         root
+set version         6.08.06
+set prefix          /export/apps/${appname}/${version}
+
+conflict			${appname}
+
+# hack to source a script during module load, disabled for better method:
+# https://sourceforge.net/p/modules/wiki/FAQ/#i-want-the-modulefile-to-source-some-rc-script-that-came-with-some-application
+# puts stdout "source /export/apps/root/6.08.06/bin/thisroot.sh;"
+
+prepend-path        PATH		${prefix}/bin
+prepend-path        MANPATH		${prefix}/man
+prepend-path        LD_LIBRARY_PATH     ${prefix}/lib
+setenv              LIBPATH             ${prefix}/lib
+setenv              JUPYTER_PATH	${prefix}/etc/notebook
+setenv              ROOTSYS		${prefix}
+setenv              DYLD_LIBRARY_PATH	${prefix}/lib
+setenv              PYTHONPATH		${prefix}/lib
+setenv              SHLIB_PATH		${prefix}/lib
+setenv              CMAK_PREFIX_PATH	${prefix}
