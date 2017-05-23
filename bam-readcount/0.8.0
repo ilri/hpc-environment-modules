@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## bam-readcount
+## By Alan Orth
+## May, 2017
+##
+
+# for Tcl script use only
+set     appname         bam-readcount
+set     version         0.8.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict    ${appname}
+
+prepend-path    PATH        ${exec_prefix}
