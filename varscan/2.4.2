@@ -14,3 +14,8 @@ set     exec_prefix     ${prefix}
 conflict    ${appname}
 
 prepend-path    PATH        ${exec_prefix}
+
+# varscan requires bam-readcount
+if { ![is-loaded bam-readcount] } {
+    module load bam-readcount/0.8.0
+}
