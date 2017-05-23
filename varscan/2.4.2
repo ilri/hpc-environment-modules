@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## varscan
+## By Alan Orth
+## May, 2017
+##
+
+# for Tcl script use only
+set     appname         varscan
+set     version         2.4.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict    ${appname}
+
+prepend-path    PATH        ${exec_prefix}
