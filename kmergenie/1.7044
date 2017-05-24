@@ -17,9 +17,13 @@ conflict    $appname
 
 module-whatis $msg
 
-# depends on python/2.7.8
+# depends on python/2.7.8 and R/3.3.3
 if { ![is-loaded python/2.7.8] } {
 	module load python/2.7.8
+}
+
+if { ![is-loaded R/3.3.3] } {
+	module load R/3.3.3
 }
 
 prepend-path    PATH            ${exec_prefix}
