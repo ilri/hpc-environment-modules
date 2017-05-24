@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## GROM-RD Modulefile
+## by Alan Orth
+## May, 2017
+##
+
+# for Tcl script use only
+set     appname         grom-rd
+set     version         1.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "http://grigoriev.rutgers.edu/software/grom-rd/index.html"
+set     msg             "GROM-RD analyzes multiple biases in read coverage to detect CNVs in NGS data.\nR official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
