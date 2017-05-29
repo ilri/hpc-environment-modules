@@ -1,0 +1,20 @@
+#%Module1.0
+#####################################################################
+##
+## python Modulefile
+## by Alan Orth
+## May, 2017
+##
+
+set appname         python
+set version         3.6.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set datarootdir     ${prefix}/share
+
+conflict			python
+
+prepend-path        PATH		${exec_prefix}/bin
+prepend-path        MANPATH		${datarootdir}/man
+setenv              PYTHONHOME	${prefix}
+prepend-path        LD_LIBRARY_PATH /export/apps/${appname}/${version}/lib
