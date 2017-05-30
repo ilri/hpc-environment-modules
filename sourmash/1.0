@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## sourmash modulefile
+## By Alan Orth
+## May, 2017
+##
+
+# for Tcl script use only
+set     appname         sourmash
+set     version         1.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+set     url             "https://sourmash.readthedocs.io/"
+set     msg             "sourmash is a command-line tool and Python library for computing MinHash sketches from DNA sequences, comparing them to each other, and plotting the results. This allows you to estimate sequence similarity between even very large data sets quickly and accurately.\nOfficial site: $url"
+
+conflict    $appname
+
+module-whatis $msg
+
+# depends on python/3.5.3
+if { ![is-loaded python/3.5.3] } {
+	module load python/3.5.3
+}
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.5/site-packages
+prepend-path    MANPATH 		${datarootdir}/man
