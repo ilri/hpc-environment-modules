@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## speedseq Modulefile
+## by Alan Orth
+## June, 2017
+##
+
+# for Tcl script use only
+set     appname         speedseq
+set     version         0.1.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+# speedseq has its own Python, so make sure the user doesn't load another one
+conflict $appname python
+
+prepend-path    PATH        ${exec_prefix}
+
+# speedseq requires root/6.08.06
+if { ![is-loaded root/6.08.06] } {
+    module load root/6.08.06
+}
+
+# vim: set sw=4 ts=4:
