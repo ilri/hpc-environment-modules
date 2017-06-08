@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## igrec modulefile
+## By Alan Orth
+## June, 2017
+##
+
+# for Tcl script use only
+set     appname         igrec
+set     version         3.0.0
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://yana-safonova.github.io/ig_repertoire_constructor"
+set     msg             "An algorithm for error-correction of immunosequencing Illumina MiSeq reads and immunoproteogenomic analysis.\igrec official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+# igrec/3.0.0 requires python/2.7.13
+if { ![is-loaded python/2.7.13] } {
+    module load python/2.7.13
+}
+
+prepend-path    PATH            ${prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+
+# vim: set sw=4 ts=4:
