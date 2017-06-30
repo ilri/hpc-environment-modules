@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## samtools Modulefile
+## by Alan Orth
+## June, 2017
+##
+
+set     appname         samtools
+set     version         1.5
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+set     url             "http://www.htslib.org"
+set     msg             "This module adds samtools $version to various paths\n\nsamtools Official Site: $url\n"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+module-whatis "$msg"
+
+conflict ${appname}
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
