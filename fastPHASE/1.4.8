@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## fastPHASE Modulefile
+## by Alan Orth, <alan.orth@gmail.com>
+## July, 2017
+##
+
+# for Tcl script use only
+set     appname         fastPHASE
+set     version         1.4.8
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "http://scheet.org/software.html"
+set     msg             "fastPHASE is a program to estimate missing genotypes and unobserved haplotypes.\nR official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
