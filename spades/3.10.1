@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## spades modulefile
+## By Alan Orth
+## July, 2017
+##
+
+# for Tcl script use only
+set     appname         spades
+set     version         3.10.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     msg             "Spades is a single-cell genome assembler.\nSpades Official Site: http://cab.spbu.ru/software/spades"
+
+conflict	spades
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
