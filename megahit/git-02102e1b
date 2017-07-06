@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## megahit modulefile
+## By Alan Orth
+## July, 2017
+##
+
+# for Tcl script use only
+set     appname         megahit
+set     version         git-02102e1b
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     msg             "Megahit is an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph.\nSpades Official Site: https://github.com/voutcn/megahit"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
