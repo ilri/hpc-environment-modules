@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## diamond modulefile
+## By Alan Orth
+## July, 2017
+##
+
+# for Tcl script use only
+set     appname         diamond
+set     version         0.9.9
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/
+set     url             "http://ab.inf.uni-tuebingen.de/software/diamond/"
+set     msg             "DIAMOND is a new high-throughput program for aligning DNA reads or protein sequences against a protein reference database such as NR, at up to 20,000 times the speed of BLAST, with high sensitivity.\nDiamond official site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH                ${exec_prefix}
+
+# vim: set sw=4 ts=4:
