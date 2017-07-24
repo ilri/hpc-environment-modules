@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## MinPath Modulefile
+## by Alan Orth <alan.orth@gmail.com>
+## July, 2017
+##
+
+# for Tcl script use only
+set     appname         MinPath
+set     version         1.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "http://omics.informatics.indiana.edu/MinPath"
+set     msg             "MinPath (Minimal set of Pathways) is a parsimony approach for biological pathway reconstructions using protein family predictions, achieving a more conservative, yet more faithful, estimation of the biological pathways for a query dataset.\nR official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path   PATH       ${exec_prefix}
+setenv         MinPath    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
