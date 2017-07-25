@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## flapjack modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## July, 2017
+##
+
+# for Tcl script use only
+set     appname         flapjack
+set     version         1.16.10.31
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://ics.hutton.ac.uk/flapjack"
+set     msg             "Flapjack is a multi-platform application providing interactive visualizations of high-throughput genotype data, allowing for rapid navigation and comparisons between lines, markers and chromosomes.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# flapjack requires java/1.8
+if { ![is-loaded java/1.8] } {
+    module load java/1.8
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
