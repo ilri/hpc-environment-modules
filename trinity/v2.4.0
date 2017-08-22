@@ -1,0 +1,35 @@
+#%Module1.0
+#####################################################################
+##
+## trinity Modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## August, 2017
+##
+
+set appname                 trinity
+set version                 v2.4.0
+set prefix                  /export/apps/${appname}/${version}
+set exec_prefix             ${prefix}
+
+set url "https://github.com/trinityrnaseq/trinityrnaseq"
+set msg "Trinity RNA-Seq de novo transcriptome assembly.\nTrinity Official Site: $url\n"
+
+module-whatis "$msg"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        trinity
+
+prepend-path    PATH    ${exec_prefix}
+
+# Trinity needs Java 1.8
+if { ![is-loaded java/1.8] } {
+	module load java/1.8
+}
+
+# Trinity needs and Bowtie2
+if { ![is-loaded bowtie2/2.2.8] } {
+	module load bowtie2/2.2.8
+}
