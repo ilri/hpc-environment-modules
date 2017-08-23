@@ -1,0 +1,34 @@
+#%Module1.0#####################################################################
+##
+## interproscan modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## August, 2017
+##
+
+# for Tcl script use only
+set     appname         interproscan
+set     version         5.25-64.0
+set     url             "https://github.com/ebi-pf-team/interproscan"
+set     msg             "Scans a range of protein signatures against your sequence.\nInterproscan official site: ${url}"
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    interproscan
+
+prepend-path    PATH            ${exec_prefix}
+
+# depends on python 2.7
+if { ![is-loaded python/2.7.13] } {
+	module load python/2.7.13
+}
+
+# interproscan needs Java 1.8
+if { ![is-loaded java/1.8] } {
+	module load java/1.8
+}
