@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## phylip Modulefile
+## by Alan Orth, <alan.orth@gmail.com>
+## August, 2017
+##
+
+# for Tcl script use only
+set     appname         phylip
+set     version         3.696
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "http://evolution.genetics.washington.edu/phylip/"
+set     msg             "PHYLIP is a free package of programs for inferring phylogenies.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
