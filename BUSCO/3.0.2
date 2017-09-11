@@ -36,7 +36,7 @@ if { ![is-loaded augustus/3.2.3] } {
     module load augustus/3.2.3
 }
 
-prepend-path    PATH                ${prefix}
+prepend-path    PATH                ${prefix}/scripts
 prepend-path    PYTHONPATH          ${prefix}/lib/python3.6/site-packages
 setenv          BUSCO_CONFIG_FILE   ${prefix}/config/config.ini
 
