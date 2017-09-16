@@ -1,0 +1,23 @@
+#%Module1.0
+#####################################################################
+##
+## MUMmer Modulefile
+## by Alan Orth, <alan.orth@gmail.com>
+## September, 2017
+##
+set appname   MUMmer
+set version   3.23
+set prefix    /export/apps/${appname}/${version}
+set exec_prefix   ${prefix}
+set url "http://mummer.sourceforge.net"
+set msg "This module adds MUMmer v$version to various paths\n\nMUMmer Official Site: $url\n"
+
+proc ModulesHelp { } { 
+  puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict ${appname}
+
+prepend-path    PATH            ${exec_prefix}
