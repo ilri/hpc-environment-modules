@@ -7,7 +7,7 @@
 ##
 
 # for Tcl script use only
-set     appname         FLASH2
+set     appname         flash2
 set     version         git-64826f45
 set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix     ${prefix}/bin
