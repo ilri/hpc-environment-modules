@@ -17,3 +17,15 @@ conflict	$appname
 module-whatis $msg
 
 prepend-path    PATH            ${exec_prefix}
+
+# canu needs perl >= 5.12.0
+if { ![is-loaded perl/5.22.3] } { 
+    module load perl/5.22.3
+}
+
+# canu needs Java 1.8
+if { ![is-loaded java/1.8] } { 
+    module load java/1.8
+}
+
+# vim: set sw=4 ts=4:
