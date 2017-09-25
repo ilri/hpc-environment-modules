@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## w2rap-contigger modulefile
+## By Alan Orth
+## September, 2017
+##
+
+# for Tcl script use only
+set     appname         w2rap-contigger
+set     version         git-a43f5a05
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     msg             "An Illumina PE genome contig assembler, can handle large (17Gbp) complex (hexaploid) genomes.\nOfficial Site: http://bioinfologics.github.io/the-w2rap-contigger/"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
