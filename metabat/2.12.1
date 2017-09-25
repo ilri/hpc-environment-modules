@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## metabat modulefile
+## By Alan Orth
+## September, 2017
+##
+
+# for Tcl script use only
+set     appname         metabat
+set     version         2.12.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     msg             "An efficient tool for accurately reconstructing single genomes from complex microbial communities\nOfficial Site: https://bitbucket.org/berkeleylab/metabat"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
