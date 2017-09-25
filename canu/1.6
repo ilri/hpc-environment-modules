@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## canu modulefile
+## By Alan Orth
+## September, 2017
+##
+
+# for Tcl script use only
+set     appname         canu
+set     version         1.6
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     msg             "Canu is specialized for assembly of single-molecule high-noise sequences.\nOfficial Site: http://canu.readthedocs.org"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
