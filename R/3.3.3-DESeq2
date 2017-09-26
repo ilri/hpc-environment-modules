@@ -30,6 +30,6 @@ conflict $appname
 prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${datarootdir}/man
 # library path with pre-compiled DESeq2 package
-prepend-path    R_LIBS      /export/apps/R-3.3-DESeq2-libpath
+prepend-path    R_LIBS      /export/apps/R/3.3-DESeq2-libpath
 
 # vim: set sw=4 ts=4:
