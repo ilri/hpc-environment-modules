@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## kat
+## By Alan Orth <alan.orth@gmail.com>
+## September, 2017
+##
+
+# for Tcl script use only
+set     appname         kat
+set     version         2.3.4
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    $appname
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${exec_prefix}/share/man
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# kat was statically compiled against boost 1.65.1 so I'm not sure if we need
+# this, but let's include it for reference.
+prepend-path    LD_LIBRARY_PATH     /export/apps/boost/1.65.1/lib
+
+# kat uses a Python 3.6.2 virtual environment and has binaries compiled against
+# it, so we must load the environment.
+if { ![is-loaded python/3.6.2] } { 
+    module load python/3.6.2
+}
