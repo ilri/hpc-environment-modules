@@ -1,0 +1,19 @@
+#%Module1.0
+#####################################################################
+##
+## cmake Modulefile
+## by Alan Orth <alan.orth@gmail.com>
+## September, 2017
+##
+
+# for Tcl script use only
+set     appname         cmake
+set     version         3.9.3
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
