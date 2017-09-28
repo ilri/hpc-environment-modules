@@ -1,0 +1,36 @@
+#%Module1.0
+#####################################################################
+##
+## blasr Modulefile
+## by Alan Orth <alan.orth@gmail.com>
+## September, 2017
+##
+
+set appname         blasr
+set version         smrtanalysis-4.0.0
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/PacificBiosciences/blasr"
+set msg             "BLASR: The PacBio® long read aligner.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict            $appname
+
+prepend-path        PATH            ${prefix}
+# the blasr binary is linked against libpbihdf.so, libblasr.so, and libpbdata.so
+# so we need to add the location of those libraries to the path.
+prepend-path        LD_LIBRARY_PATH ${prefix}/libcpp/hdf
+prepend-path        LD_LIBRARY_PATH ${prefix}/libcpp/alignment
+prepend-path        LD_LIBRARY_PATH ${prefix}/libcpp/pbdata
+
+# blasr is linked against hdf5 1.8.19 so we should load the module in order to
+# get its library path.
+if { ![is-loaded hdf5/1.8.19] } { 
+    module load hff5/1.8.19
+}
+
+# vim: set sw=4 ts=4:
