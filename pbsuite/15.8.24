@@ -9,7 +9,7 @@
 set appname         pbsuite
 set version         15.8.24
 set prefix          /export/apps/${appname}/${version}
-set execprefix      ${prefix}/bin
+set exec_prefix     ${prefix}/bin
 set url             "https://sourceforge.net/p/pb-jelly"
 set msg             "Software for Long-Read Sequencing Data from PacBio.\nOfficial Site: $url\n"
 
