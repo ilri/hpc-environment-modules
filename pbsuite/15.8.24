@@ -21,6 +21,7 @@ proc ModulesHelp { } {
 conflict            $appname
 
 prepend-path        PATH            ${prefix}
+prepend-path        PYTHONPATH      ${prefix}
 
 # pbsuite uses a virtualenv based on python/2.7.13 so we should make sure that
 # module is loaded.
