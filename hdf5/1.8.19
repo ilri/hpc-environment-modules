@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## HDF5 Modulefile
+## by Alan Orth <alan.orth@gmail.com>
+## September, 2017
+##
+
+set appname         hdf5
+set version         1.8.19
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "http://www.hdfgroup.org/HDF5/"
+set msg             "HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict            $appname
+
+prepend-path        PATH            ${exec_prefix}
+
+# vim: set sw=4 ts=4:
