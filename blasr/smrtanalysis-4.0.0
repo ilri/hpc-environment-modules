@@ -30,7 +30,7 @@ prepend-path        LD_LIBRARY_PATH ${prefix}/libcpp/pbdata
 # blasr is linked against hdf5 1.8.19 so we should load the module in order to
 # get its library path.
 if { ![is-loaded hdf5/1.8.19] } { 
-    module load hff5/1.8.19
+    module load hdf5/1.8.19
 }
 
 # vim: set sw=4 ts=4:
