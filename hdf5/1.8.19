@@ -22,5 +22,6 @@ proc ModulesHelp { } {
 conflict            $appname
 
 prepend-path        PATH            ${exec_prefix}
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
 
 # vim: set sw=4 ts=4:
