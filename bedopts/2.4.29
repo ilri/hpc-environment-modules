@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## bedopts modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## September, 2017
+##
+
+# for Tcl script use only
+set     appname         bedopts
+set     version         2.4.29
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://bedops.readthedocs.io"
+set     msg             "BEDOPS: the fast, highly scalable and easily-parallelizable genome analysis toolkit.\nOfficial site: $url\n"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${prefix}/bin
+
+# vim: set sw=4 ts=4:
