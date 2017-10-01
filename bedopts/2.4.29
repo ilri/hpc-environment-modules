@@ -1,12 +1,12 @@
 #%Module1.0#####################################################################
 ##
-## bedopts modulefile
+## bedops modulefile
 ## By Alan Orth <alan.orth@gmail.com>
 ## September, 2017
 ##
 
 # for Tcl script use only
-set     appname         bedopts
+set     appname         bedops
 set     version         2.4.29
 set     prefix          /export/apps/${appname}/${version}
 set     url             "http://bedops.readthedocs.io"
