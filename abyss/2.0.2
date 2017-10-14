@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## abyss
+## By Alan Orth <alan.orth@gmail.com>
+## October, 2017
+##
+
+# for Tcl script use only
+set     appname         abyss
+set     version         2.0.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+
+conflict    ${appname}
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${exec_prefix}/share/man
+
+# abyss was compiled against boost 1.65.1, make sure it can find the libs!
+prepend-path    LD_LIBRARY_PATH     /export/apps/boost/1.65.1/lib
+
+# abyss was compiled against openmpi/1.8.2 so make sure the module is loaded
+if { ![is-loaded openmpi/1.8.2] } {
+	module load openmpi/1.8.2
+}
