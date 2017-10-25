@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## nextclip Modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## October, 2017
+##
+
+# for Tcl script use only
+set     appname         nextclip
+set     version         1.3.1
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     exec_prefix     ${prefix}/script
+
+conflict    $appname
+
+prepend-path    PATH            ${exec_prefix}
+
+# According to nextclipmanual.pdf, nextclip wants BWA.
+if { ![is-loaded bwa/0.7.4] } { 
+    module load bwa/0.7.4
+}
+
+# According to nextclipmanual.pdf, nextclip wants R >= 2.12.2
+if { ![is-loaded R/3.3.3] } { 
+    module load R/3.3.3
+}
