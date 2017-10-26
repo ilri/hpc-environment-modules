@@ -10,13 +10,13 @@ set     appname         nextclip
 set     version         1.3.1
 set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix     ${prefix}/bin
-set     exec_prefix     ${prefix}/script
 
 conflict    $appname
 
 prepend-path    PATH            ${exec_prefix}
+prepend-path    PATH            ${prefix}/scripts
 
-# According to nextclipmanual.pdf, nextclip wants BWA.
+# According to nextclipmanual.pdf, nextclip wants BWA >= 0.6.1
 if { ![is-loaded bwa/0.7.4] } { 
     module load bwa/0.7.4
 }
