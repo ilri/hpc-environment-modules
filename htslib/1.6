@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## htslib modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## October, 2017
+##
+
+# for Tcl script use only
+set     appname         htslib
+set     version         1.6
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://github.com/samtools/htslib"
+set     msg             "C library for high-throughput sequencing data formats.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    MANPATH         ${prefix}/share/man
+prepend-path    HTSLIB_DIR      ${prefix}
