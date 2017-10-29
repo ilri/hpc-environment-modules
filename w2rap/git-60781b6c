@@ -1,0 +1,57 @@
+#%Module1.0#####################################################################
+##
+## w2rap modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## October, 2017
+##
+
+# for Tcl script use only
+set     appname         w2rap
+set     version         git-60781b6c
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     msg             "W2rap: the WGS (Wheat) Robust Assembly Pipeline.\nOfficial Site: http://bioinfologics.github.io/the-w2rap-contigger/"
+
+conflict	$appname
+
+module-whatis $msg
+
+# w2rap seems to have binaries in several folders
+prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PATH            ${prefix}/deps/soap_scaffolder
+
+# w2rap needs Python (including Biopython and Matplotlib)
+if { ![is-loaded python/3.6.2] } { 
+    module load python/3.6.2
+}
+
+# w2rap needs KAT, assuming latest currently installed
+if { ![is-loaded kat/2.3.4] } { 
+    module load kat/2.3.4
+}
+
+# w2rap needs w2rap-contigger, assuming latest currently installed
+if { ![is-loaded w2rap-contigger/git-a43f5a05] } { 
+    module load w2rap-contigger/git-a43f5a05
+}
+
+# w2rap needs bwa, assuming latest currently installed
+if { ![is-loaded bwa/0.7.4] } { 
+    module load bwa/0.7.4
+}
+
+# w2rap needs flash, probably version 1
+if { ![is-loaded flash/1.2.11] } { 
+    module load flash/1.2.11
+}
+
+# w2rap needs nextclip, assuming latest currently installed
+if { ![is-loaded nextclip/1.3.1] } { 
+    module load nextclip/1.3.1
+}
+
+# w2rap needs abyss, assuming latest currently installed
+if { ![is-loaded abyss/2.0.2] } { 
+    module load abyss/2.0.2
+}
