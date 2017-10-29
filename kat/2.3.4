@@ -14,7 +14,7 @@ set     exec_prefix     ${prefix}/bin
 conflict    $appname
 
 prepend-path    PATH            ${exec_prefix}
-prepend-path    MANPATH         ${exec_prefix}/share/man
+prepend-path    MANPATH         ${prefix}/share/man
 prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
 
 # kat was statically compiled against boost 1.65.1 so I'm not sure if we need
