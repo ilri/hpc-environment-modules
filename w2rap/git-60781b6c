@@ -17,6 +17,7 @@ conflict	$appname
 module-whatis $msg
 
 prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
 
 # w2rap needs Python (including Biopython and Matplotlib)
 if { ![is-loaded python/3.6.2] } { 
