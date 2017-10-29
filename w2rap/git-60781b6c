@@ -9,7 +9,6 @@
 set     appname         w2rap
 set     version         git-60781b6c
 set     prefix          /export/apps/${appname}/${version}
-set     exec_prefix     ${prefix}/bin
 set     msg             "W2rap: the WGS (Wheat) Robust Assembly Pipeline.\nOfficial Site: http://bioinfologics.github.io/the-w2rap-contigger/"
 
 conflict	$appname
@@ -18,7 +17,7 @@ module-whatis $msg
 
 # w2rap seems to have binaries in several folders
 prepend-path    PATH            ${prefix}
-prepend-path    PATH            ${exec_prefix}
+prepend-path    PATH            ${prefix}/bin
 prepend-path    PATH            ${prefix}/deps/soap_scaffolder
 
 # w2rap needs Python (including Biopython and Matplotlib)
