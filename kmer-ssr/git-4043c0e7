@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## kmer-ssr modulefile
+## By Alan Orth
+## November, 2017
+##
+
+# for Tcl script use only
+set     appname         kmer-ssr
+set     version         git-4043c0e7
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     url             "https://github.com/ridgelab/Kmer-SSR"
+set     msg             "Fast, Accurate, and Complete SSR Detection in Genomic Sequences.\Official site: $url\n"
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
+
+# vim: set sw=4 ts=4:
