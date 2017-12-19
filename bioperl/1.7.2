@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## bioperl modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2017
+##
+
+# for Tcl script use only
+set     appname         bioperl
+set     version         1.7.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
+
+conflict	bioperl
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${prefix}/man:${datarootdir}/man
+prepend-path    PERL5LIB        ${prefix}/share/perl5:${prefix}/lib64/perl5:${prefix}/lib/perl5
+
+# vim: set sw=4 ts=4:
