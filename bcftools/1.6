@@ -18,7 +18,9 @@ set     msg             "Reading/writing BCF2/VCF/gVCF files and calling/filteri
 
 conflict	bcftools htslib
 
-prepend-path    PATH            ${exec_prefix}
-prepend-path    MANPATH         ${datarootdir}/man
 #
+prepend-path    PATH                ${exec_prefix}
+prepend-path    MANPATH             ${datarootdir}/man
+setenv          BCFTOOLS_PLUGINS    ${prefix}/libexec/bcftools
+
 # vim: set sw=4 ts=4:
