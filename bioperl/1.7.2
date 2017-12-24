@@ -12,7 +12,7 @@ set     prefix          /export/apps/${appname}/${version}
 set     exec_prefix     ${prefix}/bin
 set     datarootdir     ${prefix}/share
 
-conflict	bioperl
+conflict	bioperl perl
 
 prepend-path    PATH            ${exec_prefix}
 prepend-path    MANPATH         ${prefix}/man:${datarootdir}/man
