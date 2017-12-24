@@ -18,7 +18,7 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-conflict	$appname
+conflict	$appname samtools bcftools
 
 prepend-path    PATH            ${prefix}/bin
 prepend-path    MANPATH         ${prefix}/share/man
