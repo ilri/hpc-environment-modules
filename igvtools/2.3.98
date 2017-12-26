@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## igvtools modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## December, 2017
+##
+
+# for Tcl script use only
+set     appname         igvtools
+set     version         2.3.98
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://software.broadinstitute.org/software/igv"
+set     msg             "Integrative Genomics Viewer (IGV) tools.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	$appname
+
+prepend-path    PATH            ${prefix}
