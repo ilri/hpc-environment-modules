@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## augustus Modulefile
+## by Alan Orth
+## January, 2018
+##
+
+# for Tcl script use only
+set     appname         augustus
+set     version         3.3
+set     prefix          /export/apps/${appname}/${version}
+set     url             "http://bioinf.uni-greifswald.de/augustus/"
+set     msg             "Augustus predicts genes in eukaryotic genomic sequences.\nAugustus official website: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH    ${prefix}/bin
+prepend-path    PATH    ${prefix}/scripts
+
+# vim: set sw=4 ts=4:
