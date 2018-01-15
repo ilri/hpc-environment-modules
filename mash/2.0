@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## mash modulefile
+## By Alan Orth
+## January, 2018
+##
+
+# for Tcl script use only
+set     appname         mash
+set     version         2.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     /export/apps/${appname}/${version}/bin
+set     url             "https://github.com/marbl/Mash"
+set     msg             "Fast genome and metagenome distance estimation using MinHash.\nOfficial site: $url\n"
+
+conflict	sistr
+
+module-whatis $msg
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
