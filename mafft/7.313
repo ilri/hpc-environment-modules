@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## mafft modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2018
+##
+proc ModulesHelp { } {
+        global version prefix
+
+        puts stderr "\tmafft - loads the mafft package"
+        puts stderr "\n\tThis adds $prefix/* to several of the"
+        puts stderr "\tenvironment variables."
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis   "loads the mafft package"
+
+# for Tcl script use only
+set     appname         mafft
+set     version         7.313
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     datarootdir     ${prefix}/share
+
+conflict	mafft
+
+prepend-path    PATH            ${exec_prefix}/bin
+prepend-path    MANPATH         ${datarootdir}/man
