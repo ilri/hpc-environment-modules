@@ -23,7 +23,7 @@ module-whatis $msg
 
 conflict $appname
 
-prepend-path    PATH        ${prefix}
+prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH		${datarootdir}/man
 
 # vim: set sw=4 ts=4:
