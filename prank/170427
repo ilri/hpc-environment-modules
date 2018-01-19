@@ -10,6 +10,8 @@
 set     appname         prank
 set     version         170427
 set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}/bin
+set     datarootdir     ${prefix}/share
 set     url             "http://wasabiapp.org/software/prank/"
 set     msg             "PRANK is a probabilistic multiple alignment program for DNA, codon and amino-acid sequences.\nOfficial site: $url\n"
 
@@ -22,5 +24,6 @@ module-whatis $msg
 conflict $appname
 
 prepend-path    PATH        ${prefix}
+prepend-path    MANPATH		${datarootdir}/man
 
 # vim: set sw=4 ts=4:
