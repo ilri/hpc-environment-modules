@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## edirect Modulefile
+## by Alan Orth, <alan.orth@gmail.com>
+## January, 2018
+##
+
+# for Tcl script use only
+set     appname         edirect
+set     version         7.80
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+set     url             "https://dataguide.nlm.nih.gov/edirect/overview.html"
+set     msg             "EDirect is a software package, developed by NCBI, which allows you to use the E-utilities API in a Unix environment.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
