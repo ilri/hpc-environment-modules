@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## aegean Modulefile
+## by Alan Orth <alan.orth@gmail.com>
+## February, 2018
+##
+
+set appname     aegean
+set version     0.16.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set lib_prefix  ${prefix}/lib
+set url         "https://brendelgroup.github.io/AEGeAn/"
+set msg         "Integrated toolkit for analysis and evaluation of annotated genomes.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict        $appname
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH ${lib_prefix}
+
+# vim: set sw=4 ts=4:
