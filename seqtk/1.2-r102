@@ -7,7 +7,7 @@
 ##
 
 set appname     seqtk
-set version     r102
+set version     1.2-r102
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
 
