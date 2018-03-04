@@ -18,7 +18,7 @@ conflict      emboss
 prepend-path  PATH              ${exec_prefix}
 setenv        EMBOSS_ACDROOT    ${datarootdir}/EMBOSS/acd
 setenv        EMBOSS_DATA       ${datarootdir}/EMBOSS/data
-setenv        LD_LIBRARY_PATH   ${librarydir}
+prepent-path  LD_LIBRARY_PATH   ${librarydir}
 
 # emboss wants to use ClustalW
 if { ![is-loaded clustalw] } {
