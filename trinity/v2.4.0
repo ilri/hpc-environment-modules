@@ -30,6 +30,6 @@ if { ![is-loaded java/1.8] } {
 }
 
 # Trinity needs and Bowtie2
-if { ![is-loaded bowtie2/2.2.8] } {
-	module load bowtie2/2.2.8
+if { ![is-loaded bowtie2] } {
+	module load bowtie2
 }
