@@ -1,0 +1,19 @@
+#%Module1.0
+#####################################################################
+##
+## SOAPsnp Modulefile
+## by Alan Orth <aorth@mjanja.ch>
+## March, 2017
+##
+
+set appname     SOAPsnp
+set version     1.03
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://soap.genomics.org.cn/soapsnp.html"
+
+conflict $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
