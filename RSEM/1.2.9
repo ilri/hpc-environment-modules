@@ -23,7 +23,7 @@ conflict        RSEM
 
 prepend-path    PATH    ${exec_prefix}
 
-# load RSEM dependencies - bowtie2/2.2.3, bowtie/1.1.1, R/3.1.0
+# load RSEM dependencies
 if { ! [is-loaded bowtie2] } {
     module load bowtie2
 }
