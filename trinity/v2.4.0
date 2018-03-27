@@ -24,12 +24,17 @@ conflict        trinity
 
 prepend-path    PATH    ${exec_prefix}
 
-# Trinity needs Java 1.8
-if { ![is-loaded java/1.8] } {
-	module load java/1.8
-}
-
-# Trinity needs and Bowtie2
+# Trinity needs bowtie2
 if { ![is-loaded bowtie2] } {
 	module load bowtie2
+}
+
+# Trinity needs NCBI BLAST+
+if { ![is-loaded blast] } {
+	module load blast
+}
+
+# Trinity needs R
+if { ![is-loaded R] } {
+	module load R
 }
