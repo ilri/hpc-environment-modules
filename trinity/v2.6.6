@@ -1,0 +1,56 @@
+#%Module1.0
+#####################################################################
+##
+## trinity Modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2018
+##
+
+set appname         trinity
+set version         v2.6.6
+set prefix          /export/apps/${appname}/${version}
+
+set url "https://github.com/trinityrnaseq/trinityrnaseq"
+set msg "Trinity RNA-Seq de novo transcriptome assembly.\nOfficial Site: $url\n"
+
+module-whatis "$msg"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict    $appname
+
+prepend-path    PATH    ${prefix}
+
+# According to the installation documentation Trinity needs bowtie2, jellyfish,
+# and salmon. From testing the installation with the sample data I can also see
+# that it expects blast and R.
+#
+# I don't know if it expects any particular versions, so I'll just check to see
+# if any version of each is loaded, then fall back to loading the latest version
+# currently available at install time.
+#
+# See: https://github.com/trinityrnaseq/trinityrnaseq/wiki/Installing-Trinity
+
+if { ![is-loaded bowtie2] } {
+    module load bowtie2/2.3.4.1
+}
+
+if { ![is-loaded jellyfish] } {
+    module load jellyfish/2.2.9
+}
+
+if { ![is-loaded salmon] } {
+    module load salmon/0.9.1
+}
+
+if { ![is-loaded blast] } {
+    module load blast/2.7.1+
+}
+
+if { ![is-loaded R] } {
+    module load R/3.4.4
+}
+
+# vim: set sw=4 ts=4:
