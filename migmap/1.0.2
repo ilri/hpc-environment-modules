@@ -16,11 +16,6 @@ conflict	$appname
 
 module-whatis $msg
 
-# migmap requires java/1.8
-if { ![is-loaded java/1.8] } {
-    module load java/1.8
-}
-
 prepend-path    PATH                ${prefix}
 
 # vim: set sw=4 ts=4:

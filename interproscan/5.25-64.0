@@ -27,8 +27,3 @@ prepend-path    PATH            ${exec_prefix}
 if { ![is-loaded python/2.7.13] } {
 	module load python/2.7.13
 }
-
-# interproscan needs Java 1.8
-if { ![is-loaded java/1.8] } {
-	module load java/1.8
-}

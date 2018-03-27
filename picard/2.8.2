@@ -18,11 +18,6 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-# picard requires java/1.8
-if { ![is-loaded java/1.8] } {
-    module load java/1.8
-}
-
 conflict	$appname
 
 prepend-path    PATH            ${prefix}
