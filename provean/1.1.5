@@ -1,0 +1,40 @@
+#%Module1.0
+#####################################################################
+##
+## provean Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2018
+##
+
+set appname         provean
+set version         1.1.5
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "http://provean.jcvi.org/index.php"
+set msg             "PROVEAN (Protein Variation Effect Analyzer) is a software tool which predicts whether an amino acid substitution or indel has an impact on the biological function of a protein.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict $appname blast cd-hit
+
+prepend-path    PATH    ${exec_prefix}
+
+# provean's configuration script expected several binaries to be in the PATH
+# before compilation. They can be overridden by environment variables during
+# runtime, but I will just list the modules here so that I can remember this
+# dependency somehow.
+#
+# See: https://hpc.ilri.cgiar.org/provean-software
+if { ![is-loaded blast/2.7.1+] } {
+    module load blast/2.7.1+
+}
+
+if { ![is-loaded cd-hit/4.6.6] } {
+    module load cd-hit/4.6.6
+}
+
+# vim: set sw=4 ts=4:
