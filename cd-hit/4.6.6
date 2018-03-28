@@ -5,24 +5,21 @@
 ## August, 2016
 ##
 
-# for Tcl script use only
-set     appname         cd-hit
-set     version         4.6.6
-set     prefix          /export/apps/${appname}/${version}
-set     exec_prefix     ${prefix}
-set     url             "http://weizhongli-lab.org/cd-hit/"
-set     msg             "A program for clustering and comparing protein or nucleotide sequences.\nOfficial site: ${url}"
+set appname     cd-hit
+set version     4.6.6
+set prefix      /export/apps/${appname}/${version}
+set url         "http://weizhongli-lab.org/cd-hit/"
+set msg         "A program for clustering and comparing protein or nucleotide sequences.\nOfficial site: ${url}"
 
 conflict    ${appname}
 
 module-whatis $msg
 
-# depends on  openmpi & perl
+# depends on openmpi
 if { ![is-loaded openmpi] } {
-	module load openmpi/1.8.2
-}
-if { ![is-loaded perl] } {
-	module load perl/5.16.3.1603
+    module load openmpi/1.8.2
 }
 
-prepend-path    PATH            ${exec_prefix}
+prepend-path    PATH    ${prefix}
+#
+# vim: set sw=4 ts=4:
