@@ -1,7 +1,7 @@
 # ILRI HPC Environment Modules
-This repo contains [Environment Modules](http://modules.sourceforge.net) used in [ILRI's research computing](http://hpc.ilri.cgiar.org/) infrastructure.
+This repo contains [Environment Modules](http://modules.sourceforge.net) used in [ILRI's research computing](https://hpc.ilri.cgiar.org/) infrastructure.
 
-For a full list of software, including build and usage instructions, see the [list of software](http://hpc.ilri.cgiar.org/list-of-software) on ILRI's HPC wiki.
+For a full list of software, including build and usage instructions, see the [list of software](https://hpc.ilri.cgiar.org/list-of-software) on ILRI's HPC wiki.
 
 ## Assumptions
 These modules load and unload programs installed in the `/export/apps/$SOFTWARE/$SOFTWARE_VERSION` directory.
