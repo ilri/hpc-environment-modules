@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## SOAPdenovo2 modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## April, 2018
+##
+
+# for Tcl script use only
+set appname     SOAPdenovo2
+set version     git-c4d2f5ee
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+conflict        SOAPdenovo2
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
