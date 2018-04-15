@@ -19,6 +19,11 @@ proc ModulesHelp { } {
 
 conflict    vep
 
+# vep was compiled against htslib/1.6, not sure if we need this loaded?
+if { ![is-loaded htslib/1.6] } {
+    module load htslib/1.6
+}
+
 prepend-path    PATH        ${prefix}
 prepend-path    PERL5LIB    ${prefix}/lib/perl5
 
