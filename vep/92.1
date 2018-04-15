@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## VEP modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2018
+##
+
+set appname vep
+set version 92.1
+set prefix  /export/apps/${appname}/${version}
+set url     "http://www.ensembl.org/info/docs/tools/vep/script/"
+set msg     "VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    vep
+
+prepend-path    PATH        ${prefix}
+prepend-path    PERL5LIB    ${prefix}/lib/perl5
+
+# vim: set sw=4 ts=4:
