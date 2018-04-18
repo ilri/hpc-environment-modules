@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## flapjack modulefile
+## By Alan Orth <alan.orth@gmail.com>
+## April, 2018
+##
+
+set appname             flapjack
+set version             1.18.04.18-beta
+set prefix              /export/apps/${appname}/${version}
+set url                 "https://ics.hutton.ac.uk/flapjack"
+set msg                 "Flapjack is a multi-platform application providing interactive visualizations of high-throughput genotype data, allowing for rapid navigation and comparisons between lines, markers and chromosomes.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	$appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
