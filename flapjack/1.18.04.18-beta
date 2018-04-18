@@ -20,5 +20,6 @@ proc ModulesHelp { } {
 conflict	$appname
 
 prepend-path    PATH    ${prefix}
+prepend-path    PATH    ${prefix}/cmd
 
 # vim: set sw=4 ts=4:
