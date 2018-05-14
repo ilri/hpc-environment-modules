@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## vsearch Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## May, 2018
+##
+
+set appname         vsearch
+set version         2.8.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/torognes/vsearch"
+set msg             "Versatile open-source tool for metagenomics.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${prefix}/man
+
+# vim: set sw=4 ts=4:
