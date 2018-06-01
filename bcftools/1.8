@@ -1,0 +1,32 @@
+#%Module1.0#####################################################################
+##
+## bcftools modulefile
+## By Alan Orth
+## June, 2018
+##
+
+set appname         bcftools
+set version         1.8
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+set url             "https://samtools.github.io/bcftools/"
+set msg             "Reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising SNP and short indel sequence variants.\nOfficial site: $url\n"
+
+conflict    bcftools
+
+prepend-path    PATH                ${exec_prefix}
+prepend-path    MANPATH             ${datarootdir}/man
+setenv          BCFTOOLS_PLUGINS    ${prefix}/libexec/bcftools
+
+# bcftools/1.8 was compiled against htslib/1.8 so we need to make sure it is
+# loaded because the htslib/1.8 module exports the correct LD_LIBRARY_PATH.
+#
+# Earlier bcftools modules were compiled to bundle htslib rather than to link
+# against a system-wide installation. This made it tricky to use bcftools in
+# situations where other modules were depending on both bcftools and htslib.
+if { ![is-loaded htslib/1.8] } {
+    module load htslib/1.8
+}
+
+# vim: set sw=4 ts=4:
