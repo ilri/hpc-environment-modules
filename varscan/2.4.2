@@ -5,17 +5,18 @@
 ## May, 2017
 ##
 
-# for Tcl script use only
-set     appname         varscan
-set     version         2.4.2
-set     prefix          /export/apps/${appname}/${version}
-set     exec_prefix     ${prefix}
+set appname         varscan
+set version         2.4.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
 
-conflict    ${appname}
+conflict        varscan
 
-prepend-path    PATH        ${exec_prefix}
+prepend-path    PATH    ${exec_prefix}
 
 # varscan requires bam-readcount
 if { ![is-loaded bam-readcount] } {
     module load bam-readcount/0.8.0
 }
+
+# vim: set sw=4 ts=4:
