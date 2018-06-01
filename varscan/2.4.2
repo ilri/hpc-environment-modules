@@ -12,6 +12,8 @@ set prefix          /export/apps/${appname}/${version}
 conflict        varscan
 
 prepend-path    PATH        ${prefix}
+# some software use varscan and expect it to be present in the CLASSPATH.
+prepend-path    CLASSPATH   ${prefix}/VarScan.v2.4.2.jar
 
 # varscan requires bam-readcount
 if { ![is-loaded bam-readcount] } {
