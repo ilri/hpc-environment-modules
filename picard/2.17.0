@@ -19,6 +19,8 @@ proc ModulesHelp { } {
 
 conflict        picard
 
-prepend-path    PATH    ${prefix}
+prepend-path    PATH        ${prefix}
+# some software use picard and expect it to be present in the CLASSPATH.
+prepend-path    CLASSPATH   ${prefix}/picard.jar
 
 # vim: set sw=4 ts=4:
