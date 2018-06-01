@@ -1,16 +1,15 @@
 #%Module1.0#####################################################################
 ##
 ## picard modulefile
-## By Alan Orth <alan.orth@gmail.com>
+## By Alan Orth
 ## December, 2017
 ##
 
-# for Tcl script use only
-set     appname         picard
-set     version         2.17.0
-set     prefix          /export/apps/${appname}/${version}
-set     url             "https://broadinstitute.github.io/picard"
-set     msg             "A set of Java command line tools for manipulating high-throughput sequencing data (HTS) data and formats.\nPicard official site: $url"
+set appname         picard
+set version         2.17.0
+set prefix          /export/apps/${appname}/${version}
+set url             "https://broadinstitute.github.io/picard"
+set msg             "A set of Java command line tools for manipulating high-throughput sequencing data (HTS) data and formats.\nOfficial site: $url"
 
 module-whatis $msg
 
@@ -18,6 +17,8 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-conflict	$appname
+conflict        picard
 
-prepend-path    PATH            ${prefix}
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
