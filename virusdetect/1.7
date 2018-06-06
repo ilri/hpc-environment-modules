@@ -1,0 +1,34 @@
+#%Module1.0
+#####################################################################
+##
+## virusdetect Modulefile
+## by Alan Orth
+## June, 2018
+##
+
+set appname         virusdetect
+set version         1.7
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "http://virusdetect.feilab.net/cgi-bin/virusdetect/index.cgi"
+set msg             "VirusDetect is a software package that can efficiently and exhaustively analyze large-scale sRNA datasets for virus identification.\nofficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+# virusdetect includes its own bwa, samtools, velvet, and blast
+# see: http://virusdetect.feilab.net/cgi-bin/virusdetect/vd_help.cgi
+conflict virusdetect bwa samtools velvet blast
+
+prepend-path    PATH        ${prefix}
+prepend-path    PATH        ${exec_prefix}
+
+# virusdetect wants bioperl
+if { ![is-loaded bioperl/1.7.2] } {
+    module load bioperl/1.7.2
+}
+
+# vim: set sw=4 ts=4:
