@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## stringtie modulefile
+## By Alan Orth
+## June, 2018
+##
+
+set appname         stringtie
+set version         1.3.4d
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://ccb.jhu.edu/software/stringtie"
+set msg             "StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts.\nOfficial Site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict	stringtie
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
