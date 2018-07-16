@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## gromacs Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## July, 2018
+##
+
+set appname         gromacs
+set version         2018.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+
+conflict            gromacs
+
+# Add "normal" environment variables
+prepend-path        PATH                ${exec_prefix}
+prepend-path        LD_LIBRARY_PATH     ${prefix}/lib64
+prepend-path        PKG_CONFIG_PATH     ${prefix}/lib64/pkgconfig
+prepend-path        MANPATH             ${datarootdir}/man
+
+# Other environment variables discovered by examining `env` before and after
+# sourcing the GMXRC.bash file provided by the distribution.
+setenv              GMXMAN              ${datarootdir}/man
+setenv              GMXDATA             ${datarootdir}/gromacs
+setenv              GROMACS_DIR         ${prefix}
+setenv              GMXBIN              ${exec_prefix}
+setenv              GMXLDLIB            ${prefix}/lib64
+
+# vim: set sw=4 ts=4:
