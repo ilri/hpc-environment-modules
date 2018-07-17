@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## mcl Modulefile
+## by Alan Orth, <a.orth@cgiar.org>
+## July, 2018
+##
+
+set appname         mcl
+set version         14-137
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+set url             "https://micans.org/mcl/"
+set msg             "A fast and scalable unsupervised cluster algorithm for graphs based on simulation of flow in graphs.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
