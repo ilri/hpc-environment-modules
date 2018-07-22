@@ -17,9 +17,6 @@ conflict			qiime qiime2 python
 
 prepend-path        PATH		${exec_prefix}
 
-# Add conda's bin to PATH so we can get its Python
-prepend-path        PATH		${prefix}/conda/bin
-
 # Add man pages
 prepend-path        MANPATH		${datarootdir}/man
 prepend-path        MANPATH		${prefix}/man
