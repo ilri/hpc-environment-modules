@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## qiime2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2018
+##
+
+set appname         qiime2
+set version         2018.6
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+
+# conflict if qiime OR python is loaded, because qiime has its own python
+conflict			qiime qiime2 python
+
+prepend-path        PATH		${exec_prefix}
+
+# Add man pages
+prepend-path        MANPATH		${datarootdir}/man
+prepend-path        MANPATH		${prefix}/man
+
+# Other environment variables extracted from examining `env` before and after
+# activating qiime2 in the conda virtual environment (because the user can't
+# use conda itself via modules).
+setenv              PYTHONNOUSERSITE    ${prefix}/lib/python*/site-packages
+setenv              MPLBACKEND          Agg
+setenv              R_LIBS_USER         ${prefix}/lib/R/library
+
+# vim: set sw=4 ts=4:
