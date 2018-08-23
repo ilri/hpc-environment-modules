@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## subread Modulefile
+## by Alan Orth, <alan.orth@gmail.com>
+## August, 2018
+##
+
+set appname         subread
+set version         1.6.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "http://subread.sourceforge.net"
+set msg             "High-performance read alignment, quantification and mutation discovery\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
