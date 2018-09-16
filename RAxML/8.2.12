@@ -7,7 +7,7 @@
 ##
 
 set appname         RAxML
-set version         8.2.0
+set version         8.2.12
 set prefix          /export/apps/${appname}/${version}
 set exec_prefix     ${prefix}/bin
 set url             "https://github.com/stamatak/standard-RAxML"
