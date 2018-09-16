@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## phyml modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2018
+##
+
+set appname         phyml
+set version         3.3.20180621
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+
+conflict    phyml
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
