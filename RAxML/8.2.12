@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## RAxML Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2018
+##
+
+set appname         RAxML
+set version         8.2.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/stamatak/standard-RAxML"
+set msg             "RAxML (Randomized Axelerated Maximum Likelihood) is a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees.\nURL: $url\n"
+
+module-whatis $msg
+
+conflict    RAxML
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
