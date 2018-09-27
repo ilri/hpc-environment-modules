@@ -6,7 +6,7 @@
 ##
 
 set appname hisat2
-set version 2.0.5
+set version 2.1.0
 set prefix  /export/apps/${appname}/${version}
 set url     "http://ccb.jhu.edu/software/hisat2/index.shtml"
 set msg     "HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads to a population of human genomes.\n$appname official site: $url\n"
