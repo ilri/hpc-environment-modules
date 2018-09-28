@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## fastqc modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2018
+##
+
+set appname fastqc
+set version 0.11.7
+set prefix  /export/apps/${appname}/${version}
+set url     "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
+set msg     "FastQC is a quality control tool for high throughput sequence data.\nOfficial site: $url\n"
+
+conflict    $appname
+
+module-whatis $msg
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
