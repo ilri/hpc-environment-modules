@@ -19,8 +19,9 @@ proc ModulesHelp { } {
 
 conflict    $appname
 
-# gatk now has a `gatk` wrapper and falls back to the JAR defined in GATK_LOCAL_JAR
+# GATK now has a `gatk` wrapper and falls back to the JARs defined in the environment
 prepend-path    PATH            ${prefix}
 setenv          GATK_LOCAL_JAR  ${prefix}/gatk-package-${version}-local.jar
+setenv          GATK_SPARK_JAR  ${prefix}/gatk-package-${version}-spark.jar
 
 # vim: set sw=4 ts=4:
