@@ -13,7 +13,8 @@ set exec_prefix ${prefix}/bin
 # pasta was installed with CentOS 7's default Python 2.7 so make sure not to load any others
 conflict    python pasta
 
-prepend-path    PATH        ${exec_prefix}
-prepend-path    PYTHONPATH  ${prefix}/lib/python2.7/site-packages
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+setenv          CONTRALIGN_DIR  ${prefix}/sate-tools-linux
 
 # vim: set sw=4 ts=4:
