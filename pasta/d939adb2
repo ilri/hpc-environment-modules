@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## pasta modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2018
+##
+
+set appname     pasta
+set version     d939adb2
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+# pasta was installed with CentOS 7's default Python 2.7 so make sure not to load any others
+conflict    python pasta
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/lib/python2.7/site-packages
+
+# vim: set sw=4 ts=4:
