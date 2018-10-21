@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## beast modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2018
+##
+
+set appname     beast
+set version     1.10.2
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://beast.community"
+set msg         "BEAST is a cross-platform program for Bayesian analysis of molecular sequences using MCMC.\n$appname official site: $url\n"
+
+conflict    $appname
+
+module-whatis $msg
+
+# beast can use beagle
+if { ![is-loaded beagle/3.0.2] } {
+    module load beagle/3.0.2
+}
+
+prepend-path    PATH            ${exec_prefix}
+
+# vim: set sw=4 ts=4:
