@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## canu modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2018
+##
+
+set appname     canu
+set version     1.8
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/Linux-amd64/bin
+set msg         "Canu is specialized for assembly of single-molecule high-noise sequences.\nOfficial Site: http://canu.readthedocs.org"
+
+conflict	$appname
+
+module-whatis $msg
+
+prepend-path    PATH            ${exec_prefix}
+
+# vim: set sw=4 ts=4:
