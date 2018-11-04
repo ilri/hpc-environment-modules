@@ -1,0 +1,21 @@
+#%Module1.0
+#####################################################################
+##
+## graphmap Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         graphmap
+# git repo has no tags, hash was: eb8c75d68b03be95464318afa69b645a59f8f6b7
+set version         0.5.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/isovic/graphmap"
+set msg             "A highly sensitive and accurate mapper for long, error-prone reads.\nOfficial site: $url\n"
+
+conflict $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
