@@ -1,0 +1,20 @@
+#%Module1.0
+#####################################################################
+##
+## minimap2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         minimap2
+set version         2.13
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url             "https://lh3.github.io/minimap2"
+set msg             "A versatile pairwise aligner for genomic and spliced nucleotide sequences.\nOfficial site: $url\n"
+
+conflict $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
