@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## marginalign modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname     marginalign
+set version     git-2369dafd
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+conflict    marginalign python
+
+prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+
+# vim: set sw=4 ts=4:
