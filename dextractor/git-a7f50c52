@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## dextractor Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname     dextractor
+set version     git-a7f50c52
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/PacificBiosciences/DEXTRACTOR"
+set msg         "Bax File Decoder and Data Compressor.\nOfficial site: $url\n"
+
+conflict dextractor
+
+prepend-path    PATH    ${exec_prefix}
+
+# dextractor/git-a7f50c52 was compiled against hdf5/1.8.15-patch1
+if { ![is-loaded hdf5/1.8.15-patch1] {
+    module load hdf5/1.8.15-patch1
+}
+
+# vim: set sw=4 ts=4:
