@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## MECAT Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         MECAT
+set version         git-d04bfa84
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/xiaochuanle/MECAT"
+set msg             "An ultra-fast mapping, error correction and de novo assembly tool for single-molecule sequencing reads.\nOfficial site: $url\n"
+
+conflict MECAT
+
+prepend-path    PATH    ${exec_prefix}
+
+# MECAT requires dextractor
+if { ![is-loaded dextractor/git-a7f50c52] } {
+    module load dextractor/git-a7f50c52
+}
+
+# vim: set sw=4 ts=4:
