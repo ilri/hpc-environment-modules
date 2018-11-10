@@ -20,7 +20,12 @@ proc ModulesHelp { } {
     puts stderr "$msg"
 }
 
-conflict            hdf5
+conflict        hdf5
 
-prepend-path        PATH		    ${exec_prefix}
-prepend-path        LD_LIBRARY_PATH ${prefix}/lib
+prepend-path    PATH		    ${exec_prefix}
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+# required for some programs to compile / link against hdf5
+prepend-path    HDF5_INCLUDE    ${prefix}/include
+prepend-path    HDF5_LIB        ${prefix}/lib
+
+# vim: set sw=4 ts=4:
