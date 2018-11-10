@@ -9,7 +9,7 @@
 set appname         MECAT
 set version         git-d04bfa84
 set prefix          /export/apps/${appname}/${version}
-set exec_prefix     ${prefix}/bin
+set exec_prefix     ${prefix}/Linux-amd64/bin
 set url             "https://github.com/xiaochuanle/MECAT"
 set msg             "An ultra-fast mapping, error correction and de novo assembly tool for single-molecule sequencing reads.\nOfficial site: $url\n"
 
