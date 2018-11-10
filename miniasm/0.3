@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## miniasm Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         miniasm
+set version         0.3
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/lh3/miniasm"
+set msg             "Ultrafast de novo assembly for long noisy reads.\nOfficial site: $url\n"
+
+conflict $appname
+
+prepend-path    PATH    ${exec_prefix}
+# some perl scripts here
+prepend-path    PATH    ${prefix}/misc
+
+# vim: set sw=4 ts=4:
