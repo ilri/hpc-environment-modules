@@ -18,7 +18,7 @@ conflict dextractor
 prepend-path    PATH    ${exec_prefix}
 
 # dextractor/git-a7f50c52 was compiled against hdf5/1.8.15-patch1
-if { ![is-loaded hdf5/1.8.15-patch1] {
+if { ![is-loaded hdf5/1.8.15-patch1] } {
     module load hdf5/1.8.15-patch1
 }
 
