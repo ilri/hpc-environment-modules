@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+##
+## abyss Modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         abyss
+set version         2.1.4
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+
+conflict        ${appname}
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${exec_prefix}/share/man
+
+# vim: set sw=4 ts=4:
