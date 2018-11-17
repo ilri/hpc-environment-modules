@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## nanopolish Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         nanopolish
+set version         0.10.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/jts/nanopolish"
+set msg             "Software package for signal-level analysis of Oxford Nanopore sequencing data.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+# nanopolish compiles its own versions of hdf5 and htslib
+conflict $appname hdf5 htslib
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PATH        ${prefix}/scripts
+
+# vim: set sw=4 ts=4:
