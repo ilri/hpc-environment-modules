@@ -19,10 +19,12 @@ proc ModulesHelp{ } {
 
 module-whatis $msg
 
-# nanopolish compiles its own versions of hdf5 and htslib
-conflict $appname hdf5 htslib
+# nanopolish compiles its own versions of hdf5 and htslib and uses a virtualenv
+# from CentOS 7's Python 3.6 for biopython and pysam.
+conflict $appname hdf5 htslib python
 
 prepend-path    PATH        ${exec_prefix}
 prepend-path    PATH        ${prefix}/scripts
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
 
 # vim: set sw=4 ts=4:
