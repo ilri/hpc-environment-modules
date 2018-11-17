@@ -31,8 +31,8 @@ prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
 # seroba expects some external programs to be available
 # see: https://raw.githubusercontent.com/sanger-pathogens/seroba/master/install_dependencies.sh
 
-if { ![is-loaded MUMer/3.23] } {
-	module load MUMer/3.23
+if { ![is-loaded MUMmer/3.23] } {
+	module load MUMmer/3.23
 }
 
 if { ![is-loaded kmc/3.0.0] } {
