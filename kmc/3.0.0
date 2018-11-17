@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## kmc Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname         kmc
+set version         3.0.0
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/refresh-bio/KMC"
+set msg             "KMC is a disk-based programm for counting k-mers from (possibly gzipped) FASTQ/FASTA files.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict        kmc
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
