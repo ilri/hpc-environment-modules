@@ -18,8 +18,3 @@ conflict tassel
 prepend-path    PATH            ${exec_prefix}
 
 conflict tassel
-
-# tassel depends on oracle-jdk 1.8+
-if { ![is-loaded oracle-jdk/1.8.0_60] } {
-        module load oracle-jdk/1.8.0_60
-}
