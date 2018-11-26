@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## asreml Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2018
+##
+
+set appname     asreml
+set version     4.1.0.93
+set prefix      /export/apps/${appname}/${version}
+
+conflict $appname
+
+prepend-path R_LIBS ${prefix}
+
+# asreml/4.1.0.93 is a proprietary module that relies on R/3.4.4
+if { ![is-loaded R/3.4.4] } {
+    module load R/3.4.4
+}
+
+# vim: set sw=4 ts=4:
