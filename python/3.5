@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## python Modulefile
+## by Alan Orth
+## January, 2019
+##
+
+set appname         python
+set version         3.5
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set datarootdir     ${prefix}/share
+
+conflict			${appname}
+
+prepend-path        PATH		${exec_prefix}/bin
+prepend-path        MANPATH		${datarootdir}/man
+setenv              PYTHONHOME	${prefix}
+prepend-path        LD_LIBRARY_PATH /export/apps/${appname}/${version}/lib
+
+# vim: set sw=4 ts=4:
