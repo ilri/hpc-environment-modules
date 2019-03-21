@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## smartdenovo Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2019
+##
+
+set appname     smartdenovo
+set version     git-5cc1356b
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}
+set url         "https://github.com/ruanjue/smartdenovo"
+set msg         "SMARTdenovo is a de novo assembler for PacBio and Oxford Nanopore (ONT) data.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
