@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## masurca modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2019
+##
+
+set appname     masurca
+set version     3.3.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+
+conflict        masurca
+
+prepend-path    PATH    ${exec_prefix}
+prepend-path    MANPATH ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
