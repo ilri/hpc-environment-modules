@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## Mega X Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## June, 2019
+##
+
+set appname     megax
+set version     10.0.5
+set prefix      /export/apps/${appname}/${version}
+set url         "https://www.megasoftware.net"
+set msg         "Sophisticated and user-friendly software suite for analyzing DNA and protein sequence data from species and populations.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
