@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## lordec Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2019
+##
+
+set appname         lordec
+set version         0.9
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             'https://www.lirmm.fr/~rivals/lordec/'
+set msg             "LoRDEC: hybrid correction of long reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr     $msg
+}
+
+module-whatis       $msg
+
+conflict            $appname
+
+prepend-path        PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
