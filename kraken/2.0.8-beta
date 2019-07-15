@@ -16,6 +16,6 @@ conflict        ${appname}
 module-whatis   $msg
 
 prepend-path    PATH            ${exec_prefix}
-setenv          KRAKEN_DB_PATH  /export/data/bio/kraken/db
+setenv          KRAKEN2_DB_PATH  /export/data/bio/kraken2/db
 
 # vim: set sw=4 ts=4:
