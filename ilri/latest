@@ -7,9 +7,14 @@
 
 module-whatis   "loads the ILRI-specific scripts and tools"
 
-# for Tcl script use only
-set     appname         ilri
-set     prefix          /export/apps/${appname}
-set     exec_prefix     ${prefix}
+set appname     ilri
+set prefix      /export/apps/${appname}
+set exec_prefix ${prefix}
 
 prepend-path    PATH            ${exec_prefix}
+# adjust squeue output to show longer job names
+setenv          SQUEUE_FORMAT   "%.18i %.9P %.16j %.8u %.2t %.10M %.6D %R"
+# adjust sacct output to show more information
+setenv          SACCT_FORMAT    "JobID,JobName,User,Account,State,CPUTime,AllocCPUs,Partition,NodeList%-30"
+
+# vim: set sw=4 ts=4:
