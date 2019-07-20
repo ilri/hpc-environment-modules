@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## infernal Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2019
+##
+
+set appname     infernal
+set version     1.1.2
+set prefix      /export/apps/${appname}/${version}
+set url         "http://eddylab.org/infernal/"
+set msg         "Infernal (INFERence of RNA ALignment) is for searching DNA sequence databases for RNA structure and sequence similarities.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
