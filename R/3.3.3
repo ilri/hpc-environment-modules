@@ -23,7 +23,9 @@ module-whatis $msg
 
 conflict $appname
 
-prepend-path    PATH        ${exec_prefix}
-prepend-path    MANPATH     ${datarootdir}/man
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+# 2019-08-08: add LD_LIBRARY_PATH for gdal, libraries like poppr and sf need it
+prepend-path    LD_LIBRARY_PATH /export/apps/gdal/2.4.2/lib
 
 # vim: set sw=4 ts=4:
