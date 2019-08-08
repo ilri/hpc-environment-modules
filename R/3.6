@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## R Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## August, 2019
+##
+
+set appname     R
+# real version is 3.6.1
+set version     3.6
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+set url         "http://www.r-project.org/"
+set msg         "R is a free software environment for statistical computing and graphics.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
