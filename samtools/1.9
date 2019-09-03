@@ -1,0 +1,38 @@
+#%Module1.0
+#####################################################################
+##
+## samtools Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2019
+##
+
+set appname         samtools
+set version         1.9
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+set url             "http://www.htslib.org"
+set msg             "Tools (written in C using htslib) for manipulating next-generation sequencing data.\n\nOfficial Site: $url\n"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict        samtools
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+
+# bcftools/1.9 was compiled against htslib/1.9 so we need to make sure it is
+# loaded because the htslib/1.9 module exports the correct LD_LIBRARY_PATH.
+#
+# Earlier bcftools modules were compiled to bundle htslib rather than to link
+# against a system-wide installation. This made it tricky to use bcftools in
+# situations where other modules were depending on both bcftools and htslib.
+if { ![is-loaded htslib/1.9] } {
+    module load htslib/1.9
+}
+
+# vim: set sw=4 ts=4:
