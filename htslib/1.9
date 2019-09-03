@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## htslib modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2019
+##
+
+set appname         htslib
+set version         1.9
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/samtools/htslib"
+set msg             "C library for high-throughput sequencing data formats.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# htslib is part of the samtools project, which also produces bcftools. These
+# packages may include bundled copies of htslib depending on how they were
+# compiled, so it's best to mark them as conflicting.
+conflict	$appname samtools bcftools
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    MANPATH         ${prefix}/share/man
+prepend-path    HTSLIB_DIR      ${prefix}
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
