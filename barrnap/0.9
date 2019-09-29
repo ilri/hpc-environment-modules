@@ -1,0 +1,36 @@
+#%Module1.0
+#####################################################################
+##
+## barrnap Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2019
+##
+
+set appname     barrnap
+set version     0.9
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://www.vicbioinformatics.com/software.barrnap.shtml"
+set msg         "Barrnap predicts the location of ribosomal RNA genes in genomes.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# barrnap requires bedtools 2.27.0+
+if { ![is-loaded bedtools/2.29.0] } {
+	module load bedtools/2.29.0
+}
+
+# barrnap requires hmmer 3.x
+if { ![is-loaded hmmer/3.1b2] } {
+	module load hmmer/3.1b2
+}
+
+# vim: set sw=4 ts=4:
