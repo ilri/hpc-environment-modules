@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## beagle modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2019
+##
+
+set appname     beagle
+set version     3.1.2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/beagle-dev/beagle-lib"
+set msg         "BEAGLE is a high-performance library that can perform the core calculations at the heart of most Bayesian and Maximum Likelihood phylogenetics packages.\n${appname} official site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
