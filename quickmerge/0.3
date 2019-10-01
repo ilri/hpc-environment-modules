@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## quickmerge modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2019
+##
+
+set appname     quickmerge
+set version     0.3
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/mahulchak/quickmerge"
+set msg         "A simple and fast metassembler and assembly gap filler designed for long molecule based assemblies.\n$appname official site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+# quickmerge expects MUMer/3.23 to be available
+if { ![is-loaded MUMer/3.23] } {
+    module load MUMer/3.23
+}
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
