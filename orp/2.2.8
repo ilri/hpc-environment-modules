@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## orp Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## October, 2019
+##
+
+set appname         orp
+set version         2.2.8
+set prefix          /export/apps/${appname}/${version}
+
+# orp has dozens of its own dependencies packages via conda so we should make
+# sure that none of our own versions are loaded that might conflict.
+conflict			python blast hmmer samtools bowtie bowtie2 blat abyss augustus BUSCO seqtk trinity bamtools jellyfish diamond trimmomatic bwa spades
+
+# python 3.6...?
+prepend-path        PATH    ${prefix}/software/anaconda/install/envs/orp/bin
+prepend-path        PATH    ${prefix}/software/transabyss
+prepend-path        PATH    ${prefix}/software/orp-transrate
+prepend-path        PATH    ${prefix}/software/OrthoFinder/orthofinder
+
+# Other environment variables extracted from examining `env` before and after
+# activating orp in the conda virtual environment (because the user can't use
+# conda itself via modules). This is not an exact science...
+setenv              JAVA_LD_LIBRARY_PATH ${prefix}/software/anaconda/install/envs/orp/lib/server
+
+# Disable user site packages just in case
+setenv              PYTHONNOUSERSITE 1
+
+# vim: set sw=4 ts=4:
