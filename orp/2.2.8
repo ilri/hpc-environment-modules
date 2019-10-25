@@ -12,7 +12,7 @@ set prefix          /export/apps/${appname}/${version}
 
 # orp has dozens of its own dependencies packages via conda so we should make
 # sure that none of our own versions are loaded that might conflict.
-conflict			python blast hmmer samtools bowtie bowtie2 blat abyss augustus BUSCO seqtk trinity bamtools jellyfish diamond trimmomatic bwa spades
+conflict			python blast hmmer samtools bowtie bowtie2 blat abyss augustus BUSCO seqtk trinity bamtools jellyfish diamond trimmomatic bwa spades salmon
 
 # python 3.6...?
 prepend-path        PATH    ${prefix}/software/anaconda/install/envs/orp/bin
