@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## mixcr modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2019
+##
+
+set appname     mixcr
+set version     3.0.11
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/milaboratory/mixcr"
+set msg         "MiXCR is a universal software for fast and accurate analysis of raw T- or B- cell receptor repertoire sequencing data.\nOfficial site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
