@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## shasta Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2019
+##
+
+set appname     shasta
+set version     0.3.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/chanzuckerberg/shasta"
+set msg         "De novo assembly from Oxford Nanopore reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
