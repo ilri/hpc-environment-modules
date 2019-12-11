@@ -1,0 +1,20 @@
+#%Module1.0
+#####################################################################
+##
+## metaphlan2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## December, 2019
+##
+
+set appname     metaphlan2
+set version     2.9.5
+set prefix      /export/apps/${appname}/${version}
+set url         "https://bitbucket.org/biobakery/metaphlan2/src/default/"
+set msg         "MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic shotgun sequencing data.\nOfficial site: $url\n"
+
+conflict        $appname
+
+prepend-path    PATH        ${prefix}
+setenv          mpa_dir     ${prefix}
+
+# vim: set sw=4 ts=4:
