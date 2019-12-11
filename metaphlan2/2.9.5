@@ -9,12 +9,17 @@
 set appname     metaphlan2
 set version     2.9.5
 set prefix      /export/apps/${appname}/${version}
-set url         "https://bitbucket.org/biobakery/metaphlan2/src/default/"
+set url         "https://bitbucket.org/biobakery/biobakery/wiki/metaphlan2"
 set msg         "MetaPhlAn is a computational tool for profiling the composition of microbial communities from metagenomic shotgun sequencing data.\nOfficial site: $url\n"
 
-conflict        $appname
+conflict        $appname python
 
 prepend-path    PATH        ${prefix}
 setenv          mpa_dir     ${prefix}
+
+# metaphlan2/2.9.5 requires bowtie2 (any version?)
+if { ![is-loaded bowtie2] } {
+    module load bowtie2
+}
 
 # vim: set sw=4 ts=4:
