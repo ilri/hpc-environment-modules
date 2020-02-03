@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## awscli modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2020
+##
+
+set appname         awscli
+set version         1.17.9
+set prefix          /export/apps/${appname}/${version}
+set url             "https://pypi.org/project/awscli"
+set msg             "This package provides a unified command line interface to Amazon Web Services.\Official site: $url\n"
+
+# awscli uses CentOS 7's python36 package, so make sure we don't load any
+# other python modules that might overwrite some environment variables.
+conflict    awscli python
+
+module-whatis $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
