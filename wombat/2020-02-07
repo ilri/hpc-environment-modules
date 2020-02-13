@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## wombat Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2020
+##
+
+set appname     wombat
+set version     2020-02-07
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://didgeridoo.une.edu.au/km/wombat.php"
+set msg         "WOMBAT is a program to facilitate analyses fitting a linear, mixed model via restricted maximum likelihood (REML).\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
