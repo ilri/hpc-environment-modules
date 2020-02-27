@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## porechop modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2020
+##
+
+set appname         porechop
+set version         0.2.4
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/rrwick/Porechop"
+set msg             "Adapter trimmer for Oxford Nanopore reads \Official site: $url\n"
+
+# porechop uses CentOS 7's python36 package, so make sure we don't load any
+# other python modules that might overwrite some environment variables.
+conflict    porechop python
+
+module-whatis $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
