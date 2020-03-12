@@ -25,4 +25,14 @@ if { ![is-loaded mash/2.0] } {
     module load mash/2.0
 }
 
+# drep/2.5.4 needs MUMmer/3.23
+if { ![is-loaded MUMmer/3.23] } {
+    module load MUMmer/3.23
+}
+
+# drep/2.5.4 needs checkm >= 1.1.x
+if { ![is-loaded checkm/1.1.2] } {
+    module load checkm/1.1.2
+}
+
 # vim: set sw=4 ts=4:
