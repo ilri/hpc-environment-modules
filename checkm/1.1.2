@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## checkm modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2020
+##
+
+set appname     checkm
+set version     1.1.2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://ecogenomics.github.io/CheckM/"
+set msg         "CheckM provides a set of tools for assessing the quality of genomes.\Official site: $url\n"
+
+# checkm uses CentOS 7's python36 package, so make sure we don't load any
+# other python modules that might overwrite some environment variables.
+conflict        checkm python
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
