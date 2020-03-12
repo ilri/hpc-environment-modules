@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## prodigal modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2020
+##
+
+set appname     prodigal
+set version     git-004218fb
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/hyattpd/Prodigal"
+set msg         "Fast, reliable protein-coding gene prediction for prokaryotic genomes.\Official site: $url\n"
+
+conflict        prodigal
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}/bin
+
+# vim: set sw=4 ts=4:
