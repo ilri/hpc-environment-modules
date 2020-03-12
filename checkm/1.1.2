@@ -20,4 +20,19 @@ module-whatis   $msg
 prepend-path    PATH            ${prefix}/bin
 prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
 
+# checkm needs hmmer >= 3.1b1
+if { ![is-loaded hmmer/3.1b2] } {
+    module load hmmer/3.1b2
+}
+
+# checkm needs prodigal >=2.6.1
+if { ![is-loaded prodigal/git-004218fb] } {
+    module load prodigal/git-004218fb
+}
+
+# checkm needs pplacer >=1.1
+if { ![is-loaded pplacer/1.1.alpha19] } {
+    module load pplacer/1.1.alpha19
+}
+
 # vim: set sw=4 ts=4:
