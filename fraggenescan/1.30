@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## FragGeneScan modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2020
+##
+
+set appname     fraggenescan
+set version     1.30
+set prefix      /export/apps/${appname}/${version}
+set url         "https://sourceforge.net/projects/fraggenescan/"
+set msg         "FragGeneScan is an application for finding (fragmented) genes in short reads. It can also be applied to predict prokaryotic genes in incomplete assemblies or complete genomes.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict        fraggenescan
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
