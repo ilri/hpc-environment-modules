@@ -1,0 +1,44 @@
+#%Module1.0#####################################################################
+##
+## MaxBin2 modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2020
+##
+
+set appname     maxbin2
+set version     2.2.7
+set prefix      /export/apps/${appname}/${version}
+set url         "https://sourceforge.net/projects/maxbin2/"
+set msg         " MaxBin is a software for binning assembled metagenomic sequences based on an Expectation-Maximization algorithm\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict        maxbin2
+
+prepend-path    PATH    ${prefix}
+
+# maxbin2/2.2.7 needs hmmer/3.1b1
+if { ![is-loaded hmmer/3.1b1] } {
+    module load hmmer/3.1b1
+}
+
+# maxbin2/2.2.7 needs bowtie2/2.2.3
+if { ![is-loaded bowtie2/2.2.3] } {
+    module load bowtie2/2.2.3
+}
+
+# maxbin2/2.2.7 needs fraggenescan/1.30
+if { ![is-loaded fraggenescan/1.30] } {
+    module load fraggenescan/1.30
+}
+
+# maxbin2/2.2.7 needs idba/1.1.2
+if { ![is-loaded idba/1.1.2] } {
+    module load idba/1.1.2
+}
+
+# vim: set sw=4 ts=4:
