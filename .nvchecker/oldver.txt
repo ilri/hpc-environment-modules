@@ -8,7 +8,7 @@ marginpolish 1.0.0
 medaka 0.8.2
 mixcr 3.0.11
 orp 2.2.8
-presto 0.5.3
+presto 0.5.13
 quickmerge 0.3
 samtools 1.9
 seqkit 0.11.0

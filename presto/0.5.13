@@ -1,0 +1,33 @@
+#%Module1.0#####################################################################
+##
+## presto modulefile
+## By Alan Orth
+## March, 2020
+##
+
+set appname     presto
+set version     0.5.13
+set prefix      /export/apps/${appname}/${version}
+set url         "https://presto.readthedocs.io"
+set msg         "pRESTO is a toolkit for processing raw reads from high-throughput sequencing of lymphocyte repertoires.\nOfficial site: $url\n"
+
+# presto/0.5.13 is using CentOS 7's python36 package so make sure we don't
+# load any other pythons.
+conflict        $appname python
+
+module-whatis   $msg
+
+# presto/0.5.13 needs muscle/3.8.31
+if { ![is-loaded muscle/3.8.31] } {
+    module load muscle/3.8.31
+}
+
+# presto/0.5.13 needs usearch/v7.0.1090
+if { ![is-loaded usearch/v7.0.1090] } {
+    module load usearch/v7.0.1090
+}
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
