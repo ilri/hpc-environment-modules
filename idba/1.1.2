@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## idba modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2020
+##
+
+set appname     idba
+set version     1.1.2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://i.cs.hku.hk/~alse/hkubrg/projects/idba_ud/index.html"
+set msg         "IDBA-UD is a iterative De Bruijn Graph De Novo Assembler for Short Reads Sequencing data with Highly Uneven Sequencing Depth.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict        idba
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
