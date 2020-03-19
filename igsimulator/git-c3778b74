@@ -22,6 +22,6 @@ module-whatis   $msg
 prepend-path    PATH            ${prefix}
 # Binaries are in prefix/bin
 prepend-path    PATH            ${exec_prefix}
-prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+prepend-path    PYTHONPATH      ${prefix}/venv/lib/python2.7/site-packages
 
 # vim: set sw=4 ts=4:
