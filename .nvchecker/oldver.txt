@@ -9,6 +9,7 @@ medaka 0.8.2
 mixcr 3.0.11
 orp 2.2.8
 presto 0.5.13
+repseqio 1.3.3
 quickmerge 0.3
 samtools 1.9
 seqkit 0.11.0
