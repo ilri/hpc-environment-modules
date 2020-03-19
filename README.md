@@ -8,6 +8,13 @@ These modules load and unload programs installed in the `/export/apps/$SOFTWARE/
 
 For example, in our infrastructure, *NCBI BLAST 2.2.30+* is installed in `/export/apps/blast/2.2.30+`.
 
+## Updates
+There is a basic [nvchecker](https://github.com/lilydjwg/nvchecker) configuration that can help check for new versions of installed applications:
+
+    $ nvchecker .nvchecker/source.ini
+
+API keys for GitHub not included.
+
 ## License
 Copyright (C) 2015–2020 International Livestock Research Institute (ILRI)
 
