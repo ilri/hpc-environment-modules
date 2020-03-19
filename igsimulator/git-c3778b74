@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## igsimulator modulefile
+## By Alan Orth
+## March, 2020
+##
+
+set appname     igsimulator
+set version     git-c3778b74
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/yana-safonova/ig_simulator"
+set msg         "IgSimulator is a versatile tool for simulation of immunoglobulin repertoire \nOfficial site: $url\n"
+
+# igsimulator is using CentOS 7's python (2.7) package so make sure we don't
+# load any other pythons.
+conflict        $appname python
+
+module-whatis   $msg
+
+# Python executables are in prefix
+prepend-path    PATH            ${prefix}
+# Binaries are in prefix/bin
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PYTHONPATH      ${prefix}/lib/python2.7/site-packages
+
+# vim: set sw=4 ts=4:
