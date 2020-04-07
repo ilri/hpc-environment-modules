@@ -20,4 +20,10 @@ module-whatis   $msg
 prepend-path    PATH        ${exec_prefix}
 prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
 
+# quast/5.0.2 optionally requires circos (not sure which version so I will
+# just use the latest one we have).
+if { ![is-loaded circos] } {
+    module load circos/0.69-9
+}
+
 # vim: set sw=4 ts=4:
