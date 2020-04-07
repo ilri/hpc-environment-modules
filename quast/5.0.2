@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## quast modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname     quast
+set version     5.0.2
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set msg         "QUAST evaluates genome assemblies.\nOfficial site: http://quast.sourceforge.net/quast"
+
+# quast/5.0.2 uses python3 from CentOS so make sure there are no other Python
+# modules loaded in our environment that might overwrite our variables.
+conflict        $appname python
+
+module-whatis   $msg
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
