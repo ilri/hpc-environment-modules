@@ -13,3 +13,4 @@ set exec_prefix   ${prefix}/bin
 conflict blast
 
 prepend-path  PATH    ${exec_prefix}
+setenv        BLASTDB /export/data/bio/ncbi/blast/db/v4:/export/data/bio/uniprot/blast/db
