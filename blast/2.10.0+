@@ -16,6 +16,6 @@ set msg         "This module adds BLAST $version to various paths\n\nNCBI BLAST 
 conflict        ${appname}
 
 prepend-path    PATH    ${exec_prefix}
-setenv          BLASTDB /export/data/bio/ncbi/blast/db:/export/data/bio/uniprot/blast/db
+setenv          BLASTDB /export/data/bio/ncbi/blast/db/v5:/export/data/bio/uniprot/blast/db
 
 # vim: set sw=4 ts=4:
