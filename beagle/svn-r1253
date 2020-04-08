@@ -2,7 +2,7 @@
 #####################################################################
 ##
 ## beagle Modulefile
-## by Alan Orth, <a.orth@cgiar.org>
+## by Alan Orth <a.orth@cgiar.org>
 ## April, 2014
 ##
 set appname   beagle

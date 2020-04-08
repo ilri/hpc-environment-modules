@@ -2,7 +2,7 @@
 #####################################################################
 ##
 ## clustalo Modulefile
-## by Alan Orth, a.orth@cgiar.org
+## by Alan Orth a.orth@cgiar.org
 ## October, 2013
 ##
 set version   1.2.0

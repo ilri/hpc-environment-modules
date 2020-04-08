@@ -2,7 +2,7 @@
 #####################################################################
 ##
 ## cufflinks Modulefile
-## by Alan Orth, <a.orth@cgiar.org>
+## by Alan Orth <a.orth@cgiar.org>
 ## June 11, 2011
 ##
 set version   2.0.0

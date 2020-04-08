@@ -2,7 +2,7 @@
 #####################################################################
 ##
 ## samtools Modulefile
-## by Alan Orth, a.orth@cgiar.org
+## by Alan Orth a.orth@cgiar.org
 ##
 set version   0.1.17
 set prefix    /export/apps/samtools/${version}
