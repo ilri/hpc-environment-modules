@@ -24,8 +24,8 @@ if { ![is-loaded bioperl/1.6.923] } {
 }
 
 # maker depends on blast (any 2.2.2x+ version should do)
-if { ![is-loaded blast] } { 
-    module load blast
+if { ![is-loaded blast/2.2.30+] } { 
+    module load blast/2.2.30+
 }
 
 # maker depends on snap (was compiled/configured with snap 2013-11-29)
