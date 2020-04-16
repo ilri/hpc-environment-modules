@@ -21,5 +21,6 @@ module-whatis   $msg
 conflict        $appname
 
 prepend-path    PATH    ${prefix}/bin
+setenv          IGDATA  ${prefix}/data
 
 # vim: set sw=4 ts=4:
