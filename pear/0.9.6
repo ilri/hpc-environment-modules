@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## PEAR modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname     pear
+set version     0.9.6
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+set url         "https://www.h-its.org/software/pear-paired-end-read-merger/"
+set msg         "An ultrafast, memory-efficient and highly accurate pair-end read merger. It is fully parallelized and can run with as low as just a few kilobytes of memory.\nOfficial site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${exec_prefix}
+prepend-path    MANPATH ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
