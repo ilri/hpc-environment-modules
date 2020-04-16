@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## IgBLAST Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname igblast
+set version 1.10.0
+set prefix  /export/apps/${appname}/${version}
+set url     "https://ncbi.github.io/igblast/rel/Release-notes.html"
+set msg     "A tool for analyzing immunoglobulin (IG) and T cell receptor (TR) sequences\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
