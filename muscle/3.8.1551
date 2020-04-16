@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## muscle Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname muscle
+set version 3.8.1551
+set prefix  /export/apps/${appname}/${version}
+set url     "http://www.drive5.com/muscle"
+set msg     "MUSCLE is a multiple alignment program with accuracy and speed that are consistently better than CLUSTALW.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
