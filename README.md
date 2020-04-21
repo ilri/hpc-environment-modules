@@ -6,7 +6,7 @@ For a full list of software, including build and usage instructions, see the [li
 ## Assumptions
 These modules load and unload programs installed in the `/export/apps/$SOFTWARE/$SOFTWARE_VERSION` directory.
 
-For example, in our infrastructure, *NCBI BLAST 2.2.30+* is installed in `/export/apps/blast/2.2.30+`.
+For example, in our infrastructure, *NCBI BLAST 2.10.0+* is installed in `/export/apps/blast/2.10.0+`.
 
 ## Updates
 There is a basic [nvchecker](https://github.com/lilydjwg/nvchecker) configuration that can help check for new versions of installed applications:
