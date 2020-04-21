@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## prinseq Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## Apri, 2020
+##
+
+set appname     prinseq
+set version     0.20.4
+set prefix      /export/apps/${appname}/${version}
+set url         "http://prinseq.sourceforge.net/"
+set msg         "PRINSEQ can be used to filter, reformat, or trim your genomic and metagenomic sequence data.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict $appname
+
+prepend-path    PATH        ${prefix}
+
+# vim: set sw=4 ts=4:
