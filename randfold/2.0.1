@@ -1,0 +1,18 @@
+#%Module1.0
+#####################################################################
+##
+## randfold Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname     randfold
+set version     2.0.1
+set prefix      /export/apps/${appname}/${version}
+set url         "http://bioinformatics.psb.ugent.be/software/details/Randfold"
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
