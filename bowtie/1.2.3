@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## bowtie Modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname         bowtie
+set version         1.2.3
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set url             "http://bowtie-bio.sourceforge.net"
+set msg             "Bowtie is an ultrafast, memory-efficient short read aligner that aligns DNA sequences(reads) to the human at 25 million 35-bp reads per hour.\nOfficial Site: $url\n"
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr     "$msg"
+}
+
+conflict            bowtie
+
+prepend-path        PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
