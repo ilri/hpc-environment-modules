@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## squid Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname     squid
+set version     1.9g
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+set url         "http://eddylab.org/software.html"
+set msg         "A C library that is bundled with much of the above software. C function library for sequence analysis.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
