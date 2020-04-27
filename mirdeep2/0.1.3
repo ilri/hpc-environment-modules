@@ -1,0 +1,41 @@
+#%Module1.0
+#####################################################################
+##
+## mirdeep2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2020
+##
+
+set appname     mirdeep2
+set version     0.1.3
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/src
+set url         "https://github.com/rajewsky-lab/mirdeep2"
+set msg         "miRDeep2 discovers active known or novel miRNAs from deep sequencing data (Solexa/Illumina, 454, ...).\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts        stderr  $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# mirdeep2/0.1.3 wants bowtie but doesn't specify which version
+if { ![is-loaded bowtie/1.2.3] } {
+    module load bowtie/1.2.3
+}
+
+# mirdeep2/0.1.3 wants viennarna but doesn't specify which version
+if { ![is-loaded viennarna/2.4.14] } {
+    module load viennarna/2.4.14
+}
+
+# mirdeep2/0.1.3 wants randfold but doesn't specify which version
+if { ![is-loaded randfold/2.0.1] } {
+    module load randfold/2.0.1
+}
+
+# vim: set sw=4 ts=4:
