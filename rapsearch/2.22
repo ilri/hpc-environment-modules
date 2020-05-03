@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## rapsearch Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2020
+##
+
+set appname     rapsearch
+set version     2.22
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://omics.informatics.indiana.edu/mg/RAPSearch2/"
+set msg         "Reduced Alphabet based Protein similarity Search.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
