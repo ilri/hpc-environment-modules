@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## fasttree Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2020
+##
+
+set appname     fasttree
+set version     2.1.11
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://www.microbesonline.org/fasttree/"
+set msg         "FastTree infers approximately-maximum-likelihood phylogenetic trees from alignments of nucleotide or protein sequences.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
