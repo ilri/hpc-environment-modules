@@ -32,8 +32,13 @@ if { ![is-loaded prodigal/2.6.3] } {
 }
 
 # gtdbtk/1.1.1 wants hmmer >= 3.1
-if { ![is-loaded randfold/2.0.1] } {
-    module load randfold/2.0.1
+if { ![is-loaded hmmer/3.3] } {
+    module load hmmer/3.3
+}
+
+# gtdbtk/1.1.1 wants pplacer >= 1.1
+if { ![is-loaded pplacer/1.1.alpha19] } {
+    module load pplacer/1.1.alpha19
 }
 
 # gtdbtk/1.1.1 wants fastANI >= 1.2
