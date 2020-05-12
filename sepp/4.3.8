@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## sepp modulefile
+## By Alan Orth
+## May, 2020
+##
+
+set appname sepp
+set version 4.3.8
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/smirarab/sepp"
+set msg     "SEPP addresses the problem of phylogenetic placement of short reads into reference alignments and trees.\Official site: $url\n"
+
+# sepp uses a Python 3.6 virtual environment based on CentOS 7's system
+# python36 package so let's make sure not to load any other Pythons.
+conflict    sepp python
+
+module-whatis $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
