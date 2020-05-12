@@ -1,0 +1,56 @@
+#%Module1.0#####################################################################
+##
+## busco modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2020
+##
+
+set appname BUSCO
+set version 4.0.6
+set prefix  /export/apps/${appname}/${version}
+set url     "https://busco.ezlab.org/"
+set msg     "BUSCO provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness.\nOfficial site: $url\n"
+
+# BUSCO is using a Python 3.6 virtual environment from CentOS's python36
+# package so let's make sure we don't load any other python modules.
+conflict    $appname python
+
+module-whatis $msg
+
+# BUSCO depends on HMMER 3.2.1
+if { ![is-loaded hmmer/3.2.1] } {
+    module load hmmer/3.2.1
+}
+
+# BUSCO depends on blast/2.2.31+
+if { ![is-loaded blast/2.2.31+] } {
+    module load blast/2.2.31+
+}
+
+# BUSCO depends on sepp/4.3.8
+if { ![is-loaded sepp/4.3.8] } {
+    module load sepp/4.3.8
+}
+
+# BUSCO depends on augustus/3.2.3
+if { ![is-loaded augustus/3.2.3] } {
+    module load augustus/3.2.3
+}
+
+# BUSCO depends on prodigal/2.6.3
+if { ![is-loaded prodigal/2.6.3] } {
+    module load 2.6.3
+}
+
+# BUSCO depends on R, but it doesn't say which one
+if { ![is-loaded R/3.6] } {
+    module load R/3.6
+}
+
+prepend-path    PATH                ${prefix}/scripts
+prepend-path    PYTHONPATH          ${prefix}/lib/python3.6/site-packages
+setenv          BUSCO_CONFIG_FILE   ${prefix}/myconfig.ini
+# some R libraries we install here for BUSCO
+prepend-path    R_LIBS              ${prefix}/r-libs
+
+# vim: set sw=4 ts=4:
