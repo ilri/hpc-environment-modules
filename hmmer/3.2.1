@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## HMMER modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2020
+##
+
+set appname     hmmer
+set version     3.2.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+
+conflict        hmmer
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    MANPATH         ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
