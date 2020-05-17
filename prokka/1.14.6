@@ -1,0 +1,35 @@
+#%Module1.0#####################################################################
+##
+## prokka modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2020
+##
+
+set appname         prokka
+set version         1.14.6
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix_1   ${prefix}/bin
+set exec_prefix_2   ${prefix}/binaries/common
+set exec_prefix_3   ${prefix}/binaries/linux
+
+set url             "http://www.vicbioinformatics.com/software.prokka.shtml"
+set msg             "Prokka is a software tool for the rapid annotation of prokaryotic genomes.\nOfficial site: $url"
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# prokka/1.14.6 requires perl/5.28.2
+if { ![is-loaded perl/5.28.2] } {
+    module load perl/5.28.2
+}
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix_1}
+prepend-path    PATH    ${exec_prefix_2}
+prepend-path    PATH    ${exec_prefix_3}
+
+# vim: set sw=4 ts=4:
