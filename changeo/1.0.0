@@ -1,0 +1,36 @@
+#%Module1.0#####################################################################
+##
+## changeo modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2020
+##
+
+set appname     changeo
+set version     1.0.0
+set prefix      /export/apps/${appname}/${version}
+set url         "https://changeo.readthedocs.io/en/latest/overview.html"
+set msg         "Change-O is a collection of tools for processing the output of V(D)J alignment tools, assigning clonal clusters to immunoglobulin sequences, and reconstructing germline sequences.\Official site: $url\n"
+
+# changeo/1.0.0 installs its own presto as a dependency via pip, so make sure
+# you don't load our standalone presto module like in earlier changeo modules.
+#
+# Also, changeo/1.0.0 uses a virtual environment created by CentOS 7's python36
+# so make sure not to load any other Python modules.
+conflict        changeo presto python
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# changeo wants muscle/3.8+
+if { ![is-loaded muscle/3.8.31] } {
+    module load muscle/3.8.31
+}
+
+# changeo wants igblast >= 1.6 (thought it recommends v1.11.0!)
+if { ![is-loaded igblast/1.10.0] } {
+    module load igblast/1.10.0
+}
+
+# vim: set sw=4 ts=4:
