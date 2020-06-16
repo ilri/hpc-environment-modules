@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## last Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## June, 2020
+##
+
+set appname     last
+set version     1066
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://last.cbrc.jp/"
+set msg         "LAST finds similar regions between sequences, and aligns them. It is designed for comparing large datasets to each other.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
