@@ -2,6 +2,7 @@ barrnap 0.9
 beagle 3.1.2
 bedtools 2.29.0
 beast 1.10.4
+bwa 0.7.17
 changeo 0.3.9
 htslib 1.9
 fastANI 1.3
