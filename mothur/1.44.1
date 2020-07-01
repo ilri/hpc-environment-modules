@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## mothur Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2020
+##
+
+set     appname         mothur
+set     version         1.44.1
+set     prefix          /export/apps/${appname}/${version}
+set     url             "https://www.mothur.org"
+set     msg             "mothur offers the ability to go from raw sequences to the generation of visualization tools to describe α and β diversity.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+# mothur seems to have its own version of blast
+conflict $appname blast
+
+prepend-path    PATH    ${prefix}
+prepend-path    PATH    ${prefix}/blast/bin
+
+# vim: set sw=4 ts=4:
