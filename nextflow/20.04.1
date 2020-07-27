@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## nextflow Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2020
+##
+
+set appname     nextflow
+set version     20.04.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://www.nextflow.io/"
+set msg         "Nextflow is a bioinformatics workflow manager that enables the development of portable and reproducible workflows.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
