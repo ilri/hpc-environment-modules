@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## iqtree Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## August, 2020
+##
+
+set appname     iqtree
+set version     1.6.12
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://www.iqtree.org/"
+set msg         "Efficient software for phylogenomic inference\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
