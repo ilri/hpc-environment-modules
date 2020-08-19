@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## any2fasta Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## August, 2020
+##
+
+set appname     any2fasta
+set version     0.4.2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/tseemann/any2fasta"
+set msg         "Convert various sequence formats to FASTA.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
