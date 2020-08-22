@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## GATK modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2020
+##
+
+set appname gatk
+set version 3.8-1-0-gf15c1c3ef
+set prefix  /export/apps/${appname}/${version}
+set url     "https://software.broadinstitute.org/gatk/"
+set msg     "GATK offers a wide variety of tools with a primary focus on variant discovery and genotyping.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
