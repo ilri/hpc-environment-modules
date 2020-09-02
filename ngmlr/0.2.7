@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## ngmlr Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2020
+##
+
+set appname     ngmlr
+set version     0.2.7
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/philres/ngmlr"
+set msg         "NGMLR is a long-read mapper designed to align PacBio or Oxford Nanopore (standard and ultra-long) to a reference genome with a focus on reads that span structural variations.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
