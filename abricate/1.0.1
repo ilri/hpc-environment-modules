@@ -1,0 +1,37 @@
+#%Module1.0#####################################################################
+##
+## abricate modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2020
+##
+
+set appname abricate
+set version 1.0.1
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/tseemann/abricate"
+set msg     "Mass screening of contigs for antimicrobial resistance or virulence genes.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname perl
+
+if { ![is-loaded blast/2.7.1+] } {
+    module load blast/2.7.1+
+}
+
+if { ![is-loaded any2fasta/0.4.2] } {
+    module load any2fasta/0.4.2
+}
+
+prepend-path    PATH        ${prefix}/bin
+# Add BioPerl scripts to PATH
+prepend-path    PATH        ${prefix}/perl5lib/bin
+# Add abricate's local Perl library path to PERL5LIB
+# See: https://hpc.ilri.cgiar.org/abricate-software
+prepend-path    PERL5LIB    ${prefix}/perl5lib/lib/perl5
+
+# vim: set sw=4 ts=4:
