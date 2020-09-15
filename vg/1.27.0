@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## vg Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2020
+##
+
+set appname     vg
+set version     1.27.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/vgteam/vg"
+set msg         "Tools for working with genome variation graphs.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
