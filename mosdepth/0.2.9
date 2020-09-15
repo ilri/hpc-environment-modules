@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## mosdepth modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2020
+##
+
+set appname     mosdepth
+set version     0.2.9
+set prefix      /export/apps/${appname}/${version}
+set msg         "fast BAM/CRAM depth calculation for WGS, exome, or targeted sequencing. Site: https://github.com/brentp/mosdepth"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH       ${prefix}
+
+# vim: set sw=4 ts=4:
