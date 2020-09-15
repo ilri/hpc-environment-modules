@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## seqwish modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2020
+##
+
+set appname     seqwish
+set version     0.6
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/ekg/seqwish"
+set msg         "seqwish implements a lossless conversion from pairwise alignments between sequences to a variation graph encoding the sequences and their alignments.\nOfficial site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
