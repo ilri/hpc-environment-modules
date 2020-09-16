@@ -75,6 +75,8 @@ if { ![is-loaded mash/2.2] {
     module load mash/2.2
 }
 
+# plasmidID script is in the root
+prepend-path    PATH    ${prefix}
 prepend-path    PATH    ${prefix}/bin
 
 # vim: set sw=4 ts=4:
