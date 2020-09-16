@@ -1,0 +1,80 @@
+#%Module1.0#####################################################################
+##
+## plasmidid modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2020
+##
+
+set appname plasmidid
+set version 1.6.3
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/BU-ISCIII/plasmidID/wiki"
+set msg     "PlasmidID is a mapping-based, assembly-assisted plasmid identification tool that analyzes and gives graphic solution for plasmid identification.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# plasmidid depends on prokka, which loads perl/5.28.2. Let's make sure we don't
+# have any other perls already loaded. Similarly, plasmidid wants python >= 3.6,
+# so let's make sure we don't have any pythons loaded so we can use CentOS 7's
+# python3 package (which is currently Python 3.6).
+conflict    $appname perl python
+
+# plasmidid says it needs blast+ v2.2.3, but the bioconda recipe loads the
+# latest, which is currently version 2.10.1, so I'll just load our latest.
+if { ![is-loaded blast/2.10.0+] {
+    module load blast/2.10.0+
+}
+
+# plasmidid says it needs trimmomatic/0.33, but the bioconda recipe loads the
+# latest, which is currently version 0.39, so I'll just load our latest.
+if { ![is-loaded trimmomatic/0.38] } {
+    module load trimmomatic/0.38
+}
+
+# plasmidid says it needs spades/3.8, but the bioconda recipe loads the
+# latest, which is currently version 3.14.1, so I'll just load our latest.
+if { ![is-loaded spades/3.13.0] {
+    module load spades/3.13.0
+}
+
+# plasmidid says it needs bedtools/2.25.0, but the bioconda recipe loads the
+# latest, which is currently version 2.29.2, so I'll just load our latest.
+if { ![is-loaded bedtools/2.29.0] {
+    module load bedtools/2.29.0
+}
+
+# plasmidid says it needs bowtie2/2.2.4, but the bioconda recipe loads the
+# latest, which is currently version 2.4.1, so I'll just load our latest.
+if { ![is-loaded bowtie2/2.3.4.1] {
+    module load bowtie2/2.3.4.1
+}
+
+# plasmidid says it needs samtools/1.2, but the bioconda recipe loads the
+# latest, which is currently version 1.10, so I'll just load our latest.
+if { ![is-loaded samtools/1.9] {
+    module load samtools/1.9
+}
+
+# plasmidid says it needs prokka/1.12, but the bioconda recipe loads the
+# latest, which is currently version 1.14.6, so I'll just load our latest.
+if { ![is-loaded prokka/1.14.6] {
+    module load prokka/1.14.6
+}
+
+# plasmidid says it needs circos/0.69.3, but the bioconda recipe loads the
+# latest, which is currently version 0.69, so I'll just load our latest.
+if { ![is-loaded circos/0.69-9] {
+    module load circos/0.69-9
+}
+
+if { ![is-loaded mash/2.2] {
+    module load mash/2.2
+}
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
