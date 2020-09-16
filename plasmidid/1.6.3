@@ -25,7 +25,7 @@ conflict    $appname perl python
 
 # plasmidid says it needs blast+ v2.2.3, but the bioconda recipe loads the
 # latest, which is currently version 2.10.1, so I'll just load our latest.
-if { ![is-loaded blast/2.10.0+] {
+if { ![is-loaded blast/2.10.0+] } {
     module load blast/2.10.0+
 }
 
@@ -37,41 +37,41 @@ if { ![is-loaded trimmomatic/0.38] } {
 
 # plasmidid says it needs spades/3.8, but the bioconda recipe loads the
 # latest, which is currently version 3.14.1, so I'll just load our latest.
-if { ![is-loaded spades/3.13.0] {
+if { ![is-loaded spades/3.13.0] } {
     module load spades/3.13.0
 }
 
 # plasmidid says it needs bedtools/2.25.0, but the bioconda recipe loads the
 # latest, which is currently version 2.29.2, so I'll just load our latest.
-if { ![is-loaded bedtools/2.29.0] {
+if { ![is-loaded bedtools/2.29.0] } {
     module load bedtools/2.29.0
 }
 
 # plasmidid says it needs bowtie2/2.2.4, but the bioconda recipe loads the
 # latest, which is currently version 2.4.1, so I'll just load our latest.
-if { ![is-loaded bowtie2/2.3.4.1] {
+if { ![is-loaded bowtie2/2.3.4.1] } {
     module load bowtie2/2.3.4.1
 }
 
 # plasmidid says it needs samtools/1.2, but the bioconda recipe loads the
 # latest, which is currently version 1.10, so I'll just load our latest.
-if { ![is-loaded samtools/1.9] {
+if { ![is-loaded samtools/1.9] } {
     module load samtools/1.9
 }
 
 # plasmidid says it needs prokka/1.12, but the bioconda recipe loads the
 # latest, which is currently version 1.14.6, so I'll just load our latest.
-if { ![is-loaded prokka/1.14.6] {
+if { ![is-loaded prokka/1.14.6] } {
     module load prokka/1.14.6
 }
 
 # plasmidid says it needs circos/0.69.3, but the bioconda recipe loads the
 # latest, which is currently version 0.69, so I'll just load our latest.
-if { ![is-loaded circos/0.69-9] {
+if { ![is-loaded circos/0.69-9] } {
     module load circos/0.69-9
 }
 
-if { ![is-loaded mash/2.2] {
+if { ![is-loaded mash/2.2] } {
     module load mash/2.2
 }
 
