@@ -27,6 +27,31 @@ if { ![is-loaded hmmer/3.3] } {
     module load hmmer/3.3
 }
 
+# prokka recommends barrnap >=0.7
+if { ![is-loaded barrnap/0.9] } {
+    module load barrnap/0.9
+}
+
+# prokka recommends barrnap >=0.7
+if { ![is-loaded barrnap/0.9] } {
+    module load barrnap/0.9
+}
+
+# prokka recommends blast >=2.7.1
+if { ![is-loaded blast/2.10.0+] } {
+    module load blast/2.10.0+
+}
+
+# prokka requires prodigal >=2.6
+if { ![is-loaded prodigal/2.6.3] } {
+    module load prodigal/2.6.3
+}
+
+# prokka recommends infernal >=1.1.2
+if { ![is-loaded infernal/1.1.2] } {
+    module load infernal/1.1.2
+}
+
 conflict        $appname
 
 prepend-path    PATH        ${prefix}/bin
