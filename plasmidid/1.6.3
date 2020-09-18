@@ -17,8 +17,9 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-# plasmidid wants python >= 3.6, so let's make sure we don't have any pythons
-# loaded so we can use CentOS 7's python3 package (currently Python 3.6).
+# plasmidid uses a virtual environment that is based on CentOS 7's python3
+# package (currently version 3.6), so let's make sure there are no other python
+# environment modules loaded.
 conflict    $appname python
 
 # plasmidid says it needs blast+ v2.2.3, but the bioconda recipe loads the
@@ -74,7 +75,8 @@ if { ![is-loaded mash/2.2] } {
 }
 
 # plasmidID script is in the root
-prepend-path    PATH    ${prefix}
-prepend-path    PATH    ${prefix}/bin
+prepend-path    PATH        ${prefix}
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
 
 # vim: set sw=4 ts=4:
