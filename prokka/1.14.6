@@ -22,6 +22,11 @@ if { ![is-loaded perl/5.28.2] } {
     module load perl/5.28.2
 }
 
+# hmmer is recommended (>= 3.1b2)
+if { ![is-loaded hmmer/3.3] } {
+    module load hmmer/3.3
+}
+
 conflict        $appname
 
 prepend-path    PATH        ${prefix}/bin

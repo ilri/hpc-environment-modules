@@ -74,12 +74,6 @@ if { ![is-loaded mash/2.2] } {
     module load mash/2.2
 }
 
-# it is not listed as a dependency, but plasmidID fails with an error in
-# the annotation step if hmmer3 is not available.
-if { ![is-loaded hmmer/3.2.1] } {
-    module load hmmer/3.2.1
-}
-
 # plasmidID script is in the root
 prepend-path    PATH        ${prefix}
 prepend-path    PATH        ${prefix}/bin
