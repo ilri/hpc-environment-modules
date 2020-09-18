@@ -17,11 +17,9 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-# plasmidid depends on prokka, which loads perl/5.28.2. Let's make sure we don't
-# have any other perls already loaded. Similarly, plasmidid wants python >= 3.6,
-# so let's make sure we don't have any pythons loaded so we can use CentOS 7's
-# python3 package (which is currently Python 3.6).
-conflict    $appname perl python
+# plasmidid wants python >= 3.6, so let's make sure we don't have any pythons
+# loaded so we can use CentOS 7's python3 package (currently Python 3.6).
+conflict    $appname python
 
 # plasmidid says it needs blast+ v2.2.3, but the bioconda recipe loads the
 # latest, which is currently version 2.10.1, so I'll just load our latest.
