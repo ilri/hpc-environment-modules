@@ -17,7 +17,7 @@ module-whatis   $msg
 
 prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${prefix}/man
-prepend-path    PERL5LIB    ${prefix}/lib/Circos:${prefix}/lib/perl5
+prepend-path    PERL5LIB    ${prefix}/lib/perl5
 
 # circos/0.69-9 uses modules compiled against perl/5.28.2
 if { ![is-loaded perl/5.28.2] } {
