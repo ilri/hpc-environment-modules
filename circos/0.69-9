@@ -1,8 +1,8 @@
 #%Module1.0#####################################################################
 ##
-## Circos modulefile
+## circos modulefile
 ## By Alan Orth <a.orth@cgiar.org>
-## April, 2020
+## September, 2020
 ##
 
 set appname     circos
@@ -11,12 +11,17 @@ set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
 set msg         "Circos is a software package for visualizing data and information.\nOfficial site: http://www.circos.ca/"
 
-conflict        circos perl
+conflict        circos
 
 module-whatis   $msg
 
 prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${prefix}/man
-prepend-path    PERL5LIB    /usr/lib64/perl5:${prefix}/lib/Circos:${prefix}/lib/perl5
+prepend-path    PERL5LIB    ${prefix}/lib/Circos:${prefix}/lib/perl5
+
+# circos/0.69-9 uses modules compiled against perl/5.28.2
+if { ![is-loaded perl/5.28.2] } {
+    module load perl/5.28.2
+}
 
 # vim: set sw=4 ts=4:
