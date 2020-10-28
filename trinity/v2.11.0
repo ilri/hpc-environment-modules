@@ -1,0 +1,56 @@
+#%Module1.0
+#####################################################################
+##
+## trinity Modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2020
+##
+
+set appname trinity
+set version v2.11.0
+set prefix  /export/apps/${appname}/${version}
+
+set url     "https://github.com/trinityrnaseq/trinityrnaseq"
+set msg     "Trinity RNA-Seq de novo transcriptome assembly.\nOfficial Site: $url\n"
+
+module-whatis   "$msg"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+# Trinity v2.11.0 expected python3 >= 36, which is currently provided by CentOS
+# 7's python3 package. Let's make sure to not load any other pythons.
+conflict        $appname python
+
+prepend-path    PATH    ${prefix}
+setenv          TRINITY_HOME    ${prefix}
+
+# According to the installation documentation Trinity needs bowtie2, jellyfish,
+# and salmon. The sample data works with the versions below at the time of
+# writing.
+#
+# See: https://github.com/trinityrnaseq/trinityrnaseq/wiki/Installing-Trinity
+# See: https://github.com/bioconda/bioconda-recipes/blob/master/recipes/trinity/meta.yaml
+
+# According to bioconda at the time of writing bowtie2 should be >= 2.3.0
+if { ![is-loaded bowtie2/2.3.4.1] } {
+    module load bowtie2/2.3.4.1
+}
+
+# According to bioconda at the time of writing jellyfish should be >= 2.2
+if { ![is-loaded jellyfish/2.3.0] } {
+    module load jellyfish/2.3.0
+}
+
+# According to bioconda at the time of writing salmon should be >= 1.0
+if { ![is-loaded salmon/1.3.0] } {
+    module load salmon/1.3.0
+}
+
+# According to bioconda at the time of writing salmon should be >= 1.9
+if { ![is-loaded samtools/1.9] } {
+    module load samtools/1.9
+}
+
+# vim: set sw=4 ts=4:
