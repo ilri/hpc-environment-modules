@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## salmon modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2020
+##
+
+set appname     salmon
+set version     1.3.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://salmon.readthedocs.io/en/latest/salmon.html"
+set msg         "Salmon is a tool for wicked-fast transcript quantification from RNA-seq data. It requires a set of target transcripts (either from a reference or de-novo assembly) to quantify.\nOfficial site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
