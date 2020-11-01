@@ -1,0 +1,19 @@
+#%Module1.0
+#####################################################################
+##
+## trf Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2020
+##
+
+set appname			trf
+set version			4.0.9
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set url             "http://tandem.bu.edu/trf/trf.html"
+
+conflict trf
+
+prepend-path	PATH	${exec_prefix}
+
+# vim: set sw=4 ts=4:
