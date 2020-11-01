@@ -1,0 +1,20 @@
+#%Module1.0
+#####################################################################
+##
+## RMBLAST Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## October, 2020
+##
+
+set appname			rmblast
+set version			2.10.0
+set prefix			/export/apps/${appname}/${version}
+set exec_prefix		${prefix}/bin
+set url             "http://repeatmasker.org/RMBlast.html"
+
+conflict rmblast
+
+prepend-path	PATH	${exec_prefix}
+setenv          BLASTDB /export/data/bio/ncbi/blast/db/v5:/export/data/bio/uniprot/blast/db
+
+# vim: set sw=4 ts=4:
