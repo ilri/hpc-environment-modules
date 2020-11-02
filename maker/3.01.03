@@ -1,0 +1,46 @@
+#%Module1.0#####################################################################
+##
+## Maker modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2020
+##
+
+set appname         maker
+set version         3.01.03
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+
+# maker's perl modules were installed for the CentOS system perl so make sure
+# that we don't load any other perls.
+conflict	maker perl
+
+prepend-path    PATH            ${exec_prefix}
+prepend-path    PERL5LIB        ${prefix}/lib:${prefix}/perl/lib:${prefix}/deps/lib/perl5
+
+# maker depends on blast (assuming any blast with v5 databases...?)
+if { ![is-loaded blast/2.10.0+] } { 
+    module load blast/2.10.0+
+}
+
+# maker depends on augustus (assuming 3.2.3)
+if { ![is-loaded blast/2.10.0+] } { 
+    module load blast/2.10.0+
+}
+
+# maker depends on snap (was compiled/configured with snap 2013-11-29)
+if { ![is-loaded snap/2013-11-29] } { 
+    module load snap/2013-11-29
+}
+
+# maker depends on exonerate (assuming 2.2.0)
+if { ![is-loaded exonerate] } { 
+    module load exonerate
+}
+
+# maker depends on repeatmasker (assuming latest 4.1.1)
+if { ![is-loaded repeatmasker/4.1.1] } { 
+    module load repeatmasker/4.1.1
+}
+
+# vim: set sw=4 ts=4:
