@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## hic_qc modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2020
+##
+
+set appname     hic_qc
+set version     git-1e132fb2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/phasegenomics/hic_qc"
+set msg         "A (very) simple script to QC Hi-C data.\Official site: $url\n"
+
+# hic_qc/git-1e132fb2 uses a virtual environment created by CentOS 7's python36
+# so make sure not to load any other Python modules.
+conflict        hic_qc python
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
