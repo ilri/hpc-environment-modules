@@ -1,0 +1,51 @@
+#%Module1.0#####################################################################
+##
+## falcon-phase modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2020
+##
+
+set appname     falcon-phase
+set version     git-7c50154e
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/phasegenomics/FALCON-Phase"
+set msg         "FALCON-Phase integrates PacBio long-read assemblies with Phase Genomics Hi-C data to create phased, diploid, chromosome-scale scaffolds.\Official site: $url\n"
+
+# falcon-phase uses a virtual environment created by CentOS 7's python36 so make
+# sure not to load any other Python modules.
+conflict        falcon-phase python
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}/bin
+# Add Python virtualenvironment stuff to paths
+prepend-path    PATH            ${prefix}/venv/bin
+prepend-path    PYTHONPATH      ${prefix}/venv/lib/python3.6/site-packages
+
+# falcon-phase wants snakemake/3.6 but we only have 5.7.0
+if { ![is-loaded snakemake/5.7.0] } {
+    module load snakemake/5.7.0
+}
+
+# falcon-phase wants bwa/0.7.17
+if { ![is-loaded bwa/0.7.17] } {
+    module load bwa/0.7.17
+}
+
+# falcon-phase wants mummer/4.0.0rc1
+if { ![is-loaded mummer/4.0.0rc1] } {
+    module load mummer/4.0.0rc1
+}
+
+# falcon-phase wants bedtools/2.27.1 but we only have 2.29.0
+if { ![is-loaded bedtools/2.29.0] } {
+    module load bedtools/2.29.0
+}
+
+# falcon-phase wants samtools >= 1.5 but ships htslib 1.7, so let's assume that
+# 1.7 is OK.
+if { ![is-loaded samtools/1.7] } {
+    module load samtools/1.7
+}
+
+# vim: set sw=4 ts=4:
