@@ -1,16 +1,16 @@
 #%Module1.0
 #####################################################################
 ##
-## MUMmer Modulefile
+## mummer Modulefile
 ## by Alan Orth <alan.orth@gmail.com>
 ## September, 2017
 ##
-set appname   MUMmer
+set appname   mummer
 set version   3.23
 set prefix    /export/apps/${appname}/${version}
 set exec_prefix   ${prefix}
-set url "http://mummer.sourceforge.net"
-set msg "This module adds MUMmer v$version to various paths\n\nMUMmer Official Site: $url\n"
+set url "http://mummer.sourceforge.ne://github.com/mummer4/mummer"
+set msg "This module adds mummer v$version to various paths\n\nOfficial Site: $url\n"
 
 proc ModulesHelp { } { 
   puts stderr "$msg"
