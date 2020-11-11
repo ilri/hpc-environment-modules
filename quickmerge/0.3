@@ -15,9 +15,9 @@ conflict        $appname
 
 module-whatis   $msg
 
-# quickmerge expects MUMmer/3.23 to be available
-if { ![is-loaded MUMmer/3.23] } {
-    module load MUMmer/3.23
+# quickmerge expects mummer/3.23 to be available
+if { ![is-loaded mummer/3.23] } {
+    module load mummer/3.23
 }
 
 prepend-path    PATH    ${prefix}
