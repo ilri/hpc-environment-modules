@@ -12,7 +12,7 @@ set exec_prefix ${prefix}/bin
 set url         "https://snakemake.readthedocs.io/en/stable/"
 set msg         "The Snakemake workflow management system is a tool to create reproducible and scalable data analyses.\Official site: $url\n"
 
-# unicycler was compiled against CentOS's python36, so don't load other pythons
+# snakemake was compiled against CentOS's python36, so don't load other pythons
 conflict        python
 
 prepend-path    PATH        ${exec_prefix}
