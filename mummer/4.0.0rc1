@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## mummer Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2020
+
+set appname     mummer
+set version     4.0.0rc1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/mummer4/mummer"
+set msg         "mummer is a versatile alignment tool for DNA and protein sequences.\nOfficial Site: $url"
+
+proc ModulesHelp { } { 
+    puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
