@@ -43,9 +43,9 @@ if { ![is-loaded bedtools/2.29.0] } {
 }
 
 # falcon-phase wants samtools >= 1.5 but ships htslib 1.7, so let's assume that
-# 1.7 is OK.
-if { ![is-loaded samtools/1.7] } {
-    module load samtools/1.7
+# something near 1.7 is OK.
+if { ![is-loaded samtools/1.8] } {
+    module load samtools/1.8
 }
 
 # vim: set sw=4 ts=4:
