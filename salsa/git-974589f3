@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## salsa modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2020
+##
+
+set appname     salsa
+set version     git-974589f3
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/marbl/SALSA"
+set msg         "A tool to scaffold long read assemblies with Hi-C data.\nOfficial site: $url\n"
+
+# salsa uses the system's python2 so make sure there is no other Python loaded
+conflict        salsa python
+
+prepend-path    PATH        ${prefix}
+# Add Python virtualenvironment bin to PATH
+prepend-path    PATH        ${prefix}/venv/bin
+prepend-path    PYTHONPATH  ${prefix}/lib/python2.7/site-packages
+
+# vim: set sw=4 ts=4:
