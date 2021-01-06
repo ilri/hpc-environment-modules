@@ -1,0 +1,32 @@
+#%Module1.0#####################################################################
+##
+## hypo modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2021
+##
+
+set appname     hypo
+set version     1.0.3
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/kensung-lab/hypo"
+set msg         "Super Fast & Accurate Polisher for Long Read Genome Assemblies.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict        $appname
+
+if { ![is-loaded htslib/1.11] } {
+    module load htslib/1.11
+}
+
+if { ![is-loaded kmc/3.1.1 } {
+    module load kmc/3.1.1
+}
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
