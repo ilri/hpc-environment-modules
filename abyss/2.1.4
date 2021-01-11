@@ -10,9 +10,14 @@ set version         2.1.4
 set prefix          /export/apps/${appname}/${version}
 set exec_prefix     ${prefix}/bin
 
-conflict        ${appname}
+# Conflict with openmpi because we manually compiled against CentOS 7's
+# OpenMPI 3 due to an issue in Abyss.
+# See: https://hpc.ilri.cgiar.org/abyss-software
+conflict        ${appname} openmpi
 
 prepend-path    PATH        ${exec_prefix}
+# Add OpenMPI 3's bin to PATH
+prepend-path    PATH        /usr/lib64/openmpi3/bin
 prepend-path    MANPATH     ${exec_prefix}/share/man
 
 # vim: set sw=4 ts=4:
