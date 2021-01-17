@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## ivar modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2021
+##
+
+set appname ivar
+set version 1.3
+set prefix  /export/apps/${appname}/${version}
+set url     "https://andersen-lab.github.io/ivar/html"
+set msg     "iVar is a computational package that contains functions broadly useful for viral amplicon-based sequencing.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    ivar    
+
+# ivar/1.3 was compiled against htslib/1.11 so we need to load this because it
+# sets LD_LIBRARY_PATH for htslib
+if { ![is-loaded htslib/1.11] } {
+    module load htslib/1.11
+}
+
+prepend-path    PATH        ${prefix}/bin
+
+# vim: set sw=4 ts=4:
