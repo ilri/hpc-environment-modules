@@ -25,6 +25,11 @@ if { ![is-loaded htslib/1.11] } {
     module load htslib/1.11
 }
 
+# ivar documentation recommends having samtools available
+if { ![is-loaded samtools/1.11] } {
+    module load samtools/1.11
+}
+
 prepend-path    PATH        ${prefix}/bin
 
 # vim: set sw=4 ts=4:
