@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## nextclade Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## January, 2021
+##
+
+set appname     nextclade
+set version     0.12.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/nextstrain/nextclade"
+set msg         "Clade assignment, mutation calling, and sequence quality checks.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+# add Node.js to PATH, from rh-nodejs12-nodejs.x86_64
+prepend-path    PATH        /opt/rh/rh-nodejs12/root/usr/bin
+
+# vim: set sw=4 ts=4:
