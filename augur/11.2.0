@@ -17,7 +17,7 @@ set msg         "Augur is a bioinformatics toolkit to track evolution from seque
 conflict        python snakemake
 
 prepend-path    PATH        ${exec_prefix}
-prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.7/site-packages
 
 # augur/11.2.0 was installed with python/3.7
 if { ![is-loaded python/3.7] } { 
