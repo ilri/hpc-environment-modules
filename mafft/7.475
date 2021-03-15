@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## mafft Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2021
+##
+
+set appname     mafft
+set version     7.475
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+set url         "https://mafft.cbrc.jp/alignment/software"
+set msg         "MAFFT is a multiple sequence alignment program for unix-like operating systems..\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
