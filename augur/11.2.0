@@ -26,8 +26,8 @@ if { ![is-loaded python/3.7] } {
 
 # augur/11.2.0 wants mafft, but doesn't specify a version so I will just use
 # the latest one we have.
-if { ![is-loaded mafft/7.313] } { 
-    module load mafft/7.313
+if { ![is-loaded mafft/7.475] } { 
+    module load mafft/7.475
 }
 
 # augur/11.2.0 wants RAxML, but doesn't specify a version so I will just use
