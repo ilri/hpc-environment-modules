@@ -1,0 +1,52 @@
+#%Module1.0#####################################################################
+##
+## repeatmodeler modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2021
+##
+
+set appname     repeatmodeler
+set version     2.0.1
+set prefix      /export/apps/${appname}/${version}
+set url         "http://www.repeatmasker.org/RepeatModeler"
+set msg         "RepeatModeler is a de novo transposable element (TE) family identification and modeling package.\Official site: $url\n"
+
+# RepeatModeler is pretty old and uses some system perl libraries, so let's make
+# sure we don't load any newer perls.
+conflict        repeatmodeler perl
+
+prepend-path    PATH        ${prefix}
+
+if { ![is-loaded repeatmasker/4.1.1] } { 
+    module load repeatmasker/4.1.1
+}
+
+if { ![is-loaded recon/1.08] } { 
+    module load recon/1.08
+}
+
+if { ![is-loaded repeatscout/1.0.6] } { 
+    module load repeatscout/1.0.6
+}
+
+if { ![is-loaded cd-hit/4.8.1] } { 
+    module load cd-hit/4.8.1
+}
+
+if { ![is-loaded trf/4.0.9] } { 
+    module load trf/4.0.9
+}
+
+if { ![is-loaded rmblast/2.11.0] } { 
+    module load rmblast/2.11.0
+}
+
+if { ![is-loaded mafft/7.475] } { 
+    module load mafft/7.475
+}
+
+if { ![is-loaded cd-hit/4.8.1] } { 
+    module load cd-hit/4.8.1
+}
+
+# vim: set sw=4 ts=4:
