@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## recon Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2021
+##
+
+set appname     recon
+set version     1.08
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://www.repeatmasker.org/RepeatModeler/"
+set msg         "De Novo Repeat Finder.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
