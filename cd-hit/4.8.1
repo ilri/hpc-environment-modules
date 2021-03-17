@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## cd-hit modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2021
+##
+
+set appname cd-hit
+set version 4.8.1
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/weizhongli/cdhit"
+set msg     "A program for clustering and comparing protein or nucleotide sequences.\nOfficial site: ${url}"
+
+conflict    ${appname}
+
+module-whatis $msg
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
