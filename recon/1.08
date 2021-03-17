@@ -19,8 +19,9 @@ proc ModulesHelp{ } {
 
 module-whatis $msg
 
-conflict $appname
+conflict $appname perl
 
 prepend-path    PATH        ${exec_prefix}
+prepend-path    PATH        ${prefix}/scripts
 
 # vim: set sw=4 ts=4:
