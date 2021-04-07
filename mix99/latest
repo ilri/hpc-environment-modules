@@ -10,12 +10,6 @@ set appname     mix99
 set prefix      /export/apps/${appname}
 set exec_prefix ${prefix}
 
-proc ModulesHelp{ } {
-    puts stderr $msg
-}
-
-module-whatis $msg
-
 conflict $appname
 
 prepend-path    PATH        ${exec_prefix}
