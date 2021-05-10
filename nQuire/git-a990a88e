@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## nQuire Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2021
+##
+
+set appname     nQuire
+set version     git-a990a88e
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/clwgg/nQuire"
+set msg         "A statistical framework for ploidy estimation using NGS short-read data.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
