@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## picard modulefile
+## By Alan Orth
+## May, 2021
+##
+
+set appname         picard
+set version         2.25.5
+set prefix          /export/apps/${appname}/${version}
+set url             "https://broadinstitute.github.io/picard"
+set msg             "A set of Java command line tools for manipulating high-throughput sequencing data (HTS) data and formats.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict        picard
+
+# some software use picard and expect it to be present in the CLASSPATH.
+prepend-path    CLASSPATH   ${prefix}/picard.jar
+
+# vim: set sw=4 ts=4:
