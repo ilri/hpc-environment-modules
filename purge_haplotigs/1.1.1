@@ -1,0 +1,52 @@
+#%Module1.0#####################################################################
+##
+## purge_haplotigs modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2021
+##
+
+set appname         purge_haplotigs
+set version         1.1.1
+set prefix          /export/apps/${appname}/${version}
+set url             "https://bitbucket.org/mroachawri/purge_haplotigs"
+set msg             "Pipeline to help with curating heterozygous diploid genome assemblies.\nOfficial site: $url"
+
+conflict        $appname
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# Dependencies from project: https://bitbucket.org/mroachawri/purge_haplotigs/src/master/#markdown-header-dependencies
+# Dependencies from BioConda: https://bioconda.github.io/recipes/purge_haplotigs/README.html
+
+# perl >= 5.22
+if { ![is-loaded perl/5.28.2] } {
+    module load perl/5.28.2
+}
+
+# minimap2 >= 2.12
+if { ![is-loaded minimap2/2.13] } {
+    module load minimap2/2.13
+}
+
+# bedtools >= 2.25.0
+if { ![is-loaded bedtools/2.29.0] } {
+    module load bedtools/2.29.0
+}
+
+# R >= 3.4.1 (with ggplot >= 2.2.1)
+if { ![is-loaded R/4.0] } {
+    module load R/4.0
+}
+
+# samtools >= 1.7
+if { ![is-loaded samtools/1.8] } {
+    module load samtools/1.8
+}
+
+prepend-path    PATH        ${prefix}/bin
+
+# vim: set sw=4 ts=4:
