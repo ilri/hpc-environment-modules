@@ -22,11 +22,6 @@ proc ModulesHelp { } {
 # Dependencies from project: https://bitbucket.org/mroachawri/purge_haplotigs/src/master/#markdown-header-dependencies
 # Dependencies from BioConda: https://bioconda.github.io/recipes/purge_haplotigs/README.html
 
-# perl >= 5.22
-if { ![is-loaded perl/5.22.3] } {
-    module load perl/5.22.3
-}
-
 # minimap2 >= 2.12
 if { ![is-loaded minimap2/2.13] } {
     module load minimap2/2.13
