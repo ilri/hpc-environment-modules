@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## beast2 modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2021
+##
+
+set appname     beast2
+set version     2.6.4
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://www.beast2.org"
+set msg         "BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences.\n$appname official site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+# beast2 can use beagle for some speedup
+if { ![is-loaded beagle/3.1.2] } {
+    module load beagle/3.1.2
+}
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
