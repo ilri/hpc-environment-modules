@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## guppy Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2021
+##
+
+set appname     guppy
+set version     5.0.11
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://community.nanoporetech.com/downloads/guppy/release_notes"
+set msg         "Base calling for Oxford Nanopore data using CPU or GPU.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
