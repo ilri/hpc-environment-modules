@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## changeo modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2021
+##
+
+set appname     halcyon
+set version     0.1.1
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/relastle/halcyon"
+set msg         "An accurate basecaller exploiting an encoder-decoder model with monotonic attention.\Official site: $url\n"
+
+# halcyon/0.1.1 uses a virtual environment created with our python/3.7 environm-
+# ent module, so make sure not to load any other Python modules.
+conflict        halcyon python
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.7/site-packages
+
+# vim: set sw=4 ts=4:
