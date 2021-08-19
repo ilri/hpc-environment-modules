@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## nvtop Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## August, 202
+##
+
+set appname     nvtop
+set version     1.2.2
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/Syllo/nvtop"
+set msg         "NVIDIA GPUs htop like monitoring tool\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
