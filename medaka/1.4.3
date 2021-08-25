@@ -1,0 +1,38 @@
+#%Module1.0#####################################################################
+##
+## medaka modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2021
+##
+
+set appname         medaka
+set version         1.4.3
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+
+# medaka is installed using our python/3.7 module, so we need to make sure that
+# there are no other Python modules being loaded that might conflict. Also, me-
+# daka ships its own whatshap, 
+conflict            $appname python whatshap
+
+prepend-path        PATH            ${exec_prefix}
+prepend-path        PYTHONPATH      ${prefix}/lib/python3.7/site-packages
+
+# medaka/1.4.3 recommends samtools >= 1.9
+if { ![is-loaded samtools/1.11] } {
+    module load samtools/1.11
+}
+
+# medaka doesn't say that it needs bcftools, but the bioconda recipe loads it,
+# so let's just do the same.
+# See: https://github.com/bioconda/bioconda-recipes/blob/master/recipes/medaka/meta.yaml
+if { ![is-loaded bcftools/1.11] } {
+    module load bcftools/1.11
+}
+
+# medaka/1.4.3 recommends minimap >= 2.17
+if { ![is-loaded minimap2/2.22] } {
+    module load minimap2/2.22
+}
+
+# vim: set sw=4 ts=4:
