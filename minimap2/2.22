@@ -9,7 +9,7 @@
 set appname         minimap2
 set version         2.22
 set prefix          /export/apps/${appname}/${version}
-set exec_prefix     ${prefix}
+set exec_prefix     ${prefix}/bin
 set url             "https://lh3.github.io/minimap2"
 set msg             "A versatile pairwise aligner for genomic and spliced nucleotide sequences.\nOfficial site: $url\n"
 
