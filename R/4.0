@@ -7,7 +7,7 @@
 ##
 
 set appname     R
-# real version is 4.0.3
+# real version is 4.0.5
 set version     4.0
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
