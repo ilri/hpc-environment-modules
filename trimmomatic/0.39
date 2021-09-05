@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## trimmomatic Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2021
+##
+
+set appname trimmomatic
+set version 0.39
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/usadellab/Trimmomatic"
+set msg     "Trimmomatic is a flexible read trimming tool for Illumina NGS data.\nOfficial Site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict trimmomatic
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
