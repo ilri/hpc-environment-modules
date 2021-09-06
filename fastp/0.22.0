@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## R Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2021
+##
+
+set appname     fastp
+set version     0.22.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/OpenGene/fastp"
+set msg         "An ultra-fast all-in-one FASTQ preprocessor.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
