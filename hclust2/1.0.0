@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## hclust2 modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2021
+##
+
+set appname     hclust2
+set version     1.0.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/SegataLab/hclust2"
+set msg         "Hclust2 is a handy tool for plotting heat-maps with several useful options to produce high quality figures that can be used in publication.\Official site: $url\n"
+
+# Also, hclust2/1.0.0 uses a virtual environment created by CentOS 7's python36
+# so make sure not to load any other Python modules.
+conflict        hclust2 python
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
