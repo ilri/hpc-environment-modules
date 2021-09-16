@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## mcscanx Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2021
+##
+
+set appname     mcscanx
+set version     git-97e74f40
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/wyp1125/MCScanX"
+set msg         "Multiple Collinearity Scan toolkit X version.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH    ${prefix}
+prepend-path    PATH    ${prefix}/downstream_analyses
+
+# vim: set sw=4 ts=4:
