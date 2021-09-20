@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## genomeworks Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2021
+##
+
+set appname     genomeworks
+# real version is git dev branch somewhere after the v2021.02.2 tag (due to build issues)
+set version     git-baab5668
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/clara-parabricks/GenomeWorks"
+set msg         "SDK for GPU accelerated genome assembly and analysis.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+# genomeworks was compiled with its own htslib
+conflict $appname htslib
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
