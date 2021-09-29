@@ -20,7 +20,9 @@ module-whatis $msg
 
 conflict $appname
 
-prepend-path    PATH    ${prefix}
-prepend-path    PATH    ${prefix}/downstream_analyses
+prepend-path    PATH        ${prefix}
+prepend-path    PATH        ${prefix}/downstream_analyses
+# For java programs, ie `java dot_plotter`
+prepend-path    CLASSPATH   ${prefix}/downstream_analyses
 
 # vim: set sw=4 ts=4:
