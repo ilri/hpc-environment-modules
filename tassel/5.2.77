@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## tassel Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2021
+##
+
+set appname     tassel
+set version     5.2.77
+set prefix      /export/apps/${appname}/${version}
+set url         "https://www.maizegenetics.net/tassel"
+set msg         "TASSEL is a software package used to evaluate traits associations, evolutionary patterns, and linkage disequilibrium.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
