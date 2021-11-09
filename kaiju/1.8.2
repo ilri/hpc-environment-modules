@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## kaiju modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2021
+##
+
+set appname     kaiju
+set version     1.8.2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://kaiju.binf.ku.dk/"
+set msg         "Kiaju is a program for sensitive taxonomic classification of high-throughput sequencing reads from metagenomic whole genome sequencing experiments.\nKaiju official site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
