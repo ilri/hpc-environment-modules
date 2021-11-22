@@ -8,7 +8,7 @@
 set appname     awscli
 # real version is currently 2.4.0
 set version     2
-set prefix      /export/apps/${appname}/${version}/current
+set prefix      /export/apps/v${appname}/${version}/current
 set url         "https://pypi.org/project/awscli"
 set msg         "This package provides a unified command line interface to Amazon Web Services.\Official site: $url\n"
 
