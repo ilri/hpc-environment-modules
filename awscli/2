@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## awscli modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2021
+##
+
+set appname     awscli
+# real version is currently 2.4.0
+set version     2
+set prefix      /export/apps/${appname}/${version}/current
+set url         "https://pypi.org/project/awscli"
+set msg         "This package provides a unified command line interface to Amazon Web Services.\Official site: $url\n"
+
+# awscli v2 seems to bundle its own Python 3.8...? Let's make sure we don't load
+# any other python modules that might overwrite some environment variables.
+conflict        awscli python
+
+module-whatis   $msg
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
