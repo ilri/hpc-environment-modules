@@ -1,0 +1,29 @@
+#%Module1.0#####################################################################
+##
+## trimgalore modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2021
+##
+
+set appname trimgalore
+set version 0.6.7
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/FelixKrueger/TrimGalore"
+set msg     "Trim Galore is a wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.\nOfficial site: $url\n"
+
+conflict    $appname
+
+module-whatis $msg
+
+prepend-path    PATH    ${prefix}
+
+# trimgalore wants cutadapt
+if { ![is-loaded cutadapt/3.5] } {
+    module load cutadapt/3.5
+}
+
+# trimgalore wants fastqc
+if { ![is-loaded fastqc/0.11.9] } {
+    module load fastqc/0.11.9
+}
+# vim: set sw=4 ts=4:
