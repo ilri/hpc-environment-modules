@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## cutadapt modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2021
+##
+
+set appname     cutadapt
+set version     3.5
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+# cutadapt uses the system's python3 so make sure no other Python is loaded
+conflict        python
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
