@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## flye modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2021
+##
+
+set appname     flye
+set version     2.9
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+# flye uses the system's python3 (3.6) so make sure there is no other Python
+# loaded. Also it includes minimap2 and samtools.
+conflict    flye python minimap2 samtools
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
