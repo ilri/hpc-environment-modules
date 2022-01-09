@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## metaeuk Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## January, 2022
+##
+
+set appname     metaeuk
+set version     git-9818d1a5
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/soedinglab/metaeuk"
+set msg         "MetaEuk - sensitive, high-throughput gene discovery and annotation for large-scale eukaryotic metagenomics.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
