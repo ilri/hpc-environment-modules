@@ -47,6 +47,11 @@ if { ![is-loaded R/4.0] } {
     module load R/4.0
 }
 
+# BUSCO depends on metaeuk, but it doesn't say which one
+if { ![is-loaded metaeuk/git-9818d1a5] } {
+    module load metaeuk/git-9818d1a5
+}
+
 prepend-path    PATH                ${prefix}/bin
 prepend-path    PYTHONPATH          ${prefix}/lib/python3.6/site-packages
 # some R libraries we install here for BUSCO
