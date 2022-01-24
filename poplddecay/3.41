@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## R Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## January, 2022
+##
+
+set appname     poplddecay
+set version     3.41
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/BGI-shenzhen/PopLDdecay"
+set msg         "A fast and effective tool for linkage disequilibrium decay analysis based on variant call format files.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PATH        ${prefix}/mis
+
+# vim: set sw=4 ts=4:
