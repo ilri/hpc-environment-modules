@@ -9,6 +9,7 @@
 set appname     poplddecay
 set version     3.41
 set prefix      /export/apps/${appname}/${version}
+set exec_prefix /export/apps/${appname}/${version}/bin
 set url         "https://github.com/BGI-shenzhen/PopLDdecay"
 set msg         "A fast and effective tool for linkage disequilibrium decay analysis based on variant call format files.\nOfficial site: $url\n"
 
@@ -20,7 +21,7 @@ module-whatis   $msg
 
 conflict        $appname
 
-prepend-path    PATH        ${prefix}/bin
-prepend-path    PATH        ${prefix}/mis
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PATH        ${exec_prefix}/mis
 
 # vim: set sw=4 ts=4:
