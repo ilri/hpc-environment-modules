@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+##
+## hawk modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2022
+##
+
+set appname     hawk
+# real version is ~1.7.0, but they didn't create a tag
+set version     git-a177811d
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/atifrahman/HAWK"
+set msg         "Hitting associations with k-mers.\Official site: $url\n"
+
+# hawk comes with its own modified versions of jellyfish2 and eigenstrat.
+conflict        hawk jellyfish eigenstrat
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}
+
+# hawk wants abyss/1.3.6
+if { ![is-loaded abyss/1.3.6] } {
+    module load abyss/1.3.6
+}
+
+# vim: set sw=4 ts=4:
