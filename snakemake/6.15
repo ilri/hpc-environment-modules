@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## snakemake modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2022
+##
+
+set appname     snakemake
+set version     6.15
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/.venv/bin
+set url         "https://snakemake.readthedocs.io/en/stable/"
+set msg         "The Snakemake workflow management system is a tool to create reproducible and scalable data analyses.\Official site: $url\n"
+
+# snakemake was compiled against CentOS's python36, so don't load other pythons
+conflict        python
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
