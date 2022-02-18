@@ -1,0 +1,47 @@
+#%Module1.0#####################################################################
+##
+## changeo modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2022
+##
+
+set appname     ltr_retriever
+set version     2.9.0
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/oushujun/LTR_retriever"
+set msg         "LTR_retriever is a highly accurate and sensitive program for identification of LTR retrotransposons.\Official site: $url\n"
+
+conflict        ltr_retriever
+
+module-whatis   $msg
+
+prepend-path    PATH            ${prefix}
+prepend-path    PATH            ${prefix}/bin
+
+# ltr_retriever wants blast/2.2.29+
+if { ![is-loaded blast/2.2.29+] } {
+    module load blast/2.2.29+
+}
+
+# ltr_retriever wants cd-hit/4.6.x
+if { ![is-loaded cd-hit/4.6.8] } {
+    module load cd-hit/4.6.8
+}
+
+# ltr_retriever wants hmmer/3.1b2, but that's old and repeatmasker/4.1.2-p1
+# wants hmmer/3.2.1 so let's use that.
+if { ![is-loaded hmmer/3.2.1] } {
+    module load hmmer/3.2.1
+}
+
+# ltr_retriever wants repeatmasker/4.0.0, but we only have 4.1.2-p1
+if { ![is-loaded repeatmasker/4.1.2-p1] } {
+    module load repeatmasker/4.1.2-p1
+}
+
+# ltr_retriever wants trf/4.0.7, but we only have 4.0.9
+if { ![is-loaded trf/4.0.9] } {
+    module load trf/4.0.9
+}
+
+# vim: set sw=4 ts=4:
