@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## centrifuge modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2022
+##
+
+set appname         centrifuge
+set version         1.0.4
+set prefix          /export/apps/${appname}/${version}
+set url             "https://ccb.jhu.edu/software/centrifuge/"
+set msg             "Centrifuge is a very rapid and memory-efficient system for the classification of DNA sequences from microbial samples.\nOfficial site: $url"
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict            $appname
+
+prepend-path        PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
