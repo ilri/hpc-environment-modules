@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## bbmap Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2022
+##
+
+set appname     bbmap
+set version     38.95
+set prefix      /export/apps/${appname}/${version}
+set url         "https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/"
+set msg         "BBMap is a splice-aware global aligner for DNA and RNA sequencing reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
