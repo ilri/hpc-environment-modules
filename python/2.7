@@ -1,0 +1,23 @@
+#%Module1.0
+#####################################################################
+##
+## python Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2022
+##
+
+set appname     python
+# real version is 2.7.18
+set version     2.7
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}
+set datarootdir ${prefix}/share
+
+conflict        ${appname}
+
+prepend-path    PATH            ${exec_prefix}/bin
+prepend-path    MANPATH         ${datarootdir}/man
+setenv          PYTHONHOME      ${prefix}
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
