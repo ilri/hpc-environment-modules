@@ -23,11 +23,10 @@ conflict            $appname
 
 prepend-path        PATH            ${exec_prefix}
 prepend-path        PYTHONPATH      ${prefix}/lib/python2.7/site-packages
-prepend-path        PYTHONPATH      ${prefix}
 
-# pathoscope uses a virtualenv based on python/2.7. I'm not sure if this techni-
-# cally needs to be loaded, but it can't hurt since it will also set some other
-# environment variables like LD_LIBRARY_PATH and PYTHONHOME.
+# pathoscope uses a virtualenv based on python/2.7 and we need to load that so
+# we find the correct libpython2.7.so.1.0 for this python, or else it will use
+# the system's python and you'll get "module not found" etc and it's confusing.
 if { ![is-loaded python/2.7] } { 
     module load python/2.7
 }
