@@ -33,13 +33,13 @@ if { ![is-loaded python/2.7] } {
 }
 
 # pathoscope requires samtools < 1.0.
-if { ![is-loaded samtools/0.1.19 } { 
+if { ![is-loaded samtools/0.1.19] } { 
     module load samtools/0.1.19
 }
 
 # pathoscope requires bowtie2, but doesn't say which specific version so I will
 # just load the latest we have.
-if { ![is-loaded bowtie2/2.3.4.1 } { 
+if { ![is-loaded bowtie2/2.3.4.1] } { 
     module load bowtie2/2.3.4.1
 }
 
