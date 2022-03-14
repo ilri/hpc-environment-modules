@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## krona modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2022
+##
+
+set appname     krona
+set version     2.8.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+conflict        $appname
+
+prepend-path    PATH            ${exec_prefix}
+
+# vim: set sw=4 ts=4:
