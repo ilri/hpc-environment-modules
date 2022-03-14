@@ -1,0 +1,34 @@
+#%Module1.0
+#####################################################################
+##
+## ete Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2022
+##
+
+set appname         ete
+set version         3.1.2
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/etetoolkit/ete"
+set msg             "Python package for building, comparing, annotating, manipulating and visualising trees.\nOfficial Site: $url\n"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+conflict            $appname
+
+prepend-path        PATH            ${exec_prefix}
+prepend-path        PYTHONPATH      ${prefix}/lib/python3.9/site-packages
+
+# ete uses a virtualenv based on python/3.9 and we need to load that so we find
+# the correct libpython3.9.so for this python, or else it will use one from the
+# system and you'll get "module not found" etc and it's confusing.
+if { ![is-loaded python/3.9] } { 
+    module load python/3.9
+}
+
+# vim: set sw=4 ts=4:
