@@ -1,0 +1,34 @@
+#%Module1.0#####################################################################
+##
+## velvetoptimiser modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2022
+##
+
+set appname     velvetoptimiser
+set version     2.2.6
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/tseemann/VelvetOptimiser"
+set msg         "Automatically optimise three of Velvet's assembly parameters.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# velvetoptimiser wants velvet >=1.1
+if { ![is-loaded velvet/1.2.10] } {
+    module load velvet/1.2.10
+}
+
+conflict        $appname
+
+prepend-path    PATH        ${prefix}
+# Add BioPerl scripts to PATH
+prepend-path    PATH        ${prefix}/perl5/bin
+# Add the local Perl library path to PERL5LIB
+# See: https://hpc.ilri.cgiar.org/velvetoptimiser-software
+prepend-path    PERL5LIB    ${prefix}/perl5/lib/perl5
+
+# vim: set sw=4 ts=4:
