@@ -17,9 +17,9 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-# velvetoptimiser wants velvet >=1.1
-if { ![is-loaded velvet/1.2.10] } {
-    module load velvet/1.2.10
+# velvetoptimiser wants velvet >=1.1, with the higher kmer length
+if { ![is-loaded velvet/1.2.10-kmer111] } {
+    module load velvet/1.2.10-kmer111
 }
 
 conflict        $appname
