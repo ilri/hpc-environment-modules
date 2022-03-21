@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## ngs-tools Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2022
+##
+
+set appname     ngs-tools
+set version     3.0.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/ncbi/ngs-tools"
+set msg         "Official site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
