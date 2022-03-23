@@ -28,7 +28,7 @@ if { ![is-loaded muscle/3.8.31] } {
     module load muscle/3.8.31
 }
 
-# changeo wants igblast >= 1.6 (thought it recommends v1.11.0!)
+# changeo wants igblast >= 1.6 (though it recommends v1.11.0!)
 if { ![is-loaded igblast/1.10.0] } {
     module load igblast/1.10.0
 }
