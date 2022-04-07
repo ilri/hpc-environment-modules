@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## falco Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2022
+##
+
+set appname     falco
+set version     0.3.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/smithlabcode/falco"
+set msg         "A C++ implementation of FastQC for quality control of sequencing data.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
