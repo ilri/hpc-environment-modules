@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## emblmygff3 modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2022
+##
+
+set appname     emblmygff3
+set version     2.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/.venv/bin
+set url         "https://github.com/NBISweden/EMBLmyGFF3"
+set msg         "An efficient way to convert gff3 annotation files into EMBL format ready to submit.\Official site: $url\n"
+
+# emblmygff3 was compiled against CentOS's python36, so don't load other pythons
+conflict        python $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
