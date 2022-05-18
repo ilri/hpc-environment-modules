@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## hifiasm Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2022
+##
+
+set appname     hifiasm
+set version     0.16.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/chhylp123/hifiasm"
+set msg         "A haplotype-resolved assembler for accurate Hifi reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
