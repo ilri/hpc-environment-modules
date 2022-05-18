@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## primalscheme modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2022
+##
+
+set appname     primalscheme
+set version     1.3.2
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/.venv/bin
+set url         "https://github.com/aresti/primalscheme"
+set msg         "A tool for designing primer panels for multiplex PCR.\Official site: $url\n"
+
+# primalscheme was built in a virtual environment using CentOS's python36, so
+# don't load other pythons
+conflict        python $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.6/site-packages
+
+# vim: set sw=4 ts=4:
