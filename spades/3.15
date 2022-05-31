@@ -14,8 +14,8 @@ set url         "https://github.com/ablab/spades"
 set msg         "Spades is a single-cell genome assembler.\nSpades Official Site: $url"
 
 # spades/3.15 works with Python 2.7 and 3.2+. Let's load the latest possible
-# version we have right now and not allow any others.
-conflict        spades python
+# version we have right now.
+conflict        spades
 
 module-whatis   $msg
 
