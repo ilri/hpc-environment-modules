@@ -12,9 +12,8 @@ set exec_prefix ${prefix}/bin
 set url         "http://docs.igdiscover.se/en/stable/index.html"
 set msg         "IgDiscover analyzes antibody repertoires and discovers new V genes from high-throughput sequencing reads.\Official site: $url\n"
 
-# igdiscover uses a python/3.7 virtual environment and includes its own cutadapt
-# and snakemake, so let's make sure we conflict with those
-conflict        igdiscover python cutadapt snakemake
+# igdiscover includes its own cutadapt and snakemake
+conflict        cutadapt snakemake
 
 prepend-path    PATH        ${exec_prefix}
 # pilon doesn't have a modulefile, so let's just add it to the PATH

@@ -10,10 +10,8 @@ set version         1.4.3
 set prefix          /export/apps/${appname}/${version}
 set exec_prefix     ${prefix}/bin
 
-# medaka is installed using our python/3.7 module, so we need to make sure that
-# there are no other Python modules being loaded that might conflict. Also, me-
-# daka ships its own whatshap, 
-conflict            $appname python whatshap
+# medaka has its own whatshap
+conflict            $appname
 
 prepend-path        PATH            ${exec_prefix}
 prepend-path        PYTHONPATH      ${prefix}/lib/python3.7/site-packages

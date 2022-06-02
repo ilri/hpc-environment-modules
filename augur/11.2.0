@@ -12,9 +12,8 @@ set exec_prefix ${prefix}/.venv/bin
 set url         "https://docs.nextstrain.org/en/latest/guides/install/augur_install.html"
 set msg         "Augur is a bioinformatics toolkit to track evolution from sequence and serological data.\Official site: $url\n"
 
-# augur was installed with python/3.7 so make sure we don't load any other
-# pythons. Also, it includes its own version snakemake.
-conflict        python snakemake
+# augur includes its own version snakemake.
+conflict        snakemake
 
 prepend-path    PATH        ${exec_prefix}
 prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.7/site-packages

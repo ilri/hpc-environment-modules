@@ -10,10 +10,6 @@ set version         3.0.13
 set prefix          /export/apps/${appname}/${version}
 set exec_prefix     ${prefix}/bin
 
-# metaphlan is installed using our python/3.8 module, so we need to make sure
-# that there are no other Python modules being loaded that might conflict.
-conflict            $appname python
-
 prepend-path        PATH            ${exec_prefix}
 prepend-path        PYTHONPATH      ${prefix}/lib/python3.8/site-packages
 

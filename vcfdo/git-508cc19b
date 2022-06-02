@@ -12,10 +12,6 @@ set exec_prefix ${prefix}/bin
 set url         "https://github.com/IDEELResearch/vcfdo"
 set msg         "Tools for processing and annotating VCF files, with focus on Plasmodium sp.\Official site: $url\n"
 
-# vcfdo was installed with python/3.7 so make sure we don't load any other
-# pythons.
-conflict        python
-
 prepend-path    PATH        ${exec_prefix}
 prepend-path    PYTHONPATH  ${prefix}/lib/python3.7/site-packages
 
