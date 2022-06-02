@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## star Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## June, 2022
+##
+
+set appname     star
+set version     2.7.10a
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/alexdobin/STAR/"
+set msg         "STAR (Spliced Transcripts Alignment to a Reference) is an RNA-seq aligner.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
