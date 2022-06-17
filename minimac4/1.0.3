@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## minimac4 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## June, 2022
+##
+
+set appname     minimac4
+set version     1.0.3
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/statgen/Minimac4"
+set msg         "Minimac4 is a lower memory and more computationally efficient implementation of the genotype imputation algorithms in minimac/mininac2/minimac3.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
