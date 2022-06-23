@@ -20,8 +20,6 @@ proc ModulesHelp { } {
 
 module-whatis   "$msg"
 
-conflict        samtools
-
 prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${datarootdir}/man
 

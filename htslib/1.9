@@ -17,11 +17,6 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-# htslib is part of the samtools project, which also produces bcftools. These
-# packages may include bundled copies of htslib depending on how they were
-# compiled, so it's best to mark them as conflicting.
-conflict	$appname samtools bcftools
-
 prepend-path    PATH            ${prefix}/bin
 prepend-path    MANPATH         ${prefix}/share/man
 prepend-path    HTSLIB_DIR      ${prefix}
