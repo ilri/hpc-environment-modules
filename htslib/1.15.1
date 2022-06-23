@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## htslib modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2022
+##
+
+set appname     htslib
+set version     1.15.1
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/samtools/htslib"
+set msg         "C library for high-throughput sequencing data formats.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+prepend-path    PATH            ${prefix}/bin
+prepend-path    MANPATH         ${prefix}/share/man
+prepend-path    HTSLIB_DIR      ${prefix}
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
