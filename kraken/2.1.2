@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## kraken modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## July, 2022
+##
+
+set appname     kraken
+set version     2.1.2
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}
+set msg         "Kraken is a taxonomic classification system using exact k-mer matches to achieve high accuracy and fast classification speeds.\nOfficial site: https://ccb.jhu.edu/software/kraken2"
+
+conflict        ${appname}
+
+module-whatis   $msg
+
+prepend-path    PATH            ${exec_prefix}
+setenv          KRAKEN2_DB_PATH /export/data/bio/kraken2/db
+
+# vim: set sw=4 ts=4:
