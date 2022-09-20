@@ -2,28 +2,21 @@
 ##
 ## spades modulefile
 ## By Alan Orth <a.orth@cgiar.org>
-## February, 2022
+## September, 2022
 ##
 
 set appname     spades
-# real version is 3.15.4
+# real version is 3.15.5
 set version     3.15
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
 set url         "https://github.com/ablab/spades"
 set msg         "Spades is a single-cell genome assembler.\nSpades Official Site: $url"
 
-# spades/3.15 works with Python 2.7 and 3.2+. Let's load the latest possible
-# version we have right now.
 conflict        spades
 
 module-whatis   $msg
 
 prepend-path    PATH    ${exec_prefix}
-
-# spades/3.15 supports up to Python 3.10, so let's use 3.9
-if { ![is-loaded python/3.9] } {
-    module load python/3.9
-}
 
 # vim: set sw=4 ts=4:
