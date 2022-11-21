@@ -1,0 +1,28 @@
+#%Module1.0
+#####################################################################
+##
+## bowtie2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## November, 2022
+##
+
+set     appname         bowtie2
+set     version         2.5.0
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix_1   ${prefix}
+set     exec_prefix_2   ${prefix}/scripts
+set     url             "https://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+set     msg             "Bowtie2 is an ultrafast & memory-efficient tool for aligning sequencing reads to long reference sequences. Its particularly good at aligning reads of about 50 up to 100s or 1,000s of characters, and particularly good at aligning to relatively long (e.g. mammalian) genomes.\n\nOfficial Site: $url\n"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix_1}
+prepend-path    PATH    ${exec_prefix_2}
+
+# vim: set sw=4 ts=4:
