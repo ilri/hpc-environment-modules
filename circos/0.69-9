@@ -2,7 +2,7 @@
 ##
 ## circos modulefile
 ## By Alan Orth <a.orth@cgiar.org>
-## September, 2020
+## November, 2022
 ##
 
 set appname     circos
@@ -18,10 +18,5 @@ module-whatis   $msg
 prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${prefix}/man
 prepend-path    PERL5LIB    ${prefix}/lib/perl5
-
-# circos/0.69-9 uses modules compiled against perl/5.28.2
-if { ![is-loaded perl/5.28.2] } {
-    module load perl/5.28.2
-}
 
 # vim: set sw=4 ts=4:
