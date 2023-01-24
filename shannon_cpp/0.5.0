@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## shannon_cpp modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2023
+##
+
+set appname     shannon_cpp
+set version     0.5.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/bx3/shannon_cpp"
+set msg         "Shannon is a novel de novo RNA-Seq assembler designed based on information-theoretic principles. This C++ version significantly improves both time and memory efficiency by an order of magnitude compared to its original.\Official site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${exec_prefix}
+
+# shannon_cpp requires rcorrector
+if { ![is-loaded rcorrector/1.0.5] } {
+    module load rcorrector/1.0.5
+}
+
+# vim: set sw=4 ts=4:
