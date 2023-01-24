@@ -1,0 +1,37 @@
+#%Module1.0#####################################################################
+##
+## transabyss modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2023
+##
+
+set appname     transabyss
+set version     2.0.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set msg         "De novo assembly of RNAseq data using ABySS.\nOfficial Site: https://github.com/bcgsc/transabyss"
+
+conflict $appname
+
+module-whatis   $msg
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PATH        ${prefix}/.venv/bin
+prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.9/site-packages
+
+# transabyss/2.0.1 was installed with python/3.9 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.9] } { 
+    module load python/3.9
+}
+
+# transabyss/2.0.1 needs abyss 2.0.x (haven't tried with newer)
+if { ![is-loaded abyss/2.0.2] } { 
+    module load abyss/2.0.2
+}
+
+# transabyss/2.0.1 needs blat (any version?)
+if { ![is-loaded blat/37x1] } { 
+    module load blat/37x1
+}
+
+# vim: set sw=4 ts=4:
