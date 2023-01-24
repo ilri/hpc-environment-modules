@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## blat modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2023
+##
+
+set appname     blat
+set version     37x1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set msg         "BLAT performs extremely fast mRNA/DNA alignments, and cross-species protein alignments..\nOfficial Site: http://genome.ucsc.edu/goldenPath/help/blatSpec.html"
+
+conflict $appname
+
+module-whatis   $msg
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
