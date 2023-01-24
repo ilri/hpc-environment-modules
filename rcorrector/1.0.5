@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## rcorrector modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## January, 2023
+##
+
+set appname     rcorrector
+set version     1.0.5
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/mourisl/Rcorrector"
+set msg         "Rcorrector(RNA-seq error CORRECTOR) is a kmer-based error correction method for RNA-seq data.\Official site: $url\n"
+
+# rcorrector has its own jellyfish
+conflict        $appname jellyfish
+
+module-whatis   $msg
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
