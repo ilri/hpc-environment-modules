@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## oligoarrayaux modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2023
+##
+
+set appname     oligoarrayaux
+set version     3.8.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "http://www.unafold.org/Dinamelt/software/oligoarrayaux.php"
+set msg         "OligoArrayAux is a subset of the UNAFold package for use with OligoArray.\nOfficial site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
