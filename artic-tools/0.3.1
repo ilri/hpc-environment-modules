@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## artic-tools Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2023
+##
+
+set appname     artic-tools
+set version     0.3.1
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/will-rowe/artic-tools"
+set msg         "A set of tools for viral amplicon schemes.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# artic-tools/0.3.1 was compiled against htslib/1.15.1 so let's load it
+if { ![is-loaded htslib/1.15.1] } {
+    module load htslib/1.15.1
+}
+
+# vim: set sw=4 ts=4:
