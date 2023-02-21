@@ -3,11 +3,11 @@
 ##
 ## python Modulefile
 ## by Alan Orth <a.orth@cgiar.org>
-## August, 2021
+## February, 2023
 ##
 
 set appname         python
-# real version is 3.8.11
+# real version is 3.8.16
 set version         3.8
 set prefix          /export/apps/${appname}/${version}
 set exec_prefix     ${prefix}
@@ -15,9 +15,14 @@ set datarootdir     ${prefix}/share
 
 conflict            $appname
 
-prepend-path        PATH        ${exec_prefix}/bin
-prepend-path        MANPATH     ${datarootdir}/man
-setenv              PYTHONHOME  ${prefix}
-prepend-path        LD_LIBRARY_PATH /export/apps/${appname}/${version}/lib
+prepend-path        PATH            ${exec_prefix}/bin
+prepend-path        MANPATH         ${datarootdir}/man
+setenv              PYTHONHOME      ${prefix}
+# CPPFLAGS is for the C preprocessor, ie to pass header include paths
+prepend-path        --delim " "     CPPFLAGS    -I${prefix}/include
+# LDFLAGS is for the linker (ld)
+prepend-path        --delim " "     LDFLAGS     -L${prefix}/lib
+# LD_LIBRARY_PATH is for runtime
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
 
 # vim: set sw=4 ts=4:
