@@ -1,0 +1,45 @@
+#%Module1.0
+#####################################################################
+##
+## nanopolish Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2023
+##
+
+set appname         nanopolish
+set version         0.14.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/jts/nanopolish"
+set msg             "Software package for signal-level analysis of Oxford Nanopore sequencing data.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+# nanopolish compiles its own version of hdf5, eigen, and slow5
+conflict        $appname    hdf5 eigen slow5
+
+# the nanopolish binary is at the root
+prepend-path    PATH        ${prefix}
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PATH        ${prefix}/scripts
+prepend-path    PATH        ${prefix}/venv/bin
+prepend-path    PYTHONPATH  ${prefix}/venv/lib/python3.8/site-packages
+
+if { ![is-loaded htslib/1.15.1] } { 
+    module load htslib/1.15.1
+}
+
+if { ![is-loaded minimap2/2.24] } { 
+    module load minimap2/2.24
+}
+
+# nanopolish script requirements were installed with python/3.8
+if { ![is-loaded python/3.8] } { 
+    module load python/3.8
+}
+
+# vim: set sw=4 ts=4:
