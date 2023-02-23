@@ -40,11 +40,6 @@ if { ![is-loaded longshot/0.4.5] } {
     module load longshot/0.4.5 
 }
 
-# artic/1.2.3 requires longshot/0.4.5
-if { ![is-loaded longshot/0.4.5] } { 
-    module load longshot/0.4.5 
-}
-
 # artic/1.2.3 requires bcftools/1.15.1, which will also pull in htslib/1.15.1
 if { ![is-loaded bcftools/1.15.1] } { 
     module load bcftools/1.15.1
