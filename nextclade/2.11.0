@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## nextclade Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2023
+##
+
+set appname     nextclade
+set version     2.11.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/nextstrain/nextclade"
+set msg         "Viral genome alignment, mutation calling, clade assignment, quality checks and phylogenetic placement.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
