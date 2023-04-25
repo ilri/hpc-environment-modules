@@ -3,11 +3,11 @@
 ##
 ## nextflow Modulefile
 ## by Alan Orth <a.orth@cgiar.org>
-## March, 2023
+## April, 2023
 ##
 
 set appname     nextflow
-# real version is 22.10.7
+# real version is 22.10.8
 set version     22.10
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
