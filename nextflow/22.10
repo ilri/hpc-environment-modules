@@ -24,4 +24,9 @@ conflict $appname
 
 prepend-path    PATH    ${exec_prefix}
 
+# Nextflow wants Java 11+
+if { ![is-loaded java/11] } {
+    module load java/11
+}
+
 # vim: set sw=4 ts=4:
