@@ -24,4 +24,9 @@ prepend-path    PATH            ${prefix}
 setenv          GATK_LOCAL_JAR  ${prefix}/gatk-package-${version}-local.jar
 setenv          GATK_SPARK_JAR  ${prefix}/gatk-package-${version}-spark.jar
 
+# GATK 4.4.0.0 requires Java 17!
+if { ![is-loaded java/17] } {
+    module load java/17
+}
+
 # vim: set sw=4 ts=4:
