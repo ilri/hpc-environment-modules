@@ -1,0 +1,18 @@
+#%Module1.0
+#####################################################################
+##
+## antismash Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2023
+##
+
+set appname         antismash
+set version         7.0.0
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+
+conflict            antismash
+
+prepend-path        PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
