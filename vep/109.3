@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## VEP modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2023
+##
+
+set appname vep
+set version 109.3
+set prefix  /export/apps/${appname}/${version}
+set url     "http://www.ensembl.org/info/docs/tools/vep/script/"
+set msg     "VEP determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.\nOfficial site: $url"
+
+module-whatis $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    vep
+
+# vep was compiled against htslib/1.9, not sure if we need this loaded?
+if { ![is-loaded htslib/1.9] } {
+    module load htslib/1.9
+}
+
+prepend-path    PATH        ${prefix}
+prepend-path    PERL5LIB    ${prefix}/lib/perl5
+
+# vim: set sw=4 ts=4:
