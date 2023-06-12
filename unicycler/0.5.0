@@ -15,6 +15,7 @@ set msg         "Unicycler is an assembly pipeline for bacterial genomes.\Offici
 conflict        unicycler
 
 prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.8/site-packages
 
 # unicycler was installed using our python/3.8 module so let's load it
 if { ![is-loaded python/3.8] } {
