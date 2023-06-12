@@ -15,4 +15,10 @@ conflict            snpeff
 prepend-path        PATH    ${exec_prefix}
 prepend-path        PATH    ${prefix}/scripts
 
+# The homepage says it needs Java 12, but the docs say it needs Java 1.8+, so
+# let's try Java 11?
+if { ![is-loaded java/11] } {
+    module load java/11
+}
+
 # vim: set sw=4 ts=4:
