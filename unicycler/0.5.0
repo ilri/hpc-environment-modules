@@ -22,8 +22,8 @@ if { ![is-loaded python/3.8] } {
 }
 
 # unicycler wants spades >= v3.14.0 so let's load the latest currently installed
-if { ![is-loaded spades/3.14.0] } {
-    module load spades/3.14.0
+if { ![is-loaded spades/3.15] } {
+    module load spades/3.15
 }
 
 # unicycler wants racon, though doesn't specify a version
