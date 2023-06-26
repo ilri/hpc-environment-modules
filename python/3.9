@@ -18,6 +18,10 @@ conflict            $appname
 prepend-path        PATH        ${exec_prefix}/bin
 prepend-path        MANPATH     ${datarootdir}/man
 setenv              PYTHONHOME  ${prefix}
+# CPPFLAGS is for the C preprocessor, ie to pass header include paths
+prepend-path        --delim " "     CPPFLAGS    -I${prefix}/include
+# LDFLAGS is for the linker (ld)
+prepend-path        --delim " "     LDFLAGS     -L${prefix}/lib
 prepend-path        LD_LIBRARY_PATH /export/apps/${appname}/${version}/lib
 
 # vim: set sw=4 ts=4:
