@@ -17,9 +17,12 @@ proc ModulesHelp { } {
     puts stderr $msg
 }
 
-# plasmidid uses a python/3.9 virtual environment
-# environment modules loaded.
-conflict    $appname python
+conflict    $appname
+
+# plasmidid was installed with python/3.9 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.9] } { 
+    module load python/3.9
+}
 
 # plasmidid says it needs blast+ v2.2.3, but the bioconda recipe loads the
 # latest, which is currently version 2.14.0, so I'll just load our latest.
