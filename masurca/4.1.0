@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+##
+## masurca modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2023
+##
+
+set appname     masurca
+set version     4.1.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+
+conflict        masurca jellyfish flye mummer samtools
+
+prepend-path    PATH    ${exec_prefix}
+prepend-path    MANPATH ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
