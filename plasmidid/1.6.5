@@ -1,0 +1,81 @@
+#%Module1.0#####################################################################
+##
+## plasmidid modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2023
+##
+
+set appname plasmidid
+set version 1.6.5
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/BU-ISCIII/plasmidID/wiki"
+set msg     "PlasmidID is a mapping-based, assembly-assisted plasmid identification tool that analyzes and gives graphic solution for plasmid identification.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# plasmidid uses a python/3.9 virtual environment
+# environment modules loaded.
+conflict    $appname python
+
+# plasmidid says it needs blast+ v2.2.3, but the bioconda recipe loads the
+# latest, which is currently version 2.14.0, so I'll just load our latest.
+if { ![is-loaded blast/2.12.0+] } {
+    module load blast/2.12.0+
+}
+
+# plasmidid says it needs trimmomatic/0.33, but the bioconda recipe loads the
+# latest, which is currently version 0.39, so I'll just load our latest.
+if { ![is-loaded trimmomatic/0.39] } {
+    module load trimmomatic/0.39
+}
+
+# plasmidid says it needs spades/3.8, but the bioconda recipe loads the
+# latest, which is currently version 3.15.5, so I'll just load our latest.
+if { ![is-loaded spades/3.15] } {
+    module load spades/3.15
+}
+
+# plasmidid says it needs bedtools/2.25.0, but the bioconda recipe loads the
+# latest, which is currently version 2.31.0, so I'll just load our latest.
+if { ![is-loaded bedtools/2.29.0] } {
+    module load bedtools/2.29.0
+}
+
+# plasmidid says it needs bowtie2/2.2.4, but the bioconda recipe loads the
+# latest, which is currently version 2.5.1, so I'll just load our latest.
+if { ![is-loaded bowtie2/2.5.0] } {
+    module load bowtie2/2.5.0
+}
+
+# plasmidid says it needs samtools/1.2, but the bioconda recipe loads the
+# latest, which is currently version 1.17, so I'll just load our latest.
+if { ![is-loaded samtools/1.15.1] } {
+    module load samtools/1.15.1
+}
+
+# plasmidid says it needs prokka/1.12, but the bioconda recipe loads the
+# latest, which is currently version 1.14.6, so I'll just load our latest.
+if { ![is-loaded prokka/1.14.6] } {
+    module load prokka/1.14.6
+}
+
+# plasmidid says it needs circos/0.69.3, but the bioconda recipe loads the
+# latest, which is currently version 0.69, so I'll just load our latest.
+if { ![is-loaded circos/0.69-9] } {
+    module load circos/0.69-9
+}
+
+if { ![is-loaded mash/2.2] } {
+    module load mash/2.2
+}
+
+# plasmidID script is in the root
+prepend-path    PATH        ${prefix}
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.9/site-packages
+
+# vim: set sw=4 ts=4:
