@@ -21,7 +21,6 @@ proc ModulesHelp { } {
 conflict        $appname samtools bcftools bwa bedtools
 
 prepend-path    PATH        ${prefix}/bin
-prepend-path    PATH        ${prefix}/binaries/linux
 # Add BioPerl scripts to PATH
 prepend-path    PATH        ${prefix}/perl5/bin
 # Add snippy's local Perl library path to PERL5LIB
