@@ -1,0 +1,31 @@
+#%Module1.0#####################################################################
+##
+## snippy modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## July, 2023
+##
+
+set appname         snippy
+set version         4.6.0
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/tseemann/snippy"
+set msg             "Rapid haploid variant calling and core genome alignment.\nOfficial site: $url"
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# snippy ships several of its own dependencies as binaries
+conflict        $appname samtools bcftools bwa bedtools
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PATH        ${prefix}/binaries/linux
+# Add BioPerl scripts to PATH
+prepend-path    PATH        ${prefix}/perl5/bin
+# Add snippy's local Perl library path to PERL5LIB
+# See: https://hpc.ilri.cgiar.org/snippy-software
+prepend-path    PERL5LIB    ${prefix}/perl5/lib/perl5
+
+# vim: set sw=4 ts=4:
