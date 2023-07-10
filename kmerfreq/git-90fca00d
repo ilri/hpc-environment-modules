@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## kmerfreq Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2023
+##
+
+set appname     kmerfreq
+set version     git-90fca00d
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/fanagislab/kmerfreq"
+set msg         "kmerfreq count K-mer (with size K) frequency from the input sequence data, typically sequencing reads data, and reference genome data is also applicable.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
