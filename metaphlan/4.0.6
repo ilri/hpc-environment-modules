@@ -1,0 +1,51 @@
+#%Module1.0#####################################################################
+##
+## metaphlan modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## July, 2023
+##
+
+set appname         metaphlan
+set version         4.0.6
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+
+prepend-path        PATH            ${exec_prefix}
+prepend-path        PYTHONPATH      ${prefix}/lib/python3.9/site-packages
+
+# metaphlan/4.0.6 was installed with python/3.9 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.9] } { 
+    module load python/3.9
+}
+
+# metaphlan/4.0.6 requires bowtie >= 2.3.0, but let's load the latest
+if { ![is-loaded bowtie2/2.5.0] } {
+    module load bowtie2/2.5.0
+}
+
+# Other dependencies not named in metaphlan's documentation, but installed in
+# their conda recipe.
+#
+# See: https://github.com/bioconda/bioconda-recipes/blob/master/recipes/metaphlan/meta.yaml
+
+# samtools >= 1.9
+if { ![is-loaded samtools/1.15.1] } {
+    module load samtools/1.15.1
+}
+
+# muscle >= 3.8.1551
+if { ![is-loaded muscle/3.8.1551 ] } {
+    module load muscle/3.8.1551
+}
+
+# RAxML >= 8.2.10
+if { ![is-loaded RAxML/8.2.12 ] } {
+    module load RAxML/8.2.12
+}
+
+# blast >= 2.6.0
+if { ![is-loaded blast/2.12.0+ ] } {
+    module load blast/2.12.0+
+}
+
+# vim: set sw=4 ts=4:
