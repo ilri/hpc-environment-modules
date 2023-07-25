@@ -25,5 +25,7 @@ conflict        $appname
 
 prepend-path    PATH        ${exec_prefix}
 prepend-path    MANPATH     ${datarootdir}/man
+# Don't use /tmp for R temp!
+setenv          TEMPDIR     /var/scratch
 
 # vim: set sw=4 ts=4:
