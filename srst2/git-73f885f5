@@ -21,7 +21,7 @@ conflict        $appname
 
 
 prepend-path    PATH        ${prefix}/venv/bin
-prepend-path    PYTHONPATH  ${prefix}/lib/python2.7/site-packages
+prepend-path    PYTHONPATH  ${prefix}/venv/lib/python2.7/site-packages
 
 # srst2/git-73f885f5 was installed with python/2.7 and needs its LD_LIBRARY_PATH
 if { ![is-loaded python/2.7] } {
