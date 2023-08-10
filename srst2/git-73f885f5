@@ -1,0 +1,44 @@
+#%Module1.0#####################################################################
+##
+## srst2 modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## August, 2023
+##
+
+set appname srst2
+set version git-73f885f5
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/katholt/srst2"
+set msg     "Short Read Sequence Typing for Bacterial Pathogens.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+
+prepend-path    PATH        ${prefix}/venv/bin
+prepend-path    PYTHONPATH  ${prefix}/lib/python2.7/site-packages
+
+# srst2/git-73f885f5 was installed with python/2.7 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/2.7] } {
+    module load python/2.7
+}
+
+# srst2/git-73f885f5 needs bowtie2 v2.1.0+, and according to the bioconda recipe
+# it must be <= 2.2.9.
+#
+# See: https://github.com/bioconda/bioconda-recipes/blob/master/recipes/srst2/meta.yaml
+if { ![is-loaded bowtie2/2.2.8] } {
+    module load bowtie2/2.2.8
+}
+
+# srst2/git-73f885f5 needs samtools v0.1.18
+if { ![is-loaded samtools/0.1.18] } {
+    module load samtools/0.1.18 
+}
+
+# vim: set sw=4 ts=4:
