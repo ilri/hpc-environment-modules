@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## figaro modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2023
+##
+
+set appname figaro
+set version git-337aa9
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/Zymo-Research/figaro"
+set msg     "An efficient and objective tool for optimizing microbiome rRNA gene trimming parameters.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# figaro was installed with python/3.8 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.8] } { 
+    module load python/3.8
+}
+
+prepend-path    PATH        ${prefix}/venv/bin
+prepend-path    PYTHONPATH  ${prefix}/venv/lib/python3.8/site-packages
+
+# vim: set sw=4 ts=4:
