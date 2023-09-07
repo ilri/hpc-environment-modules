@@ -1,0 +1,45 @@
+#%Module1.0#####################################################################
+##
+## chewbacca modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## September, 2023
+##
+
+set appname chewbbaca
+set version 3.2.0
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/B-UMMI/chewBBACA"
+set msg     "chewBBACA is a comprehensive pipeline including a set of functions for the creation and validation of whole genome and core genome MultiLocus Sequence Typing (wg/cgMLST) schemas, providing an allele calling algorithm based on Blast Score Ratio that can be run in multiprocessor settings and a set of functions to visualize and validate allele variation in the loci. chewBBACA performs the schema creation and allele calls on complete or draft genomes.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# chewbbaca was installed with python/3.9 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.9] } { 
+    module load python/3.9
+}
+
+# chewbbaca says it needs blast+ >= v2.9.0
+if { ![is-loaded blast] } {
+    module load blast/2.12.0+
+}
+
+# chewbbaca says it needs prodigal >= 2.6.3
+if { ![is-loaded prodigal/2.6.3] } {
+    module load prodigal/2.6.3
+}
+
+# chewbbaca says it needs mafft >= 7.505
+if { ![is-loaded mafft/7.505] } {
+    module load mafft/7.505
+}
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.9/site-packages
+
+# vim: set sw=4 ts=4:
