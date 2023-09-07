@@ -39,7 +39,7 @@ if { ![is-loaded mafft/7.505] } {
     module load mafft/7.505
 }
 
-prepend-path    PATH        ${prefix}/bin
+prepend-path    PATH        ${prefix}/.venv/bin
 prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.9/site-packages
 
 # vim: set sw=4 ts=4:
