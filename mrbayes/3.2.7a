@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## mrbayes Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2023
+##
+
+set appname     mrbayes
+set version     3.2.7a
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://nbisweden.github.io/MrBayes/index.html"
+set msg         "MrBayes is a program for Bayesian inference and model choice across a wide range of phylogenetic and evolutionary models.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
