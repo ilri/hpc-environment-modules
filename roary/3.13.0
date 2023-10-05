@@ -1,0 +1,58 @@
+#%Module1.0#####################################################################
+##
+## roary modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2023
+##
+
+set appname         roary
+set version         3.13.0
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/sanger-pathogens/Roary"
+set msg             "Rapid large-scale prokaryote pan genome analysis.\nOfficial site: $url"
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+if { ![is-loaded bedtools] } {
+    module load bedtools/2.29.0
+}
+
+if { ![is-loaded cd-hit] } {
+    module load cd-hit/4.8.1
+}
+
+if { ![is-loaded blast] } {
+    module load blast/2.14.1+
+}
+
+if { ![is-loaded mcl] } {
+    module load mcl/14-137
+}
+
+if { ![is-loaded prank] } {
+    module load prank/170427
+}
+
+if { ![is-loaded mafft] } {
+    module load mafft/7.505
+}
+
+if { ![is-loaded fasttree] } {
+    module load fasttree/2.1.11
+}
+
+conflict        $appname
+
+prepend-path    PATH        ${prefix}/bin
+# Add BioPerl scripts to PATH
+prepend-path    PATH        ${prefix}/perl5/bin
+# Add roary's local Perl library paths to PERL5LIB
+# See: https://hpc.ilri.cgiar.org/roary-software
+prepend-path    PERL5LIB    ${prefix}/lib
+prepend-path    PERL5LIB    ${prefix}/perl5/lib/perl5
+
+# vim: set sw=4 ts=4:
