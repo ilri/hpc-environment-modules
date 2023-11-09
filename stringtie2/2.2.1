@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## stringtie modulefile
+## By Alan Orth
+## November, 2023
+##
+
+set appname         stringtie2
+set version         2.2.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/gpertea/stringtie"
+set msg             "Transcript assembly and quantification for RNA-Seq.\nOfficial Site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict        stringtie stringtie2
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
