@@ -25,6 +25,6 @@ if { ![is-loaded python/3.9] } {
 }
 
 prepend-path    PATH        ${prefix}/bin
-prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.9/site-packages
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.9/site-packages
 
 # vim: set sw=4 ts=4:
