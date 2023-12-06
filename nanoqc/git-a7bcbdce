@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## nanoqc modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2023
+##
+
+set appname nanoqc
+set version git-a7bcbdce
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/wdecoster/nanoQC"
+set msg     "Quality control tools for long read sequencing data aiming to replicate some of the plots made by fastQC.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# nanoqc was installed with python/3.9 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.9] } { 
+    module load python/3.9
+}
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PYTHONPATH  ${prefix}/.venv/lib/python3.9/site-packages
+
+# vim: set sw=4 ts=4:
