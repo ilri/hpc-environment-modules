@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## aspera-cli modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## December, 2023
+##
+
+set appname aspera-cli
+set version 4.15.0
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/IBM/aspera-cli"
+set msg     "Command Line Interface for IBM Aspera products.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# aspera-cli/4.15.0 was installed with ruby/3.1
+if { ![is-loaded ruby/3.1] } { 
+    module load ruby/3.1
+}
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    GEM_PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
