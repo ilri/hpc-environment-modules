@@ -1,0 +1,21 @@
+#%Module1.0
+#####################################################################
+##
+## ruby Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## December, 2023
+##
+
+set appname         ruby
+# real version is 3.1.4
+set version         3.1
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set datarootdir     ${prefix}/share
+
+conflict            $appname
+
+prepend-path        PATH            ${exec_prefix}/bin
+prepend-path        MANPATH         ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
