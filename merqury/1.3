@@ -33,6 +33,12 @@ if { ![is-loaded meryl/1.4.1] } {
     module load meryl/1.4.1
 }
 
+# Merqury needs Java, but doesn't say which version. Better to use our java/11
+# because some of our nodes still have Java 8.
+if { ![is-loaded java/11] } { 
+    module load java/11
+}
+
 prepend-path    PATH    ${prefix}
 setenv          MERQURY ${prefix}
 
