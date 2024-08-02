@@ -29,6 +29,10 @@ if { ![is-loaded bedtools] } {
     module load bedtools/2.29.0
 }
 
+if { ![is-loaded meryl/1.4.1] } { 
+    module load meryl/1.4.1
+}
+
 prepend-path    PATH    ${prefix}
 setenv          MERQURY ${prefix}
 
