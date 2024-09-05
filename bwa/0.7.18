@@ -1,0 +1,30 @@
+#%Module1.0
+#####################################################################
+##
+## bwa Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## August, 2024
+##
+
+set appname         bwa
+set version         0.7.18
+set prefix          /export/apps/bwa/${version}
+set exec_prefix_1   ${prefix}/bin
+set exec_prefix_2   ${prefix}/bwakit
+set datarootdir     ${prefix}/share
+set url             "https://github.com/lh3/bwa"
+set msg             "BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.\nOfficial Site: $url\n"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict        ${appname}
+
+prepend-path    PATH        ${exec_prefix_1}
+prepend-path    PATH        ${exec_prefix_2}
+prepend-path    MANPATH     ${datarootdir}/man
+
+# vim: set sw=4 ts=4:
