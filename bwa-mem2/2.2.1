@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## bwa Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## August, 2024
+##
+
+set appname         bwa-mem2
+set version         2.2.1
+set prefix          /export/apps/bwa/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://github.com/bwa-mem2/bwa-mem2"
+set msg             "The tool bwa-mem2 is the next version of the bwa-mem algorithm in bwa.\nOfficial Site: $url\n"
+
+proc ModulesHelp { } {
+    puts stderr "$msg"
+}
+
+module-whatis   "$msg"
+
+conflict        ${appname}
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
