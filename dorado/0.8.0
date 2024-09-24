@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## dorado Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## September, 2024
+##
+
+set appname     dorado
+set version     0.8.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/nanoporetech/dorado"
+set msg         "Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
