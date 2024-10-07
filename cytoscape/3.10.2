@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## cytoscape modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## October, 2024
+##
+
+set     appname         cytoscape
+set     version         3.10.2
+set     prefix          /export/apps/${appname}/${version}
+set     exec_prefix     ${prefix}
+
+conflict    cytoscape
+
+prepend-path    PATH            ${exec_prefix}
+
+# Requires java/17 since we only have Java 11 in CentOS 8
+if { ![is-loaded java/17] } {
+	module load java/17
+}
