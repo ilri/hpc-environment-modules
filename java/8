@@ -1,0 +1,29 @@
+#%Module1.0
+#####################################################################
+##
+## java Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## October, 2024
+##
+
+set appname     java
+# real version is jdk-8.0.432+6
+set version     8
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://adoptium.net/temurin/releases/?version=8"
+set msg         "Eclipse Temurin is the open source Java SE build based upon OpenJDK.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${prefix}/man
+setenv          JAVA_HOME   ${prefix}
+
+# vim: set sw=4 ts=4:
