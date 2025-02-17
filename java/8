@@ -3,11 +3,11 @@
 ##
 ## java Modulefile
 ## by Alan Orth <a.orth@cgiar.org>
-## October, 2024
+## February, 2025
 ##
 
 set appname     java
-# real version is jdk-8.0.432+6
+# real version is jdk-8.0.442+6
 set version     8
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
