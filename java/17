@@ -3,11 +3,11 @@
 ##
 ## java Modulefile
 ## by Alan Orth <a.orth@cgiar.org>
-## May, 2023
+## February, 2025
 ##
 
 set appname     java
-# real version is 17.0.7+7
+# real version is 17.0.14+7
 set version     17
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
