@@ -11,7 +11,7 @@ set appname     java
 set version     17
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
-set url         "https://adoptium.net/temurin/releases/?version=11"
+set url         "https://adoptium.net/temurin/releases/?version=17"
 set msg         "Eclipse Temurin is the open source Java SE build based upon OpenJDK.\nOfficial site: $url\n"
 
 proc ModulesHelp{ } {
