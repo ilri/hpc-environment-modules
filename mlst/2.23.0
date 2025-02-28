@@ -18,8 +18,8 @@ proc ModulesHelp { } {
 }
 
 # mlst needs any2fasta
-if { ![is-loaded any2fasta/0.42.0] } {
-    module load any2fasta/0.42.0
+if { ![is-loaded any2fasta/0.4.2] } {
+    module load any2fasta/0.4.2
 }
 
 # mlst recommends blast >=2.9.0+
