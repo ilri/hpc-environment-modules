@@ -1,0 +1,38 @@
+#%Module1.0#####################################################################
+##
+## mlst modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## February, 2025
+##
+
+set appname         mlst
+set version         2.23.0
+set prefix          /export/apps/${appname}/${version}
+set url             "https://github.com/tseemann/mlst"
+set msg             "Scan contig files against traditional PubMLST typing schemes.\nOfficial site: $url"
+
+module-whatis       $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+# mlst needs any2fasta
+if { ![is-loaded any2fasta/0.42.0] } {
+    module load any2fasta/0.42.0
+}
+
+# mlst recommends blast >=2.9.0+
+if { ![is-loaded blast] } {
+    module load blast/2.14.1+
+}
+
+conflict        $appname
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PATH        ${prefix}/scripts
+# Add mlst's local Perl library path to PERL5LIB
+# See: https://hpc.ilri.cgiar.org/prokka-software
+prepend-path    PERL5LIB    ${prefix}/perl5/lib/perl5
+
+# vim: set sw=4 ts=4:
