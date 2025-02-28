@@ -1,0 +1,27 @@
+#%Module1.0
+#####################################################################
+##
+## python Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2025
+##
+
+set appname         python
+# real version is 3.10.16
+set version         3.10
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}
+set datarootdir     ${prefix}/share
+
+conflict            $appname
+
+prepend-path        PATH            ${exec_prefix}/bin
+prepend-path        MANPATH         ${datarootdir}/man
+setenv              PYTHONHOME      ${prefix}
+# CPPFLAGS is for the C preprocessor, ie to pass header include paths
+prepend-path        --delim " "     CPPFLAGS    -I${prefix}/include
+# LDFLAGS is for the linker (ld)
+prepend-path        --delim " "     LDFLAGS     -L${prefix}/lib
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
