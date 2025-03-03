@@ -1,0 +1,50 @@
+#%Module1.0#####################################################################
+##
+## hostile modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2025
+##
+
+set appname hostile
+set version 2.0.0
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/bede/hostile"
+set msg     "Precise host read removal.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# hostile was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+# hostile wants samtools >= 1.17
+if { ![is-loaded samtools/1.17] } { 
+    module load samtools/1.17
+}
+
+# hostile wants minimap2 >= 2.28
+if { ![is-loaded minimap2/2.28] } { 
+    module load minimap2/2.28
+}
+
+# hostile wants bowtie2 >= 2.5.4
+if { ![is-loaded bowtie2/2.5.4] } { 
+    module load bowtie2/2.5.4
+}
+
+# hostile wants bedtools >= 2.31.1
+if { ![is-loaded bedtools/2.31.1] } { 
+    module load bedtools/2.31.1
+}
+
+prepend-path    PATH        ${prefix}/bin
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.10/site-packages
+
+# vim: set sw=4 ts=4:
