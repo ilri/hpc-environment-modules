@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## minimap2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2025
+##
+
+set appname         minimap2
+set version         2.28
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set url             "https://lh3.github.io/minimap2"
+set msg             "A versatile pairwise aligner for genomic and spliced nucleotide sequences.\nOfficial site: $url\n"
+
+conflict            $appname
+
+prepend-path        PATH            ${exec_prefix}
+# CPPFLAGS is for the C preprocessor, ie to pass header include paths
+prepend-path        --delim " "     CPPFLAGS        -I${prefix}/include
+# LDFLAGS is for the linker (ld)
+prepend-path        --delim " "     LDFLAGS         -L${prefix}/lib
+# LD_LIBRARY_PATH is for runtime
+prepend-path        LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
