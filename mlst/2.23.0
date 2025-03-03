@@ -31,8 +31,5 @@ conflict        $appname
 
 prepend-path    PATH        ${prefix}/bin
 prepend-path    PATH        ${prefix}/scripts
-# Add mlst's local Perl library path to PERL5LIB
-# See: https://hpc.ilri.cgiar.org/prokka-software
-prepend-path    PERL5LIB    ${prefix}/perl5/lib/perl5
 
 # vim: set sw=4 ts=4:
