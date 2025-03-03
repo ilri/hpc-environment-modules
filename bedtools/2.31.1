@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## bedtools modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## March, 2025
+##
+
+set appname     bedtools
+set version     2.31.1
+set prefix      /export/apps/${appname}/${version}
+set url         "https://bedtools.readthedocs.io/en/latest/"
+set msg         "Bedtools is a fast, flexible toolset for genome arithmetic.\nBedtools official site: $url\n"
+
+conflict        $appname
+
+module-whatis   $msg
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
