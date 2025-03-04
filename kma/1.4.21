@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## kma Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## March, 2025
+##
+
+set appname     kma
+set version     1.4.21
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://bitbucket.org/genomicepidemiology/kma"
+set msg         "KMA is a mapping method designed to map raw reads directly against redundant databases, in an ultra-fast manner using seed and extend.\nOfficial site: $url\n"
+
+module-whatis   $msg
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
