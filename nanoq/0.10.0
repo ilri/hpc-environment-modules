@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## nanoq Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2025
+##
+
+set appname     nanoq
+set version     0.10.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}
+set url         "https://github.com/esteinig/nanoq"
+set msg         "Ultra-fast quality control and summary reports for nanopore reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
