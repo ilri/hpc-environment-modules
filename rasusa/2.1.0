@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## rasusa Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2025
+##
+
+set appname     rasusa
+set version     2.1.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/mbhall88/rasusa"
+set msg         "Randomly subsample sequencing reads or alignments.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+
+# vim: set sw=4 ts=4:
