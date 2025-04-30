@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+##
+## cutadapt modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2025
+##
+
+set appname     cutadapt
+set version     5.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+# this was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    PYTHONPATH  ${prefix}/lib/python3.10/site-packages
+
+# vim: set sw=4 ts=4:
