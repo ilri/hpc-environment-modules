@@ -1,0 +1,26 @@
+#%Module1.0
+#####################################################################
+##
+## assembly-scan Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## April, 2025
+##
+
+set appname     assembly-scan
+set version     1.0.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/rpetit3/assembly-scan"
+set msg         "assembly-scan reads an assembly in FASTA format and outputs summary statistics in TSV or JSON format.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
