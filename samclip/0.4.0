@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## samclip modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## April, 2025
+##
+
+set appname samclip
+set version 0.4.0
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/tseemann/samclip"
+set msg     "Filter SAM file for soft and hard clipped alignments.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
