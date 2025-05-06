@@ -1,0 +1,89 @@
+#%Module1.0#####################################################################
+##
+## shovill modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname shovill
+set version 1.1.0
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/tseemann/shovill"
+set msg     "Assemble bacterial isolate genomes from Illumina paired-end reads.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# shovill wants spades >= 3.14
+if { ![is-loaded spades] } { 
+    module load spades/3.15
+}
+
+# shovill wants megahit >= 1.27
+if { ![is-loaded megahit] } { 
+    module load megahit/1.29
+}
+
+# shovill wants skesa >= 2.2
+if { ![is-loaded skesa] } { 
+    module load skesa/2.5.1
+}
+
+# shovill wants velvet >= 1.2
+if { ![is-loaded velvet] } { 
+    module load velvet/1.2.10
+}
+
+# shovill wants lighter >= 1.1
+if { ![is-loaded lighter] } { 
+    module load lighter/1.1.2
+}
+
+# shovill wants flash >= 1.2
+if { ![is-loaded FLASH] } { 
+    module load FLASH/1.2.11
+}
+
+# shovill wants samtools >= 1.10
+if { ![is-loaded samtools] } { 
+    module load samtools/1.11
+}
+
+# shovill wants bwa >= 0.7.17
+if { ![is-loaded bwa] } { 
+    module load bwa/0.7.18
+}
+
+# shovill wants kmc >= 3.1
+if { ![is-loaded kmc] } { 
+    module load kmc/3.1.1
+}
+
+# shovill wants seqtk >= 1.3
+if { ![is-loaded seqtk] } { 
+    module load seqtk/1.4
+}
+
+# shovill wants pilon >= 1.22
+if { ![is-loaded pilon] } { 
+    module load pilon/1.24
+}
+
+# shovill wants trimmomatic >= 0.36
+if { ![is-loaded trimmomatic] } { 
+    module load trimmomatic/0.39
+}
+
+# shovill wants samclip >= 0.4
+if { ![is-loaded samclip] } { 
+    module load samclip/0.4.0
+}
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
