@@ -45,8 +45,8 @@ if { ![is-loaded lighter] } {
 }
 
 # shovill wants flash >= 1.2
-if { ![is-loaded FLASH] } { 
-    module load FLASH/1.2.11
+if { ![is-loaded flash] } { 
+    module load flash/1.2.11
 }
 
 # shovill wants samtools >= 1.10
