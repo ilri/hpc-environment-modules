@@ -24,9 +24,9 @@ if { ![is-loaded spades] } {
     module load spades/3.15
 }
 
-# shovill wants megahit >= 1.27
+# shovill wants megahit >= 1.2.7
 if { ![is-loaded megahit] } { 
-    module load megahit/1.29
+    module load megahit/1.2.9
 }
 
 # shovill wants skesa >= 2.2
