@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## pilon modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname pilon
+set version 1.24
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/broadinstitute/pilon"
+set msg     "Pilon is an automated genome assembly improvement and variant detection tool.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
