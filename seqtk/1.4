@@ -1,0 +1,18 @@
+#%Module1.0
+#####################################################################
+##
+## seqtk Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname     seqtk
+set version     1.4
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+conflict        $appname
+
+prepend-path    PATH ${exec_prefix}
+
+# vim: set sw=4 ts=4:
