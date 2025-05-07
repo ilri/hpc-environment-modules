@@ -1,0 +1,22 @@
+#%Module1.0
+#####################################################################
+##
+## libidn Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+## This is a hack for CentOS Stream 9 to be able to use tbl2asn via prokka.
+
+set appname         libidn
+set version         1.34
+set prefix          /export/apps/${appname}/${version}
+set exec_prefix     ${prefix}/bin
+set datarootdir     ${prefix}/share
+
+conflict            $appname
+
+prepend-path        PATH        ${exec_prefix}
+prepend-path        MANPATH     ${datarootdir}/man
+prepend-path        LD_LIBRARY_PATH /export/apps/${appname}/${version}/lib
+
+# vim: set sw=4 ts=4:
