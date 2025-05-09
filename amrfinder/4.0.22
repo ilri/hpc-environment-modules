@@ -1,0 +1,35 @@
+#%Module1.0
+#####################################################################
+##
+## amrfinder Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname amrfinder
+set version 4.0.22
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/ncbi/amr"
+set msg     "Identify AMR genes and point mutations, and virulence and stress resistance genes in assembled bacterial nucleotide and protein sequence.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict $appname
+
+prepend-path    PATH    ${prefix}
+
+# wants blast >= 2.9 so...
+if { ![is-loaded blast] } {
+    module load blast/2.12.0+
+}
+
+# wants hmmer >= 3.2 so...
+if { ![is-loaded hmmer] } {
+    module load hmmer/3.3
+}
+
+# vim: set sw=4 ts=4:
