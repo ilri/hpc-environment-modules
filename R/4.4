@@ -1,0 +1,31 @@
+#%Module1.0
+#####################################################################
+##
+## R Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname     R
+# real version is 4.4.3
+set version     4.4
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set datarootdir ${prefix}/share
+set url         "https://www.r-project.org/"
+set msg         "R is a free software environment for statistical computing and graphics.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH        ${exec_prefix}
+prepend-path    MANPATH     ${datarootdir}/man
+# Don't use /tmp for R temp!
+setenv          TEMPDIR     /var/scratch
+
+# vim: set sw=4 ts=4:
