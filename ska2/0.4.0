@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## ska2 Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname     ska2
+set version     0.4.0
+set prefix      /export/apps/${appname}/${version}
+set url         "Split k-mer analysis – version 2"
+set msg         "Split k-mer analysis (version 2) uses exact matching of split k-mer sequences to align closely related sequences, typically small haploid genomes such as bacteria and viruses.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# vim: set sw=4 ts=4:
