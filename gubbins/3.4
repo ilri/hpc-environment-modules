@@ -48,9 +48,14 @@ if { ![is-loaded ska2/0.4.0] } {
     module load ska2/0.4.0
 }
 
+if { ![is-loaded R/4.3] } { 
+    module load R/4.3
+}
+
 prepend-path    PATH            ${prefix}/bin:${prefix}/.venv/bin
 prepend-path    PYTHONPATH      ${prefix}/lib/python3.10/site-packages
 # libgubbins.so
 prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+prepend-path    R_LIBS_USER     ${prefix}/lib/R/x86_64-pc-linux-gnu-library/4.3
 
 # vim: set sw=4 ts=4:
