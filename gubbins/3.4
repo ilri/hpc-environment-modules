@@ -1,0 +1,56 @@
+#%Module1.0#####################################################################
+##
+## gubbins modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname gubbins
+set version 3.4
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/nickjcroucher/gubbins"
+set msg     "Rapid phylogenetic analysis of large samples of recombinant bacterial whole genome sequences.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# gubbins was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+if { ![is-loaded RAxML/8.2.12] } { 
+    module load RAxML/8.2.12
+}
+
+if { ![is-loaded iqtree/2.2.0] } { 
+    module load iqtree/2.2.0
+}
+
+if { ![is-loaded rapidnj/2.3.2] } { 
+    module load rapidnj/2.3.2
+}
+
+if { ![is-loaded raxml-ng/1.0.2] } { 
+    module load raxml-ng/1.0.2
+}
+
+if { ![is-loaded fasttree/2.1.11] } { 
+    module load fasttree/2.1.11
+}
+
+if { ![is-loaded ska2/0.4.0] } { 
+    module load ska2/0.4.0
+}
+
+prepend-path    PATH            ${prefix}/bin:${prefix}/.venv/bin
+prepend-path    PYTHONPATH      ${prefix}/lib/python3.10/site-packages
+# libgubbins.so
+prepend-path    LD_LIBRARY_PATH ${prefix}/lib
+
+# vim: set sw=4 ts=4:
