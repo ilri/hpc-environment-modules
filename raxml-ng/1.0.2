@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## raxml-ng Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname     raxml-ng
+set version     1.0.2
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/amkozlov/raxml-ng"
+set msg         "RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
