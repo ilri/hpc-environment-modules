@@ -32,4 +32,6 @@ if { ![is-loaded hmmer] } {
     module load hmmer/3.3
 }
 
+setenv  AMRFINDER_DB    ${prefix}/data
+
 # vim: set sw=4 ts=4:
