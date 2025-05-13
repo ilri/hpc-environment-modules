@@ -1,0 +1,36 @@
+#%Module1.0#####################################################################
+##
+## dnaapler modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname dnaapler
+set version 1.2.0
+set prefix  /export/apps/${appname}/${version}
+set venv    ${prefix}/.venv
+set url     "https://github.com/gbouras13/dnaapler"
+set msg     "Dnaapler is a simple tool that reorients complete circular microbial genomes.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# dnaapler was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+# dnaapler wants mmseqs2
+if { ![is-loaded mmseqs2/17-b804f] } { 
+    module load mmseqs2/17-b804f
+}
+
+prepend-path    PATH        ${venv}/bin
+prepend-path    PYTHONPATH  ${venv}/lib/python3.10/site-packages
+
+# vim: set sw=4 ts=4:
