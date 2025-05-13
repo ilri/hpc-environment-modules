@@ -12,8 +12,8 @@ set exec_prefix ${prefix}/bin
 
 # flye includes minimap2 and samtools.
 conflict        flye minimap2 samtools
-#
-# plasmidid was installed with python/3.9 and needs its LD_LIBRARY_PATH
+
+# flye was installed with python/3.9 and needs its LD_LIBRARY_PATH
 if { ![is-loaded python/3.9] } { 
     module load python/3.9
 }
