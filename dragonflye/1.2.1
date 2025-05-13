@@ -1,0 +1,96 @@
+#%Module1.0#####################################################################
+##
+## dragonflye modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname dragonflye
+set version 1.2.1
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/rpetit3/dragonflye"
+set msg     "Assemble bacterial isolate genomes from Nanopore reads.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+if { ![is-loaded assembly-scan/1.0.0] } { 
+    module load assembly-scan/1.0.0
+}
+
+if { ![is-loaded any2fasta/0.4.2] } { 
+    module load any2fasta/0.4.2
+}
+
+if { ![is-loaded bwa/0.7.19] } { 
+    module load bwa/0.7.19
+}
+
+if { ![is-loaded dnaapler/1.2.0] } { 
+    module load dnaapler/1.2.0
+}
+
+if { ![is-loaded fastp/0.24.1] } { 
+    module load fastp/0.24.1
+}
+
+if { ![is-loaded flye/2.9.6] } { 
+    module load flye/2.9.6
+}
+
+if { ![is-loaded kmc/3.1.1] } { 
+    module load kmc/3.1.1
+}
+
+if { ![is-loaded medaka/1.12.1] } { 
+    module load medaka/1.12.1
+}
+
+if { ![is-loaded miniasm/0.3] } { 
+    module load miniasm/0.3
+}
+
+if { ![is-loaded nanoq/0.10.0] } { 
+    module load nanoq/0.10.0
+}
+
+if { ![is-loaded pilon/1.24] } { 
+    module load pilon/1.24
+}
+
+if { ![is-loaded polypolish/0.6.0] } { 
+    module load polypolish/0.6.0
+}
+
+if { ![is-loaded racon/1.5.0] } { 
+    module load racon/1.5.0
+}
+
+if { ![is-loaded rasusa/2.1.0] } { 
+    module load rasusa/2.1.0
+}
+
+if { ![is-loaded raven/1.8.3] } { 
+    module load raven/1.8.3
+}
+
+if { ![is-loaded samclip/0.4.0] } { 
+    module load samclip/0.4.0
+}
+
+if { ![is-loaded samtools/1.15.1] } { 
+    module load samtools/1.15.1
+}
+
+if { ![is-loaded seqtk/1.4] } { 
+    module load seqtk/1.4
+}
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
