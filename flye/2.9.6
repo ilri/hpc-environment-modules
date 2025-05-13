@@ -10,8 +10,7 @@ set version     2.9.6
 set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
 
-# flye includes minimap2 and samtools.
-conflict        flye minimap2 samtools
+conflict        $appname
 
 # flye was installed with python/3.10 and needs its LD_LIBRARY_PATH
 if { ![is-loaded python/3.10] } { 
