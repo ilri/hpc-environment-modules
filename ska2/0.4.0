@@ -9,7 +9,7 @@
 set appname     ska2
 set version     0.4.0
 set prefix      /export/apps/${appname}/${version}
-set url         "github.com/bacpop/ska.rust"
+set url         "https://github.com/bacpop/ska.rust"
 set msg         "Split k-mer analysis (version 2) uses exact matching of split k-mer sequences to align closely related sequences, typically small haploid genomes such as bacteria and viruses.\nOfficial site: $url\n"
 
 proc ModulesHelp{ } {
