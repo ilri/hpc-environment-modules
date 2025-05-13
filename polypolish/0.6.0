@@ -1,0 +1,25 @@
+#%Module1.0
+#####################################################################
+##
+## polypolish Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname     polypolish
+set version     0.6.0
+set prefix      /export/apps/${appname}/${version}
+set url         "https://github.com/rrwick/Polypolish"
+set msg         "Polypolish is a tool for polishing genome assemblies with short reads.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis   $msg
+
+conflict        $appname
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
