@@ -1,0 +1,44 @@
+#%Module1.0#####################################################################
+##
+## staramr modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname resfinder
+set version 4.7.2
+set prefix  /export/apps/${appname}/${version}
+set venv    ${prefix}/.venv
+set url     "https://pypi.org/project/resfinder"
+set msg     "ResFinder identifies acquired genes and/or finds chromosomal / mutations mediating antimicrobial resistance in total or / partial DNA sequence of bacteria.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+# resfinder was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+# resfinder wants blast, but doesn't say which version
+if { ![is-loaded blast] } { 
+    module load blast/2.14.1+
+}
+
+# resfinder wants kma, but doesn't say which version
+if { ![is-loaded kma] } { 
+    module load kma/1.4.21
+}
+
+prepend-path    PATH                        ${venv}/bin
+prepend-path    PYTHONPATH                  ${venv}/lib/python3.10/site-packages
+setenv          CGE_RESFINDER_RESGENE_DB    ${prefix}/resfinder_db
+setenv          CGE_RESFINDER_RESPOINT_DB   ${prefix}/pointfinder_db
+setenv          CGE_DISINFINDER_DB          ${prefix}/disinfinder_db
+
+# vim: set sw=4 ts=4:
