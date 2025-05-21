@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## jclusterfunk modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## May, 2025
+##
+
+set appname jclusterfunk
+set version 0.0.25
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/rambaut/jclusterfunk"
+set msg     "A command line tool with a bunch of functions for trees.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+conflict    $appname
+
+prepend-path    PATH    ${prefix}
+
+# vim: set sw=4 ts=4:
