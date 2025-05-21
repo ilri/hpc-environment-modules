@@ -26,7 +26,7 @@ if { ![is-loaded python/3.10] } {
 }
 
 # resfinder wants blast, but doesn't say which version
-if { ![is-loaded blast] } { 
+if { ![is-loaded blast/2.14.1+] } { 
     module load blast/2.14.1+
 }
 
