@@ -1,0 +1,38 @@
+#%Module1.0#####################################################################
+##
+## crispresso2 modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2025
+##
+
+set appname crispresso2
+set version 2.3.2
+set prefix  /export/apps/${appname}/${version}
+set venv    ${prefix}/.venv
+set url     "https://github.com/pinellolab/CRISPResso2"
+set msg     "Software pipeline for the analysis of genome editing outcomes from deep sequencing data.\nOfficial site: $url\n"
+
+# this was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+# wants fastp but doesn't say which version
+if { ![is-loaded fastp] } { 
+    module load fastp/0.24.1
+}
+
+# wants samtools but doesn't say which version
+if { ![is-loaded samtools] } { 
+    module load samtools/1.17
+}
+
+# wants bowtie2 but doesn't say which version
+if { ![is-loaded bowtie2] } { 
+    module load bowtie2/2.5.4
+}
+
+prepend-path    PATH        ${venv}/bin
+prepend-path    PYTHONPATH  ${venv}/lib/python3.10/site-packages
+
+# vim: set sw=4 ts=4:
