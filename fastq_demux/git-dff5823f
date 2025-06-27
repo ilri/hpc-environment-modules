@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## fastq_demux modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## June, 2025
+##
+
+set appname fastq_demux
+set version git-dff5823f
+set prefix  /export/apps/${appname}/${version}
+set venv    ${prefix}/.venv
+set url     "https://github.com/Molmed/fastq_demux"
+set msg     "A simple program to demultiplex Illumina FASTQ files based on barcodes in the FASTQ headers.\nOfficial site: $url\n"
+
+# this was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+prepend-path    PATH        ${venv}/bin
+prepend-path    PYTHONPATH  ${venv}/lib/python3.10/site-packages
+
+# vim: set sw=4 ts=4:
