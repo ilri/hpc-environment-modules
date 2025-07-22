@@ -24,23 +24,23 @@ conflict        RSEM
 prepend-path    PATH    ${exec_prefix}
 
 # RSEM can optionally use bowtie, bowtie2, STAR, and R, though doesn't specify
-# which versions so let's just load any.
+# which versions so let's just load the latest.
 # See: https://deweylab.github.io/RSEM/README.html#compilation
 
-if { ! [is-loaded bowtie] } {
-    module load bowtie
+if { ! [is-loaded bowtie/1.2.3] } {
+    module load bowtie/1.2.3
 }
 
-if { ! [is-loaded bowtie2] } {
-    module load bowtie2
+if { ! [is-loaded bowtie2/2.5.4] } {
+    module load bowtie2/2.5.4
 }
 
-if { ! [is-loaded star] } {
-    module load star
+if { ! [is-loaded star/2.7.10a] } {
+    module load star/2.7.10a
 }
 
-if { ![is-loaded R] } {
-    module load R
+if { ![is-loaded R/4.4] } {
+    module load R/4.4
 }
 
 # vim: set sw=4 ts=4:
