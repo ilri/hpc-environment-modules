@@ -1,0 +1,33 @@
+#%Module1.0
+#####################################################################
+##
+## nextflow Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## July, 2025
+##
+
+set appname     nextflow
+# real version is 25.04.6
+set version     25.04
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+set url         "https://github.com/nextflow-io/nextflow"
+set msg         "Nextflow is a bioinformatics workflow manager that enables the development of portable and reproducible workflows.\nOfficial site: $url\n"
+
+proc ModulesHelp{ } {
+    puts stderr $msg
+}
+
+module-whatis $msg
+
+conflict $appname
+
+prepend-path    PATH    ${exec_prefix}
+
+# Nextflow v25.04 wants Java v17–24
+# See: https://github.com/nextflow-io/nextflow/blob/v25.04.6/docs/install.md
+if { ![is-loaded java/17] } {
+    module load java/17
+}
+
+# vim: set sw=4 ts=4:
