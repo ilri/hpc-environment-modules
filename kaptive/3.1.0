@@ -22,11 +22,6 @@ if { ![is-loaded minimap2] } {
     module load minimap2/2.28
 }
 
-# wants dna-features-viewer but doesn't say which version
-if { ![is-loaded dna-features-viewer] } { 
-    module load dna-features-viewer/3.1.5
-}
-
 prepend-path    PATH        ${venv}/bin
 prepend-path    PYTHONPATH  ${venv}/lib/python3.10/site-packages
 
