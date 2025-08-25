@@ -26,8 +26,9 @@ if { ![is-loaded bcftools/1.8] } {
     module load bcftools/1.8
 }
 
-# wants blast >=2.7.1.*
-if { ![is-loaded blast/2.7.1+] } { 
+# wants blast >=2.7.1.*, but let's not fail if another is loaded (for example,
+# ectyper is used by kleborate, which load amrfinder, which loads a newer blast)
+if { ![is-loaded blast] } { 
     module load blast/2.7.1+
 }
 
