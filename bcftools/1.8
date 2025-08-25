@@ -13,8 +13,6 @@ set datarootdir     ${prefix}/share
 set url             "https://samtools.github.io/bcftools/"
 set msg             "Reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising SNP and short indel sequence variants.\nOfficial site: $url\n"
 
-conflict    bcftools
-
 prepend-path    PATH                ${exec_prefix}
 prepend-path    MANPATH             ${datarootdir}/man
 setenv          BCFTOOLS_PLUGINS    ${prefix}/libexec/bcftools
