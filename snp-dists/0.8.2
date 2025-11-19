@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## snp-dists modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2025
+##
+
+set appname snp-dists
+set version 0.8.2
+set prefix  /export/apps/${appname}/${version}
+set url     "https://github.com/tseemann/snp-dists"
+set msg     "Pairwise SNP distance matrix from a FASTA sequence alignment.\nOfficial site: $url"
+
+module-whatis   $msg
+
+proc ModulesHelp { } {
+    puts stderr $msg
+}
+
+prepend-path    PATH    ${prefix}/bin
+
+# vim: set sw=4 ts=4:
