@@ -8,7 +8,7 @@
 set appname gambit
 set version 1.1.0
 set prefix  /export/apps/${appname}/${version}
-set venv    ${prefix}
+set venv    ${prefix}/venv
 set url     "https://github.com/jlumpe/gambit"
 set msg     "A methodology to rapidly leverage whole genome sequencing of bacterial isolates for clinical identification.\nOfficial site: $url\n"
 
