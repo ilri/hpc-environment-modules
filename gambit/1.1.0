@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## gambit modulefile
+## By Alan Orth <a.orth@cgiar.org>
+## November, 2025
+##
+
+set appname gambit
+set version 1.1.0
+set prefix  /export/apps/${appname}/${version}
+set venv    ${prefix}
+set url     "https://github.com/jlumpe/gambit"
+set msg     "A methodology to rapidly leverage whole genome sequencing of bacterial isolates for clinical identification.\nOfficial site: $url\n"
+
+# this was installed with python/3.10 and needs its LD_LIBRARY_PATH
+if { ![is-loaded python/3.10] } { 
+    module load python/3.10
+}
+
+prepend-path    PATH        ${venv}/bin
+prepend-path    PYTHONPATH  ${venv}/lib/python3.10/site-packages
+setenv          GAMBIT_DB_PATH  ${prefix}/db
+
+# vim: set sw=4 ts=4:
