@@ -19,7 +19,6 @@ proc ModulesHelp{ } {
 
 module-whatis $msg
 
-conflict $appname
 
 # vntrseek requires perl
 if { ![is-loaded bioperl] } {

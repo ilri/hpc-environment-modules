@@ -11,7 +11,6 @@ set prefix      /export/apps/${appname}/${version}
 set exec_prefix ${prefix}/bin
 set msg         "BLAT performs extremely fast mRNA/DNA alignments, and cross-species protein alignments..\nOfficial Site: http://genome.ucsc.edu/goldenPath/help/blatSpec.html"
 
-conflict $appname
 
 module-whatis   $msg
 

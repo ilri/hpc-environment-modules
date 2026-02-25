@@ -21,7 +21,6 @@ proc ModulesHelp{ } {
 
 module-whatis $msg
 
-conflict $appname
 
 # amber requires python/2.7.8 & openmpi/1.8.2
 if { ![is-loaded python] } {

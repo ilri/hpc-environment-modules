@@ -18,7 +18,6 @@ proc ModulesHelp{ } {
 
 module-whatis $msg
 
-conflict $appname
 
 prepend-path    PATH        ${prefix}
 prepend-path    PATH        ${prefix}/downstream_analyses

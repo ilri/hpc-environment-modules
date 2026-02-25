@@ -19,7 +19,6 @@ proc ModulesHelp{ } {
 
 module-whatis $msg
 
-conflict $appname
 
 # mapsplice requires samtools & bowtie
 if { ![is-loaded samtools] } {
