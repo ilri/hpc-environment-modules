@@ -1,0 +1,16 @@
+#%Module1.0
+#####################################################################
+##
+## seqkit Modulefile
+## by Alan Orth <a.orth@cgiar.org>
+## February, 2026
+##
+
+set appname     seqkit
+set version     2.12.0
+set prefix      /export/apps/${appname}/${version}
+set exec_prefix ${prefix}/bin
+
+prepend-path    PATH ${exec_prefix}
+
+# vim: set sw=4 ts=4:
